@@ -1,0 +1,596 @@
+import React, { useState } from 'react';
+
+const ProductsPage = () => {
+  const [selectedProduct, setSelectedProduct] = useState('aifag');
+
+  const products = {
+    aifag: {
+      name: 'AIFAG',
+      title: 'Enterprise AI Agent Suite',
+      description: 'Connect, configure, and deploy intelligent AI agents across your organization. Automate complex workflows with human-like reasoning.',
+      features: [
+        {
+          icon: (
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9 5a4 4 0 100-8 4 4 0 000 8z" />
+            </svg>
+          ),
+          name: 'Multi-Agent Orchestration'
+        },
+        {
+          icon: (
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+            </svg>
+          ),
+          name: 'Enterprise Integration'
+        },
+        {
+          icon: (
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+            </svg>
+          ),
+          name: 'Real-time Processing'
+        }
+      ]
+    },
+    lifeos: {
+      name: 'LifeOS',
+      title: 'Personal AI Operating System',
+      description: 'Your intelligent life companion. Organize, plan, and optimize every aspect of your personal and professional life.',
+      features: [
+        {
+          icon: (
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+            </svg>
+          ),
+          name: 'Smart Planning'
+        },
+        {
+          icon: (
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+          ),
+          name: 'Goal Tracking'
+        },
+        {
+          icon: (
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+            </svg>
+          ),
+          name: 'Privacy-First Design'
+        }
+      ]
+    }
+  };
+
+  const current = products[selectedProduct];
+
+  return (
+    <div className="bg-black text-white min-h-screen">
+      {/* Header Section */}
+      <div className="pt-32 pb-24 px-4">
+        <div className="max-w-4xl mx-auto text-center">
+          {/* Badge */}
+          <div className="mb-8 inline-flex items-center gap-2 bg-gray-900 border border-gray-800 rounded-full px-4 py-2">
+            <svg className="w-5 h-5 text-blue-400" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M13 10V3L4 14h7v7l9-11h-7z" />
+            </svg>
+            <span className="text-sm font-semibold text-blue-400">Launching 2026</span>
+          </div>
+
+          {/* Main Heading */}
+          <h1 className="text-5xl md:text-7xl font-bold mb-8">
+            Our Flagship Products
+          </h1>
+
+          {/* Subheading */}
+          <p className="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto mb-12">
+            Two revolutionary AI ecosystems designed to transform how enterprises operate and individuals live.
+          </p>
+
+          {/* Product Tabs */}
+          <div className="flex gap-4 justify-center">
+            <button
+              onClick={() => setSelectedProduct('aifag')}
+              className={`px-8 py-3 rounded-full font-semibold transition duration-200 ${
+                selectedProduct === 'aifag'
+                  ? 'bg-blue-600 text-white'
+                  : 'bg-gray-800 text-gray-400 hover:text-white border border-gray-700'
+              }`}
+            >
+              AIFAG
+            </button>
+            <button
+              onClick={() => setSelectedProduct('lifeos')}
+              className={`px-8 py-3 rounded-full font-semibold transition duration-200 ${
+                selectedProduct === 'lifeos'
+                  ? 'bg-blue-600 text-white'
+                  : 'bg-gray-800 text-gray-400 hover:text-white border border-gray-700'
+              }`}
+            >
+              LifeOS
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {/* Product Details Section */}
+      <div className="pb-24 px-4">
+        <div className="max-w-5xl mx-auto">
+          <div className="bg-gray-900 border border-gray-800 rounded-3xl p-12 lg:p-16">
+            {/* Product Title */}
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">
+              {current.title}
+            </h2>
+
+            {/* Product Description */}
+            <p className="text-lg text-gray-400 mb-12 leading-relaxed">
+              {current.description}
+            </p>
+
+            {/* Features Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+              {current.features.map((feature, idx) => (
+                <div key={idx} className="flex items-start gap-4">
+                  <div className="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center text-white flex-shrink-0">
+                    {feature.icon}
+                  </div>
+                  <div>
+                    <h3 className="text-white font-semibold text-lg">
+                      {feature.name}
+                    </h3>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Learn More Button */}
+            <button className="px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-full transition duration-200 flex items-center gap-2">
+              Learn More
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {/* Product Showcase Section */}
+      <div className="pb-24 px-4">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            {/* Left Content */}
+            <div>
+              {/* Badge */}
+              <div className="mb-8 inline-flex items-center gap-2 bg-transparent border border-blue-500 rounded-full px-4 py-2">
+                <span className="text-sm font-semibold text-blue-400">AI for All Generations</span>
+              </div>
+
+              {/* Main Heading */}
+              <h2 className="text-6xl md:text-7xl font-bold mb-8 text-white">
+                AIFAG
+              </h2>
+
+              {/* First Description */}
+              <p className="text-lg text-gray-400 mb-8 leading-relaxed">
+                From learner to founder, everyone can create AI agents to make life easier.
+              </p>
+
+              {/* Second Description */}
+              <p className="text-lg text-gray-400 mb-12 leading-relaxed">
+                Build intelligent agents without coding. Showcase your creations to potential employers. Companies discover talent through their agent portfolios and make hiring decisions based on real capabilities.
+              </p>
+
+              {/* Buttons */}
+              <div className="flex flex-col sm:flex-row gap-4">
+                <button className="px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-full transition duration-200">
+                  Request Early Access
+                </button>
+                <button className="px-8 py-4 bg-gray-800 hover:bg-gray-700 text-white font-semibold rounded-full transition duration-200 flex items-center justify-center gap-2 border border-gray-700">
+                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M8 5v14l11-7z" />
+                  </svg>
+                  Watch Demo
+                </button>
+              </div>
+            </div>
+
+            {/* Right Illustration */}
+            <div className="flex items-center justify-center">
+              <div className="relative w-80 h-80">
+                {/* Concentric Circles */}
+                <div className="absolute inset-0 flex items-center justify-center">
+                  {/* Outer circles */}
+                  <div className="absolute w-80 h-80 border border-gray-700 rounded-full opacity-50"></div>
+                  <div className="absolute w-72 h-72 border border-gray-700 rounded-full opacity-40"></div>
+                  <div className="absolute w-64 h-64 border border-gray-700 rounded-full opacity-30"></div>
+                  <div className="absolute w-56 h-56 border border-gray-700 rounded-full opacity-20"></div>
+
+                  {/* Central Blue Circle with Brain Icon */}
+                  <div className="absolute w-40 h-40 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full shadow-2xl shadow-blue-500/50 flex items-center justify-center">
+                    <svg className="w-24 h-24 text-white" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 8 15.5 8 14 8.67 14 9.5s.67 1.5 1.5 1.5zm-7 0c.83 0 1.5-.67 1.5-1.5S9.33 8 8.5 8 7 8.67 7 9.5 7.67 11 8.5 11zm3.5 6.5c2.33 0 4.31-1.46 5.11-3.5H6.89c.8 2.04 2.78 3.5 5.11 3.5z" />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Three Steps Section */}
+      <div className="pb-24 px-4">
+        <div className="max-w-7xl mx-auto">
+          {/* Section Heading */}
+          <h2 className="text-5xl md:text-6xl font-bold text-center mb-16 text-white">
+            Three Steps to Intelligent Automation
+          </h2>
+
+          {/* Steps Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
+            {/* Connecting Lines */}
+            <div className="hidden md:block absolute top-1/3 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gray-700 to-transparent"></div>
+
+            {/* Step 1 */}
+            <div className="relative bg-gray-900 border border-gray-800 rounded-2xl p-8 flex flex-col items-center text-center hover:border-gray-700 transition duration-200">
+              {/* Icon */}
+              <div className="mb-8 w-24 h-24 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center">
+                <svg className="w-12 h-12 text-white" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M13.828 10.172a4 4 0 00-5.656 0l-4.243 4.243a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.658 0l4.242-4.243a4 4 0 00-5.656-5.656l-1.1 1.1" />
+                </svg>
+              </div>
+
+              {/* Step Label */}
+              <p className="text-blue-400 font-semibold text-sm mb-3">Step 1</p>
+
+              {/* Title */}
+              <h3 className="text-2xl font-bold text-white mb-4">
+                Connect
+              </h3>
+
+              {/* Description */}
+              <p className="text-gray-400 leading-relaxed">
+                Integrate with your existing systems and data sources seamlessly.
+              </p>
+            </div>
+
+            {/* Step 2 */}
+            <div className="relative bg-gray-900 border border-gray-800 rounded-2xl p-8 flex flex-col items-center text-center hover:border-gray-700 transition duration-200">
+              {/* Icon */}
+              <div className="mb-8 w-24 h-24 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center">
+                <svg className="w-12 h-12 text-white" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                  <path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                </svg>
+              </div>
+
+              {/* Step Label */}
+              <p className="text-blue-400 font-semibold text-sm mb-3">Step 2</p>
+
+              {/* Title */}
+              <h3 className="text-2xl font-bold text-white mb-4">
+                Configure
+              </h3>
+
+              {/* Description */}
+              <p className="text-gray-400 leading-relaxed">
+                Customize AI agents to match your specific business workflows.
+              </p>
+            </div>
+
+            {/* Step 3 */}
+            <div className="relative bg-gray-900 border border-gray-800 rounded-2xl p-8 flex flex-col items-center text-center hover:border-gray-700 transition duration-200">
+              {/* Icon */}
+              <div className="mb-8 w-24 h-24 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center">
+                <svg className="w-12 h-12 text-white" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
+              </div>
+
+              {/* Step Label */}
+              <p className="text-blue-400 font-semibold text-sm mb-3">Step 3</p>
+
+              {/* Title */}
+              <h3 className="text-2xl font-bold text-white mb-4">
+                Deploy
+              </h3>
+
+              {/* Description */}
+              <p className="text-gray-400 leading-relaxed">
+                Launch intelligent automation across your organization instantly.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Enterprise-Grade Capabilities Section */}
+      <div className="pb-24 px-4">
+        <div className="max-w-7xl mx-auto">
+          {/* Section Heading */}
+          <h2 className="text-5xl md:text-6xl font-bold text-center mb-16 text-white">
+            Enterprise-Grade Capabilities
+          </h2>
+
+          {/* Capabilities Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {/* Capability 1 */}
+            <div className="bg-gray-900 border border-gray-800 rounded-2xl p-8 flex gap-6 hover:border-gray-700 transition duration-200">
+              {/* Icon */}
+              <div className="flex-shrink-0">
+                <div className="flex items-center justify-center w-16 h-16 bg-gray-800 rounded-lg">
+                  <svg className="w-8 h-8 text-blue-400" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M13.828 10.172a4 4 0 00-5.656 0l-4.243 4.243a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.658 0l4.242-4.243a4 4 0 00-5.656-5.656l-1.1 1.1" />
+                  </svg>
+                </div>
+              </div>
+
+              {/* Content */}
+              <div>
+                <h3 className="text-xl font-bold text-white mb-2">
+                  Multi-Agent Orchestration
+                </h3>
+                <p className="text-gray-400">
+                  Coordinate multiple AI agents working together on complex tasks.
+                </p>
+              </div>
+            </div>
+
+            {/* Capability 2 */}
+            <div className="bg-gray-900 border border-gray-800 rounded-2xl p-8 flex gap-6 hover:border-gray-700 transition duration-200">
+              {/* Icon */}
+              <div className="flex-shrink-0">
+                <div className="flex items-center justify-center w-16 h-16 bg-gray-800 rounded-lg">
+                  <svg className="w-8 h-8 text-blue-400" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 4a1 1 0 011 1v2a1 1 0 11-2 0V5a1 1 0 011-1zm0 12a1 1 0 011 1v2a1 1 0 11-2 0v-2a1 1 0 011-1zm6-6a1 1 0 11-2 0 1 1 0 012 0zm-12 0a1 1 0 11-2 0 1 1 0 012 0zm9-9a1 1 0 011 1v2a1 1 0 11-2 0V2a1 1 0 011-1zM7 7a3 3 0 100 6 3 3 0 000-6zm10 0a3 3 0 100 6 3 3 0 000-6z" />
+                  </svg>
+                </div>
+              </div>
+
+              {/* Content */}
+              <div>
+                <h3 className="text-xl font-bold text-white mb-2">
+                  Enterprise Integration
+                </h3>
+                <p className="text-gray-400">
+                  Connect with 200+ enterprise tools and platforms out of the box.
+                </p>
+              </div>
+            </div>
+
+            {/* Capability 3 */}
+            <div className="bg-gray-900 border border-gray-800 rounded-2xl p-8 flex gap-6 hover:border-gray-700 transition duration-200">
+              {/* Icon */}
+              <div className="flex-shrink-0">
+                <div className="flex items-center justify-center w-16 h-16 bg-gray-800 rounded-lg">
+                  <svg className="w-8 h-8 text-blue-400" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M13 10V3L4 14h7v7l9-11h-7z" />
+                  </svg>
+                </div>
+              </div>
+
+              {/* Content */}
+              <div>
+                <h3 className="text-xl font-bold text-white mb-2">
+                  Real-time Processing
+                </h3>
+                <p className="text-gray-400">
+                  Process and respond to events in milliseconds, not minutes.
+                </p>
+              </div>
+            </div>
+
+            {/* Capability 4 */}
+            <div className="bg-gray-900 border border-gray-800 rounded-2xl p-8 flex gap-6 hover:border-gray-700 transition duration-200">
+              {/* Icon */}
+              <div className="flex-shrink-0">
+                <div className="flex items-center justify-center w-16 h-16 bg-gray-800 rounded-lg">
+                  <svg className="w-8 h-8 text-blue-400" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z" />
+                  </svg>
+                </div>
+              </div>
+
+              {/* Content */}
+              <div>
+                <h3 className="text-xl font-bold text-white mb-2">
+                  Enterprise Security
+                </h3>
+                <p className="text-gray-400">
+                  SOC 2 compliant with end-to-end encryption and access controls.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Interactive Demo Section */}
+      <div className="pb-24 px-4">
+        <div className="max-w-7xl mx-auto">
+          {/* Header */}
+          <div className="text-center mb-16">
+            {/* Badge */}
+            <div className="mb-8 inline-flex items-center gap-2 bg-blue-900/30 border border-blue-700 rounded-full px-4 py-2">
+              <svg className="w-5 h-5 text-blue-400" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9 5a4 4 0 100-8 4 4 0 000 8z" />
+              </svg>
+              <span className="text-sm font-semibold text-blue-400">Interactive Demo</span>
+            </div>
+
+            {/* Main Heading */}
+            <h2 className="text-5xl md:text-6xl font-bold mb-6 text-white">
+              See AIFAG in Action
+            </h2>
+
+            {/* Subheading */}
+            <p className="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto mb-12">
+              Watch how multiple AI agents collaborate to complete complex workflows
+            </p>
+          </div>
+
+          {/* Workflow Selection Label */}
+          <p className="text-lg font-semibold text-white mb-8">
+            Select a workflow to simulate:
+          </p>
+
+          {/* Workflow Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {/* Workflow 1 */}
+            <div className="bg-gray-900 border border-gray-800 rounded-2xl p-8 hover:border-gray-700 hover:bg-gray-800/50 transition duration-200 cursor-pointer">
+              <h3 className="text-xl font-bold text-white mb-3">
+                Sales Report Automation
+              </h3>
+              <p className="text-gray-400">
+                Collect sales data, analyze trends, generate report, email to team
+              </p>
+            </div>
+
+            {/* Workflow 2 */}
+            <div className="bg-gray-900 border border-gray-800 rounded-2xl p-8 hover:border-gray-700 hover:bg-gray-800/50 transition duration-200 cursor-pointer">
+              <h3 className="text-xl font-bold text-white mb-3">
+                Customer Support Triage
+              </h3>
+              <p className="text-gray-400">
+                Monitor tickets, categorize urgency, assign to agents, send updates
+              </p>
+            </div>
+
+            {/* Workflow 3 */}
+            <div className="bg-gray-900 border border-gray-800 rounded-2xl p-8 hover:border-gray-700 hover:bg-gray-800/50 transition duration-200 cursor-pointer">
+              <h3 className="text-xl font-bold text-white mb-3">
+                Content Pipeline
+              </h3>
+              <p className="text-gray-400">
+                Research topics, generate drafts, review quality, schedule posts
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* AI Playground Section */}
+      <div className="pb-24 px-4">
+        <div className="max-w-4xl mx-auto">
+          {/* Header */}
+          <div className="text-center mb-16">
+            {/* Badge */}
+            <div className="mb-8 inline-flex items-center gap-2 bg-blue-900/30 border border-blue-700 rounded-full px-4 py-2">
+              <svg className="w-5 h-5 text-blue-400" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9 5a4 4 0 100-8 4 4 0 000 8z" />
+              </svg>
+              <span className="text-sm font-semibold text-blue-400">Try It Now</span>
+            </div>
+
+            {/* Main Heading */}
+            <h2 className="text-5xl md:text-6xl font-bold mb-6 text-white">
+              AI Playground
+            </h2>
+
+            {/* Subheading */}
+            <p className="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto">
+              Experience the power of our AI technology. Ask anything or describe a task.
+            </p>
+          </div>
+
+          {/* Playground Container */}
+          <div className="bg-gray-900 border border-gray-800 rounded-3xl p-8 lg:p-12">
+            {/* Input Label */}
+            <label className="block text-white font-semibold mb-4">
+              What would you like the AI to help you with?
+            </label>
+
+            {/* Input Textarea */}
+            <textarea
+              className="w-full bg-gray-800 border border-gray-700 rounded-xl p-6 text-gray-300 placeholder-gray-500 focus:outline-none focus:border-blue-500 transition duration-200 mb-6 resize-none"
+              rows="6"
+              placeholder="Example: Summarize the benefits of AI automation for a retail business..."
+            ></textarea>
+
+            {/* Generate Response Button */}
+            <button className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-4 rounded-full transition duration-200 flex items-center justify-center gap-2 mb-10">
+              Generate Response
+              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M3.478 2.405a.75.75 0 00-.926.94l2.432 7.905H13.5a.75.75 0 010 1.5H4.984l-2.432 7.905a.75.75 0 00.926.94l15.55-12 -15.55-12z" />
+              </svg>
+            </button>
+
+            {/* AIFAG Use Cases */}
+            <div className="mb-8">
+              <p className="text-gray-400 text-sm font-semibold mb-4">AIFAG Use Cases:</p>
+              <div className="flex flex-wrap gap-3">
+                <button className="px-4 py-2 bg-gray-800 hover:bg-gray-700 border border-gray-700 text-gray-300 rounded-full text-sm transition duration-200">
+                  Automate customer onboarding workflow
+                </button>
+                <button className="px-4 py-2 bg-gray-800 hover:bg-gray-700 border border-gray-700 text-gray-300 rounded-full text-sm transition duration-200">
+                  Generate weekly sales performance report
+                </button>
+                <button className="px-4 py-2 bg-gray-800 hover:bg-gray-700 border border-gray-700 text-gray-300 rounded-full text-sm transition duration-200">
+                  Analyze support tickets and suggest responses
+                </button>
+                <button className="px-4 py-2 bg-gray-800 hover:bg-gray-700 border border-gray-700 text-gray-300 rounded-full text-sm transition duration-200">
+                  Create content calendar for social media
+                </button>
+              </div>
+            </div>
+
+            {/* LifeOS Use Cases */}
+            <div>
+              <p className="text-gray-400 text-sm font-semibold mb-4">LifeOS Use Cases:</p>
+              <div className="flex flex-wrap gap-3">
+                <button className="px-4 py-2 bg-gray-800 hover:bg-gray-700 border border-gray-700 text-gray-300 rounded-full text-sm transition duration-200">
+                  Create my personalized morning routine
+                </button>
+                <button className="px-4 py-2 bg-gray-800 hover:bg-gray-700 border border-gray-700 text-gray-300 rounded-full text-sm transition duration-200">
+                  Suggest optimal time blocks for deep work
+                </button>
+                <button className="px-4 py-2 bg-gray-800 hover:bg-gray-700 border border-gray-700 text-gray-300 rounded-full text-sm transition duration-200">
+                  Track and improve my fitness goals
+                </button>
+                <button className="px-4 py-2 bg-gray-800 hover:bg-gray-700 border border-gray-700 text-gray-300 rounded-full text-sm transition duration-200">
+                  Plan budget-friendly meal prep schedule
+                </button>
+              </div>
+            </div>
+          </div>
+
+          {/* Footer Text */}
+          <p className="text-center text-gray-500 text-sm mt-8">
+            This is a preview of our AI capabilities. Full products launching in 2026.
+          </p>
+        </div>
+      </div>
+
+      {/* Be Part of the Future CTA Section */}
+      <div className="py-24 px-4">
+        <div className="max-w-4xl mx-auto text-center">
+          {/* Main Heading */}
+          <h2 className="text-5xl md:text-6xl font-bold mb-6 text-white">
+            Be Part of the Future
+          </h2>
+
+          {/* Subheading */}
+          <p className="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto mb-12">
+            Join our early access program and shape the next generation of AI products.
+          </p>
+
+          {/* CTA Button */}
+          <button className="px-10 py-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-full transition duration-200 flex items-center justify-center gap-2 mx-auto">
+            Get Early Access
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default ProductsPage;
