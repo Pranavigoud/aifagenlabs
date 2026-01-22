@@ -18,7 +18,7 @@ const Navbar = ({ currentPage, setCurrentPage }) => {
   };
 
   return (
-    <nav className="bg-[#0f172a] text-white sticky top-0 z-50">
+    <nav className="bg-black text-white sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
@@ -52,10 +52,14 @@ const Navbar = ({ currentPage, setCurrentPage }) => {
 
           {/* Buttons */}
           <div className="hidden md:flex items-center gap-4">
-            <button className="px-4 py-2 text-gray-300 border border-gray-600 rounded hover:text-white hover:border-gray-400 transition duration-200 text-sm font-medium">
+            <button 
+              onClick={() => handleNavClick('contact')}
+              className="px-4 py-2 text-gray-300 border border-gray-600 rounded hover:text-white hover:border-gray-400 transition duration-200 text-sm font-medium">
               Contact
             </button>
-            <button className="px-6 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition duration-200 text-sm font-medium">
+            <button 
+              onClick={() => handleNavClick('collaborate')}
+              className="px-6 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition duration-200 text-sm font-medium">
               Collaborate
             </button>
           </div>
@@ -86,7 +90,7 @@ const Navbar = ({ currentPage, setCurrentPage }) => {
 
       {/* Mobile Navigation */}
       {isOpen && (
-        <div className="md:hidden bg-[#1e293b] border-t border-gray-700">
+        <div className="md:hidden bg-black border-t border-gray-700">
           <div className="px-4 py-4 space-y-3">
             {navItems.map((item) => (
               <button
