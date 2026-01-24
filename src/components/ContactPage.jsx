@@ -225,7 +225,7 @@ const ContactPage = () => {
             <form className="space-y-6">
               {/* Name Field */}
               <div>
-                <label className="block text-sm font-semibold text-white mb-3">
+                <label className="block text-sm font-semibold text-white mb-3 transition-colors duration-300">
                   Your Name <span className="text-red-500">*</span>
                 </label>
                 <input
@@ -234,13 +234,13 @@ const ContactPage = () => {
                   value={formData.name}
                   onChange={handleInputChange}
                   placeholder="John Doe"
-                  className="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-blue-500 transition duration-200"
+                  className="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-blue-500 focus:bg-gray-700 transition-all duration-300 input-smooth"
                 />
               </div>
 
               {/* Email Field */}
               <div>
-                <label className="block text-sm font-semibold text-white mb-3">
+                <label className="block text-sm font-semibold text-white mb-3 transition-colors duration-300">
                   Email Address <span className="text-red-500">*</span>
                 </label>
                 <input
@@ -249,13 +249,13 @@ const ContactPage = () => {
                   value={formData.email}
                   onChange={handleInputChange}
                   placeholder="john@example.com"
-                  className="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-blue-500 transition duration-200"
+                  className="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-blue-500 focus:bg-gray-700 transition-all duration-300 input-smooth"
                 />
               </div>
 
               {/* Subject Field */}
               <div>
-                <label className="block text-sm font-semibold text-white mb-3">
+                <label className="block text-sm font-semibold text-white mb-3 transition-colors duration-300">
                   Subject <span className="text-red-500">*</span>
                 </label>
                 <input
@@ -264,13 +264,13 @@ const ContactPage = () => {
                   value={formData.subject}
                   onChange={handleInputChange}
                   placeholder="How can we help?"
-                  className="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-blue-500 transition duration-200"
+                  className="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-blue-500 focus:bg-gray-700 transition-all duration-300 input-smooth"
                 />
               </div>
 
               {/* Message Field */}
               <div>
-                <label className="block text-sm font-semibold text-white mb-3">
+                <label className="block text-sm font-semibold text-white mb-3 transition-colors duration-300">
                   Message <span className="text-red-500">*</span>
                 </label>
                 <textarea
@@ -279,14 +279,14 @@ const ContactPage = () => {
                   onChange={handleInputChange}
                   placeholder="Tell us about your inquiry..."
                   rows="5"
-                  className="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-blue-500 transition duration-200 resize-none"
+                  className="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-blue-500 focus:bg-gray-700 transition-all duration-300 resize-none input-smooth"
                 ></textarea>
               </div>
 
               {/* Submit Button */}
               <button
                 type="submit"
-                className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded-lg transition duration-200 mt-2 flex items-center justify-center gap-2 px-8 pb-8"
+                className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded-lg transition-all duration-300 mt-2 flex items-center justify-center gap-2 px-8 pb-8 btn-smooth"
               >
                 Send Message
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

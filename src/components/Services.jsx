@@ -152,27 +152,27 @@ const Services = ({ setCurrentPage }) => {
           {services.map((service) => (
             <div
               key={service.id}
-              className="border-2 border-blue-600 rounded-lg sm:rounded-2xl md:rounded-3xl bg-gray-900/50 backdrop-blur overflow-hidden hover:bg-gray-900/70 transition"
+              className="border-2 border-blue-600 rounded-lg sm:rounded-2xl md:rounded-3xl bg-gray-900/50 backdrop-blur overflow-hidden hover:bg-gray-900/70 transition-all duration-300 hover:shadow-lg hover:shadow-blue-600/20"
             >
               {/* Header */}
               <button
                 onClick={() => toggleExpand(service.id)}
-                className="w-full px-3 sm:px-4 md:px-6 lg:px-8 py-4 sm:py-5 md:py-6 flex items-center justify-between cursor-pointer"
+                className="w-full px-3 sm:px-4 md:px-6 lg:px-8 py-4 sm:py-5 md:py-6 flex items-center justify-between cursor-pointer transition-all duration-300 hover:bg-blue-600/10"
               >
                 <div className="flex items-center gap-3 sm:gap-4 md:gap-6 text-left min-w-0">
-                  <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 bg-blue-600 rounded-lg sm:rounded-xl flex items-center justify-center text-white flex-shrink-0">
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 bg-blue-600 rounded-lg sm:rounded-xl flex items-center justify-center text-white flex-shrink-0 transition-transform duration-300 group-hover:scale-110">
                     {service.icon}
                   </div>
                   <div className="min-w-0">
-                    <h3 className="text-base sm:text-lg md:text-xl lg:text-2xl font-bold text-white mb-1 truncate">
+                    <h3 className="text-base sm:text-lg md:text-xl lg:text-2xl font-bold text-white mb-1 truncate transition-colors duration-300">
                       {service.title}
                     </h3>
-                    <p className="text-xs sm:text-sm md:text-base text-gray-400 truncate">
+                    <p className="text-xs sm:text-sm md:text-base text-gray-400 truncate transition-colors duration-300">
                       {service.tagline}
                     </p>
                   </div>
                 </div>
-                <div className={`flex-shrink-0 text-blue-400 transition-transform ml-3 sm:ml-4`}>
+                <div className={`flex-shrink-0 text-blue-400 transition-all duration-300 ml-3 sm:ml-4 ${expandedId === service.id ? 'rotate-180' : 'rotate-0'}`}>
                   <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={expandedId === service.id ? "M19 14l-7 7m0 0l-7-7m7 7V3" : "M5 10l7-7m0 0l7 7m-7-7v16"} />
                   </svg>
@@ -181,7 +181,9 @@ const Services = ({ setCurrentPage }) => {
 
               {/* Expanded Content */}
               {expandedId === service.id && (
-                <div className="px-3 sm:px-4 md:px-6 lg:px-8 pb-4 sm:pb-6 md:pb-8 border-t border-gray-700">
+                <div className="px-3 sm:px-4 md:px-6 lg:px-8 pb-4 sm:pb-6 md:pb-8 border-t border-gray-700 fade-in-up"
+                  style={{ animation: 'fadeInUp 0.35s cubic-bezier(0.4, 0, 0.2, 1) ease-out' }}
+                >
                   {/* Description */}
                   <p className="text-gray-400 mb-6 sm:mb-8 mt-4 sm:mt-6 md:mt-8 leading-relaxed text-sm sm:text-base">
                     {service.description}

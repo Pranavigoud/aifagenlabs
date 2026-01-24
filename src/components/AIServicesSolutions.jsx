@@ -58,7 +58,7 @@ const AIServicesSolutions = ({ setCurrentPage }) => {
           {services.map((service) => (
             <div
               key={service.id}
-              className="group bg-gray-900 border border-gray-800 rounded-lg sm:rounded-xl lg:rounded-2xl p-4 sm:p-6 md:p-8 hover:border-blue-500 hover:border-opacity-50 hover:shadow-lg hover:shadow-blue-500/20 transition duration-300 cursor-pointer"
+              className="group bg-neutral-900 rounded-lg sm:rounded-xl lg:rounded-2xl p-4 sm:p-5 md:p-6 hover:shadow-xl hover:shadow-white/20 transition duration-300 cursor-pointer"
             >
               {/* Icon */}
               <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gray-800 rounded-lg flex items-center justify-center mb-4 sm:mb-6 group-hover:bg-gray-700 transition duration-300">

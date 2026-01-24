@@ -15,6 +15,7 @@ const Navbar = ({ currentPage, setCurrentPage }) => {
   const handleNavClick = (page) => {
     setCurrentPage(page);
     setIsOpen(false);
+    window.scrollTo(0, 0);
   };
 
   return (
@@ -22,14 +23,14 @@ const Navbar = ({ currentPage, setCurrentPage }) => {
       <div className="max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8">
         <div className="flex justify-between items-center h-14 md:h-16">
           {/* Logo */}
-          <div className="flex items-center gap-2 cursor-pointer flex-shrink-0" onClick={() => handleNavClick('home')}>
-            <div className="w-7 h-7 md:w-8 md:h-8 bg-gradient-to-br from-blue-400 to-blue-600 rounded-lg flex items-center justify-center font-bold text-white text-sm transition-transform duration-200 hover:scale-105">
+          <div className="flex items-center gap-2 cursor-pointer flex-shrink-0 transition-transform duration-300 hover:scale-105" onClick={() => handleNavClick('home')}>
+            <div className="w-7 h-7 md:w-8 md:h-8 bg-gradient-to-br from-blue-400 to-blue-600 rounded-lg flex items-center justify-center font-bold text-white text-sm transition-transform duration-300">
               A
             </div>
-            <span className="text-base md:text-lg font-semibold whitespace-nowrap">
+            <span className="text-base md:text-lg font-semibold whitespace-nowrap text-white transition-colors duration-300">
               <span className="text-white">AIFA</span>
-              <span className="text-gray-400">Gen</span>
-              <span className="ml-0.5 md:ml-1 text-gray-300">Labs</span>
+              <span className="text-gray-400 transition-colors duration-300">Gen</span>
+              <span className="ml-0.5 md:ml-1 text-gray-300 transition-colors duration-300">Labs</span>
             </span>
           </div>
 
@@ -39,7 +40,7 @@ const Navbar = ({ currentPage, setCurrentPage }) => {
               <button
                 key={item.name}
                 onClick={() => handleNavClick(item.page)}
-                className={`text-xs md:text-sm font-medium transition-all duration-200 ${
+                className={`text-xs md:text-sm font-medium transition-all duration-300 ${
                   currentPage === item.page
                     ? 'text-white border-b-2 border-blue-600'
                     : 'text-gray-300 hover:text-white border-b-2 border-transparent hover:border-blue-600'
@@ -54,12 +55,12 @@ const Navbar = ({ currentPage, setCurrentPage }) => {
           <div className="hidden md:flex items-center gap-2 lg:gap-4">
             <button 
               onClick={() => handleNavClick('contact')}
-              className="px-3 md:px-4 py-2 text-xs md:text-sm text-gray-300 border border-gray-600 rounded-full hover:text-white hover:border-gray-400 hover:bg-gray-900 transition-all duration-200 font-medium">
+              className="px-3 md:px-4 py-2 text-xs md:text-sm text-gray-300 border border-gray-600 rounded-full hover:text-white hover:border-gray-400 hover:bg-gray-900 transition-all duration-300 font-medium btn-smooth">
               Contact
             </button>
             <button 
               onClick={() => handleNavClick('collaborate')}
-              className="px-4 md:px-6 py-2 text-xs md:text-sm bg-blue-600 text-white rounded-full hover:bg-blue-700 active:bg-blue-800 transition-all duration-200 font-medium">
+              className="px-4 md:px-6 py-2 text-xs md:text-sm bg-blue-600 text-white rounded-full hover:bg-blue-700 active:bg-blue-800 transition-all duration-300 font-medium btn-smooth">
               Collaborate
             </button>
           </div>

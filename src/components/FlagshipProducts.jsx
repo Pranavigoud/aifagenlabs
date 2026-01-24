@@ -27,7 +27,7 @@ const FlagshipProducts = ({ setCurrentPage }) => {
   ];
 
   return (
-    <div className="bg-black text-white px-3 sm:px-4 md:px-6 lg:px-8 py-12 sm:py-16 md:py-20 lg:py-24">
+    <div className="bg-neutral-900 text-white px-3 sm:px-4 md:px-6 lg:px-8 py-12 sm:py-16 md:py-20 lg:py-24">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-12 sm:mb-14 md:mb-16 lg:mb-20">
@@ -41,10 +41,10 @@ const FlagshipProducts = ({ setCurrentPage }) => {
 
         {/* Products Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 mb-8 sm:mb-10 md:mb-12">
-          {products.map((product) => (
+          {products.map((product, index) => (
             <div
               key={product.id}
-              className="bg-gray-900 border border-gray-800 rounded-lg sm:rounded-xl lg:rounded-3xl p-4 sm:p-6 md:p-8 hover:border-gray-700 transition duration-300"
+              className={`bg-neutral-800 border border-gray-800 rounded-lg sm:rounded-xl lg:rounded-3xl p-4 sm:p-5 md:p-6 hover:border-gray-700 transition duration-300 ${index === 0 ? 'slide-in-left' : 'slide-in-right'}`}
             >
               {/* Badge */}
               <div className="inline-block mb-4 sm:mb-6">
@@ -87,7 +87,7 @@ const FlagshipProducts = ({ setCurrentPage }) => {
 
               {/* Learn More Button */}
               <button 
-                onClick={() => setCurrentPage('products')}
+                onClick={() => { setCurrentPage('products'); window.scrollTo(0, 0); }}
                 className="inline-flex items-center gap-2 px-4 sm:px-6 py-2 sm:py-3 border border-gray-600 hover:border-gray-400 text-white rounded-full transition duration-200 group text-sm sm:text-base">
                 <span className="font-medium">Learn More</span>
                 <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
