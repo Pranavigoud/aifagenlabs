@@ -135,72 +135,72 @@ const Services = ({ setCurrentPage }) => {
   return (
     <div className="bg-black text-white min-h-screen">
       {/* Header */}
-      <div className="pt-32 pb-16 px-4">
+      <div className="pt-16 sm:pt-20 md:pt-24 lg:pt-32 pb-8 sm:pb-10 md:pb-12 lg:pb-16 px-3 sm:px-4 md:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto text-center">
-          <h1 className="text-5xl md:text-7xl font-bold mb-8">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 sm:mb-6 md:mb-8">
             AI Solutions That Deliver
           </h1>
-          <p className="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto">
+          <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-400 max-w-3xl mx-auto px-2 sm:px-0">
             From generative AI to predictive analytics, we offer comprehensive solutions designed to transform your business operations.
           </p>
         </div>
       </div>
 
       {/* Services Accordion */}
-      <div className="py-12 px-4">
-        <div className="max-w-5xl mx-auto space-y-6">
+      <div className="py-8 sm:py-10 md:py-12 lg:py-16 px-3 sm:px-4 md:px-6 lg:px-8">
+        <div className="max-w-5xl mx-auto space-y-4 sm:space-y-6">
           {services.map((service) => (
             <div
               key={service.id}
-              className="border-2 border-blue-600 rounded-3xl bg-gray-900/50 backdrop-blur overflow-hidden hover:bg-gray-900/70 transition"
+              className="border-2 border-blue-600 rounded-lg sm:rounded-2xl md:rounded-3xl bg-gray-900/50 backdrop-blur overflow-hidden hover:bg-gray-900/70 transition"
             >
               {/* Header */}
               <button
                 onClick={() => toggleExpand(service.id)}
-                className="w-full px-8 py-6 flex items-center justify-between cursor-pointer"
+                className="w-full px-3 sm:px-4 md:px-6 lg:px-8 py-4 sm:py-5 md:py-6 flex items-center justify-between cursor-pointer"
               >
-                <div className="flex items-center gap-6 text-left">
-                  <div className="w-14 h-14 bg-blue-600 rounded-xl flex items-center justify-center text-white flex-shrink-0">
+                <div className="flex items-center gap-3 sm:gap-4 md:gap-6 text-left min-w-0">
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 bg-blue-600 rounded-lg sm:rounded-xl flex items-center justify-center text-white flex-shrink-0">
                     {service.icon}
                   </div>
-                  <div>
-                    <h3 className="text-2xl font-bold text-white mb-1">
+                  <div className="min-w-0">
+                    <h3 className="text-base sm:text-lg md:text-xl lg:text-2xl font-bold text-white mb-1 truncate">
                       {service.title}
                     </h3>
-                    <p className="text-gray-400">
+                    <p className="text-xs sm:text-sm md:text-base text-gray-400 truncate">
                       {service.tagline}
                     </p>
                   </div>
                 </div>
-                <div className={`flex-shrink-0 text-blue-400 transition-transform ${expandedId === service.id ? 'rotate-180' : ''}`}>
-                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                <div className={`flex-shrink-0 text-blue-400 transition-transform ml-3 sm:ml-4`}>
+                  <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={expandedId === service.id ? "M19 14l-7 7m0 0l-7-7m7 7V3" : "M5 10l7-7m0 0l7 7m-7-7v16"} />
                   </svg>
                 </div>
               </button>
 
               {/* Expanded Content */}
               {expandedId === service.id && (
-                <div className="px-8 pb-8 border-t border-gray-700">
+                <div className="px-3 sm:px-4 md:px-6 lg:px-8 pb-4 sm:pb-6 md:pb-8 border-t border-gray-700">
                   {/* Description */}
-                  <p className="text-gray-400 mb-8 mt-8 leading-relaxed">
+                  <p className="text-gray-400 mb-6 sm:mb-8 mt-4 sm:mt-6 md:mt-8 leading-relaxed text-sm sm:text-base">
                     {service.description}
                   </p>
 
                   {/* Two Column Layout */}
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 md:gap-10 lg:gap-12">
                     {/* What We Deliver */}
                     <div>
-                      <h4 className="text-white font-bold text-lg mb-6">
+                      <h4 className="text-white font-bold text-base sm:text-lg md:text-lg mb-4 sm:mb-6">
                         What We Deliver
                       </h4>
-                      <ul className="space-y-4">
+                      <ul className="space-y-2 sm:space-y-3 md:space-y-4">
                         {service.whatWeDeliver.map((item, idx) => (
-                          <li key={idx} className="flex items-start gap-3">
-                            <svg className="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 24 24">
+                          <li key={idx} className="flex items-start gap-2 sm:gap-3">
+                            <svg className="w-4 h-4 sm:w-5 sm:h-5 text-blue-400 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 24 24">
                               <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
                             </svg>
-                            <span className="text-gray-300">{item}</span>
+                            <span className="text-gray-300 text-sm sm:text-base">{item}</span>
                           </li>
                         ))}
                       </ul>
@@ -208,14 +208,14 @@ const Services = ({ setCurrentPage }) => {
 
                     {/* Use Cases */}
                     <div>
-                      <h4 className="text-white font-bold text-lg mb-6">
+                      <h4 className="text-white font-bold text-base sm:text-lg md:text-lg mb-4 sm:mb-6">
                         Use Cases
                       </h4>
-                      <div className="flex flex-wrap gap-3">
+                      <div className="flex flex-wrap gap-2 sm:gap-3">
                         {service.useCases.map((useCase, idx) => (
                           <span
                             key={idx}
-                            className={`px-4 py-2 ${useCase.color} text-white text-sm rounded-lg border border-blue-500/50`}
+                            className={`px-3 sm:px-4 py-1.5 sm:py-2 ${useCase.color} text-white text-xs sm:text-sm rounded-lg border border-blue-500/50`}
                           >
                             {useCase.text}
                           </span>
@@ -225,9 +225,9 @@ const Services = ({ setCurrentPage }) => {
                   </div>
 
                   {/* Button */}
-                  <button className="mt-8 px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-full flex items-center gap-2 transition">
+                  <button className="mt-6 sm:mt-8 px-4 sm:px-6 py-2 sm:py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-full flex items-center gap-2 transition text-sm sm:text-base">
                     Discuss This Solution
-                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
                     </svg>
                   </button>

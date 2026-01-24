@@ -41,28 +41,28 @@ const AIServicesSolutions = ({ setCurrentPage }) => {
   ];
 
   return (
-    <div className="min-h-screen bg-black text-white px-4 py-20">
+    <div className="min-h-screen bg-black text-white px-3 sm:px-4 md:px-6 lg:px-8 py-12 sm:py-16 md:py-20 lg:py-24">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-5xl md:text-6xl font-bold mb-6">
+        <div className="text-center mb-12 sm:mb-14 md:mb-16 lg:mb-20">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6">
             AI Solutions That Scale
           </h2>
-          <p className="text-xl text-gray-400 max-w-3xl mx-auto">
+          <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-400 max-width-3xl mx-auto px-2 sm:px-0">
             From intelligent automation to predictive insights, we deliver enterprise-grade AI that transforms how you work.
           </p>
         </div>
 
         {/* Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 md:gap-6 mb-8 sm:mb-10 md:mb-12">
           {services.map((service) => (
             <div
               key={service.id}
-              className="group bg-gray-900 border border-gray-800 rounded-2xl p-8 hover:border-blue-500 hover:border-opacity-50 hover:shadow-lg hover:shadow-blue-500/20 transition duration-300 cursor-pointer"
+              className="group bg-gray-900 border border-gray-800 rounded-lg sm:rounded-xl lg:rounded-2xl p-4 sm:p-6 md:p-8 hover:border-blue-500 hover:border-opacity-50 hover:shadow-lg hover:shadow-blue-500/20 transition duration-300 cursor-pointer"
             >
               {/* Icon */}
-              <div className="w-12 h-12 bg-gray-800 rounded-lg flex items-center justify-center mb-6 group-hover:bg-gray-700 transition duration-300">
-                <svg className="w-6 h-6 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gray-800 rounded-lg flex items-center justify-center mb-4 sm:mb-6 group-hover:bg-gray-700 transition duration-300">
+                <svg className="w-5 h-5 sm:w-6 sm:h-6 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   {service.id === 1 && (
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 8v4m0 4v.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                   )}
@@ -85,13 +85,13 @@ const AIServicesSolutions = ({ setCurrentPage }) => {
               </div>
 
               {/* Content */}
-              <h3 className="text-xl font-semibold mb-3 text-white inline-flex items-center gap-2 group">
+              <h3 className="text-base sm:text-lg md:text-xl font-semibold mb-2 sm:mb-3 text-white inline-flex items-center gap-2 group">
                 {service.title}
-                <svg className="w-4 h-4 text-blue-400 opacity-0 group-hover:opacity-100 transform group-hover:translate-x-1 group-hover:-translate-y-1 transition duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-3 h-3 sm:w-4 sm:h-4 text-blue-400 opacity-0 group-hover:opacity-100 transform group-hover:translate-x-1 group-hover:-translate-y-1 transition duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 7h10v10M7 17L17 7" />
                 </svg>
               </h3>
-              <p className="text-gray-400 leading-relaxed group-hover:text-gray-300 transition duration-300">
+              <p className="text-gray-400 leading-relaxed group-hover:text-gray-300 transition duration-300 text-sm sm:text-base">
                 {service.description}
               </p>
             </div>
@@ -102,10 +102,10 @@ const AIServicesSolutions = ({ setCurrentPage }) => {
         <div className="text-center">
           <button
             onClick={() => setCurrentPage('services')}
-            className="inline-flex items-center gap-2 text-white hover:text-gray-300 transition duration-200 text-lg font-medium group"
+            className="inline-flex items-center gap-2 text-white hover:text-gray-300 transition duration-200 text-base sm:text-lg font-medium group"
           >
             Explore all services
-            <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
             </svg>
           </button>

@@ -19,34 +19,34 @@ const ContactPage = () => {
   return (
     <div className="bg-black text-white min-h-screen">
       {/* Get in Touch Section */}
-      <div className="px-4 py-24">
-        <div className="max-w-4xl mx-auto text-center mb-24">
+      <div className="px-3 sm:px-4 md:px-6 lg:px-8 py-12 sm:py-16 md:py-20 lg:py-24">
+        <div className="max-w-4xl mx-auto text-center mb-12 sm:mb-16 md:mb-20 lg:mb-24">
           {/* Heading */}
-          <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold text-white mb-8">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-4 sm:mb-6 md:mb-8">
             Get in Touch
           </h1>
 
           {/* Subheading */}
-          <p className="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed px-2 sm:px-0">
             Have questions? We're here to help. Reach out to us through any channel below.
           </p>
         </div>
 
         {/* Contact Content */}
-        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 md:gap-10 lg:gap-12">
           {/* Left Side - Our Offices */}
-          <div>
+          <div className="px-2 sm:px-0">
             {/* Our Offices Header */}
-            <div className="flex items-center gap-3 mb-8">
-              <svg className="w-6 h-6 text-blue-500" fill="currentColor" viewBox="0 0 24 24">
+            <div className="flex items-center gap-2 sm:gap-3 mb-6 sm:mb-8">
+              <svg className="w-5 h-5 sm:w-6 sm:h-6 text-blue-500" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm0-13c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5z" />
               </svg>
-              <h2 className="text-3xl font-bold text-white">Our Offices</h2>
+              <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-white">Our Offices</h2>
             </div>
 
             {/* World Map with Locations */}
-            <div className="bg-gray-900/50 border border-gray-800 rounded-2xl p-8 mb-8">
-              <div className="relative w-full h-64 bg-gray-800 rounded-lg flex items-center justify-center">
+            <div className="bg-gray-900/50 border border-gray-800 rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8 mb-6 sm:mb-8">
+              <div className="relative w-full h-48 sm:h-56 md:h-64 bg-gray-800 rounded-lg flex items-center justify-center">
                 {/* Map Background */}
                 <svg className="absolute inset-0 w-full h-full text-gray-700" viewBox="0 0 800 400" fill="none">
                   <rect width="800" height="400" fill="#374151" />
