@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import CTA from './CTA';
 
-const Services = () => {
+const Services = ({ setCurrentPage }) => {
   const [expandedId, setExpandedId] = useState(0);
 
   const services = [
@@ -36,15 +36,15 @@ const Services = () => {
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M9 19l3 3m0 0l3-3m-3 3V10" />
         </svg>
       ),
-      title: 'Automation Solutions',
-      tagline: 'Streamline. Optimize. Scale.',
-      description: 'Eliminate repetitive tasks and optimize workflows with intelligent automation that learns and adapts to your business processes.',
+      title: 'Intelligent Automation',
+      tagline: 'Work smarter, not harder.',
+      description: 'Transform manual processes into intelligent, self-optimizing workflows. Our automation solutions learn and adapt, continuously improving efficiency.',
       whatWeDeliver: [
-        'Workflow automation & RPA',
-        'Intelligent process optimization',
-        'Task automation & orchestration',
-        'Business process intelligence',
-        'Performance monitoring & alerts'
+        'Robotic Process Automation (RPA)',
+        'Intelligent document processing',
+        'Workflow orchestration',
+        'Decision automation engines',
+        'Integration with existing systems'
       ],
       useCases: [
         { text: 'Data processing', color: 'bg-blue-900' },
@@ -62,7 +62,7 @@ const Services = () => {
         </svg>
       ),
       title: 'Computer Vision',
-      tagline: 'See. Understand. Act.',
+      tagline: 'See what others cant',
       description: 'Extract actionable insights from images and video with advanced visual AI systems for real-world applications.',
       whatWeDeliver: [
         'Object detection & recognition',
@@ -239,7 +239,7 @@ const Services = () => {
       </div>
 
       {/* CTA Section */}
-      <CTA />
+      <CTA setCurrentPage={setCurrentPage} />
     </div>
   );
 };

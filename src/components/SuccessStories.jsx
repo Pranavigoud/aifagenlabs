@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const SuccessStories = () => {
+const SuccessStories = ({ setCurrentPage }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
   const stories = [
@@ -20,46 +20,32 @@ const SuccessStories = () => {
     },
     {
       id: 2,
-      company: 'DataStream Inc',
+      company: 'HealthFirst Systems',
       companyColor: 'text-blue-400',
-      title: 'Predictive Analytics Platform',
-      description: 'Improved forecast accuracy and reduced data processing time significantly.',
+      title: 'Predictive Patient Analytics',
+      description: 'Early detection system that improved patient outcomes by 60%.',
       metrics: [
-        { value: '+120%', label: 'Throughput' },
-        { value: '96.5%', label: 'Accuracy' },
-        { value: '-60%', label: 'Latency' }
+        { value: '+60%', label: 'Detection' },
+        { value: '-70%', label: 'Response' },
+        { value: '+45%', label: 'Satisfaction' }
       ],
       image: 'Analytics',
       category: 'Analytics'
     },
     {
       id: 3,
-      company: 'RetailPro Solutions',
+      company: 'RetailMax',
       companyColor: 'text-blue-400',
-      title: 'Customer Behavior AI',
-      description: 'Enhanced customer insights and increased conversion rates with AI.',
+      title: 'Smart Inventory Management',
+      description: 'AI-driven forecasting reduced stockouts by 78%.',
       metrics: [
-        { value: '+45%', label: 'Conversion' },
-        { value: '92.8%', label: 'Satisfaction' },
-        { value: '-35%', label: 'Churn' }
+        { value: '-78%', label: 'stockouts' },
+        { value: '+32%', label: 'revenue' },
+        { value: '-55%', label: 'waste' }
       ],
       image: 'Retail',
       category: 'Retail'
     },
-    {
-      id: 4,
-      company: 'HealthTech Innovations',
-      companyColor: 'text-blue-400',
-      title: 'Diagnostic AI Engine',
-      description: 'Accelerated diagnosis process with improved accuracy for patient care.',
-      metrics: [
-        { value: '+78%', label: 'Speed' },
-        { value: '98.3%', label: 'Accuracy' },
-        { value: '-50%', label: 'Errors' }
-      ],
-      image: 'Healthcare',
-      category: 'Healthcare'
-    }
   ];
 
   const currentStory = stories[currentSlide];
@@ -122,26 +108,26 @@ const SuccessStories = () => {
 
             {/* Right Side - Case Study Card */}
             <div className="order-1 lg:order-2">
-              <div className="bg-gray-900 border border-gray-800 rounded-2xl p-8">
+              <div className="group bg-gray-900 border border-gray-800 rounded-2xl p-8 hover:border-blue-500 hover:border-opacity-60 hover:shadow-2xl hover:shadow-blue-500/30 transition duration-300">
                 {/* Company Name */}
-                <div className={`${currentStory.companyColor} text-sm font-semibold mb-4`}>
+                <div className={`${currentStory.companyColor} text-sm font-semibold mb-4 group-hover:text-blue-300 transition`}>
                   {currentStory.company}
                 </div>
 
                 {/* Title */}
-                <h3 className="text-3xl md:text-4xl font-bold text-white mb-4">
+                <h3 className="text-3xl md:text-4xl font-bold text-white mb-4 group-hover:text-white transition">
                   {currentStory.title}
                 </h3>
 
                 {/* Description */}
-                <p className="text-gray-400 text-lg mb-8">
+                <p className="text-gray-400 text-lg mb-8 group-hover:text-gray-300 transition">
                   {currentStory.description}
                 </p>
 
                 {/* Metrics */}
                 <div className="grid grid-cols-3 gap-4 mb-8">
                   {currentStory.metrics.map((metric, idx) => (
-                    <div key={idx} className="text-center">
+                    <div key={idx} className="text-center bg-gray-800 group-hover:bg-gray-700 rounded-xl p-3 transition duration-300">
                       <div className="flex items-center justify-center gap-1 mb-2">
                         <svg className="w-4 h-4 text-blue-400" fill="currentColor" viewBox="0 0 24 24">
                           <path d="M13 5h8v2h-8V5zM3 5h8v2H3V5zm0 7h8v2H3v-2zm10 0h8v2h-8v-2zM3 17h8v2H3v-2zm10 0h8v2h-8v-2z" />
@@ -150,7 +136,7 @@ const SuccessStories = () => {
                           {metric.value}
                         </div>
                       </div>
-                      <div className="text-gray-400 text-sm">
+                      <div className="text-gray-400 text-sm group-hover:text-gray-300 transition">
                         {metric.label}
                       </div>
                     </div>
@@ -158,9 +144,11 @@ const SuccessStories = () => {
                 </div>
 
                 {/* Read Full Case Study Button */}
-                <button className="text-blue-400 hover:text-blue-300 font-semibold flex items-center gap-2 group transition">
+                <button 
+                  onClick={() => setCurrentPage('case-studies')}
+                  className="text-blue-400 hover:text-blue-300 font-semibold flex items-center gap-2 group/btn transition">
                   Read Full Case Study
-                  <svg className="w-5 h-5 group-hover:translate-x-1 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-5 h-5 group-hover/btn:translate-x-1 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
                   </svg>
                 </button>

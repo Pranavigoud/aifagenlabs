@@ -1,6 +1,6 @@
 import React from 'react';
 
-const AboutPage = () => {
+const AboutPage = ({ setCurrentPage }) => {
   return (
     <div className="bg-black text-white min-h-screen">
       {/* Hero Section */}
@@ -390,7 +390,9 @@ const AboutPage = () => {
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             {/* Partner With Us Button */}
-            <button className="px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-full transition duration-200 flex items-center justify-center gap-2">
+            <button 
+              onClick={() => setCurrentPage('collaborate')}
+              className="px-10 py-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-full transition duration-200 flex items-center justify-center gap-2 mx-auto">
               Partner With Us
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />

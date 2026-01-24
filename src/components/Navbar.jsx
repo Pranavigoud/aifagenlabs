@@ -4,12 +4,12 @@ const Navbar = ({ currentPage, setCurrentPage }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const navItems = [
-    { name: 'Home', href: '#', page: 'home' },
-    { name: 'Services', href: '#', page: 'services' },
-    { name: 'Products', href: '#', page: 'products' },
-    { name: 'Innovation Labs', href: '#', page: 'innovation-labs' },
-    { name: 'Case Studies', href: '#', page: 'case-studies' },
-    { name: 'About', href: '#', page: 'about' },
+    { name: 'Home', href: '#home', page: 'home' },
+    { name: 'Services', href: '#services', page: 'services' },
+    { name: 'Products', href: '#products', page: 'products' },
+    { name: 'Innovation Labs', href: '#innovation-labs', page: 'innovation-labs' },
+    { name: 'Case Studies', href: '#case-studies', page: 'case-studies' },
+    { name: 'About', href: '#about', page: 'about' },
   ];
 
   const handleNavClick = (page) => {
@@ -18,31 +18,31 @@ const Navbar = ({ currentPage, setCurrentPage }) => {
   };
 
   return (
-    <nav className="bg-black text-white sticky top-0 z-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
+    <nav className="navbar-sticky bg-black text-white">
+      <div className="max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8">
+        <div className="flex justify-between items-center h-14 md:h-16">
           {/* Logo */}
-          <div className="flex items-center gap-2 cursor-pointer" onClick={() => handleNavClick('home')}>
-            <div className="w-8 h-8 bg-gradient-to-br from-blue-400 to-blue-600 rounded-lg flex items-center justify-center font-bold text-white">
+          <div className="flex items-center gap-2 cursor-pointer flex-shrink-0" onClick={() => handleNavClick('home')}>
+            <div className="w-7 h-7 md:w-8 md:h-8 bg-gradient-to-br from-blue-400 to-blue-600 rounded-lg flex items-center justify-center font-bold text-white text-sm transition-transform duration-200 hover:scale-105">
               A
             </div>
-            <span className="text-lg font-semibold">
+            <span className="text-base md:text-lg font-semibold whitespace-nowrap">
               <span className="text-white">AIFA</span>
               <span className="text-gray-400">Gen</span>
-              <span className="ml-1 text-gray-300">Labs</span>
+              <span className="ml-0.5 md:ml-1 text-gray-300">Labs</span>
             </span>
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden md:flex items-center gap-4 lg:gap-8">
             {navItems.map((item) => (
               <button
                 key={item.name}
                 onClick={() => handleNavClick(item.page)}
-                className={`text-sm font-medium transition duration-200 ${
+                className={`text-xs md:text-sm font-medium transition-all duration-200 ${
                   currentPage === item.page
                     ? 'text-white border-b-2 border-blue-600'
-                    : 'text-gray-300 hover:text-white'
+                    : 'text-gray-300 hover:text-white border-b-2 border-transparent hover:border-blue-600'
                 }`}
               >
                 {item.name}
@@ -51,15 +51,15 @@ const Navbar = ({ currentPage, setCurrentPage }) => {
           </div>
 
           {/* Buttons */}
-          <div className="hidden md:flex items-center gap-4">
+          <div className="hidden md:flex items-center gap-2 lg:gap-4">
             <button 
               onClick={() => handleNavClick('contact')}
-              className="px-4 py-2 text-gray-300 border border-gray-600 rounded hover:text-white hover:border-gray-400 transition duration-200 text-sm font-medium">
+              className="px-3 md:px-4 py-2 text-xs md:text-sm text-gray-300 border border-gray-600 rounded-full hover:text-white hover:border-gray-400 hover:bg-gray-900 transition-all duration-200 font-medium">
               Contact
             </button>
             <button 
               onClick={() => handleNavClick('collaborate')}
-              className="px-6 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition duration-200 text-sm font-medium">
+              className="px-4 md:px-6 py-2 text-xs md:text-sm bg-blue-600 text-white rounded-full hover:bg-blue-700 active:bg-blue-800 transition-all duration-200 font-medium">
               Collaborate
             </button>
           </div>
@@ -68,10 +68,11 @@ const Navbar = ({ currentPage, setCurrentPage }) => {
           <div className="md:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-gray-300 hover:text-white focus:outline-none"
+              className="text-gray-300 hover:text-white focus:outline-none transition-colors duration-200 p-2"
+              aria-label="Toggle menu"
             >
               <svg
-                className="w-6 h-6"
+                className="w-5 h-5 md:w-6 md:h-6 transition-transform duration-200"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -90,22 +91,30 @@ const Navbar = ({ currentPage, setCurrentPage }) => {
 
       {/* Mobile Navigation */}
       {isOpen && (
-        <div className="md:hidden bg-black border-t border-gray-700">
-          <div className="px-4 py-4 space-y-3">
+        <div className="md:hidden bg-black border-t border-gray-700 transition-all duration-200">
+          <div className="px-3 py-3 space-y-2">
             {navItems.map((item) => (
               <button
                 key={item.name}
                 onClick={() => handleNavClick(item.page)}
-                className="block w-full text-left text-gray-300 hover:text-white transition duration-200 text-sm font-medium py-2"
+                className={`block w-full text-left text-sm font-medium py-2 px-3 rounded-lg transition-all duration-200 ${
+                  currentPage === item.page
+                    ? 'text-white bg-blue-600'
+                    : 'text-gray-300 hover:text-white hover:bg-gray-900'
+                }`}
               >
                 {item.name}
               </button>
             ))}
-            <div className="pt-3 border-t border-gray-700 flex gap-3">
-              <button className="flex-1 px-4 py-2 text-gray-300 border border-gray-600 rounded hover:text-white hover:border-gray-400 transition duration-200 text-sm font-medium">
+            <div className="pt-2 border-t border-gray-700 flex gap-2">
+              <button 
+                onClick={() => handleNavClick('contact')}
+                className="flex-1 px-3 py-2 text-xs text-gray-300 border border-gray-600 rounded-full hover:text-white hover:border-gray-400 hover:bg-gray-900 transition-all duration-200 font-medium">
                 Contact
               </button>
-              <button className="flex-1 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition duration-200 text-sm font-medium">
+              <button 
+                onClick={() => handleNavClick('collaborate')}
+                className="flex-1 px-3 py-2 text-xs bg-blue-600 text-white rounded-full hover:bg-blue-700 active:bg-blue-800 transition-all duration-200 font-medium">
                 Collaborate
               </button>
             </div>

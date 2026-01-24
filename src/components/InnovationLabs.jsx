@@ -1,6 +1,6 @@
 import React from 'react';
 
-const InnovationLabs = () => {
+const InnovationLabs = ({ setCurrentPage }) => {
   const features = [
     {
       icon: (
@@ -67,7 +67,9 @@ const InnovationLabs = () => {
             </div>
 
             {/* Button */}
-            <button className="px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-full transition duration-200 flex items-center gap-2">
+            <button 
+              onClick={() => setCurrentPage('innovation-labs')}
+              className="px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-full transition duration-200 flex items-center gap-2">
               Explore Labs
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />

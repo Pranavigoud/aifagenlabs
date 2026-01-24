@@ -1,6 +1,6 @@
 import React from 'react';
 
-const CTA = () => {
+const CTA = ({ setCurrentPage }) => {
   return (
     <div className="bg-black text-white py-24 px-4">
       <div className="max-w-4xl mx-auto text-center">
@@ -17,12 +17,16 @@ const CTA = () => {
         {/* Buttons */}
         <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
           {/* Book a Consultation Button */}
-          <button className="px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-full transition duration-200 whitespace-nowrap">
+          <button 
+            onClick={() => setCurrentPage('collaborate')}
+            className="px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-full transition duration-200 whitespace-nowrap">
             Book a Consultation
           </button>
 
           {/* View Case Studies Button */}
-          <button className="px-8 py-4 border-2 border-gray-700 hover:border-gray-600 text-white font-semibold rounded-full transition duration-200 whitespace-nowrap">
+          <button 
+            onClick={() => setCurrentPage('case-studies')}
+            className="px-8 py-4 border-2 border-gray-700 hover:border-gray-600 text-white font-semibold rounded-full transition duration-200 whitespace-nowrap">
             View Case Studies
           </button>
         </div>

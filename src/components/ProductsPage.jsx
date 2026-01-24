@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const ProductsPage = () => {
+const ProductsPage = ({ setCurrentPage }) => {
   const [selectedProduct, setSelectedProduct] = useState('aifag');
 
   const products = {
@@ -119,47 +119,6 @@ const ProductsPage = () => {
         </div>
       </div>
 
-      {/* Product Details Section */}
-      <div className="pb-24 px-4">
-        <div className="max-w-5xl mx-auto">
-          <div className="bg-gray-900 border border-gray-800 rounded-3xl p-12 lg:p-16">
-            {/* Product Title */}
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">
-              {current.title}
-            </h2>
-
-            {/* Product Description */}
-            <p className="text-lg text-gray-400 mb-12 leading-relaxed">
-              {current.description}
-            </p>
-
-            {/* Features Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-              {current.features.map((feature, idx) => (
-                <div key={idx} className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center text-white flex-shrink-0">
-                    {feature.icon}
-                  </div>
-                  <div>
-                    <h3 className="text-white font-semibold text-lg">
-                      {feature.name}
-                    </h3>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            {/* Learn More Button */}
-            <button className="px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-full transition duration-200 flex items-center gap-2">
-              Learn More
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-              </svg>
-            </button>
-          </div>
-        </div>
-      </div>
-
       {/* Product Showcase Section */}
       <div className="pb-24 px-4">
         <div className="max-w-7xl mx-auto">
@@ -188,7 +147,9 @@ const ProductsPage = () => {
 
               {/* Buttons */}
               <div className="flex flex-col sm:flex-row gap-4">
-                <button className="px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-full transition duration-200">
+                <button 
+                  onClick={() => setCurrentPage('collaborate')}
+                  className="px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-full transition duration-200">
                   Request Early Access
                 </button>
                 <button className="px-8 py-4 bg-gray-800 hover:bg-gray-700 text-white font-semibold rounded-full transition duration-200 flex items-center justify-center gap-2 border border-gray-700">
@@ -581,7 +542,9 @@ const ProductsPage = () => {
           </p>
 
           {/* CTA Button */}
-          <button className="px-10 py-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-full transition duration-200 flex items-center justify-center gap-2 mx-auto">
+          <button 
+            onClick={() => setCurrentPage('collaborate')}
+            className="px-10 py-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-full transition duration-200 flex items-center justify-center gap-2 mx-auto">
             Get Early Access
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
