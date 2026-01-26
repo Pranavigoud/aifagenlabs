@@ -108,7 +108,7 @@ const SuccessStories = ({ setCurrentPage }) => {
 
             {/* Right Side - Case Study Card */}
             <div className="order-1 lg:order-2">
-              <div className="group bg-gray-900 border border-gray-800 rounded-2xl p-8 hover:border-blue-500 hover:border-opacity-60 hover:shadow-2xl hover:shadow-blue-500/30 transition duration-300">
+              <div className="group bg-neutral-900 border border-gray-800 rounded-2xl p-8 hover:border-white-500 hover:border-opacity-60 hover:shadow-2xl hover:shadow-neutral-800 transition duration-300">
                 {/* Company Name */}
                 <div className={`${currentStory.companyColor} text-sm font-semibold mb-4 group-hover:text-blue-300 transition`}>
                   {currentStory.company}
@@ -160,7 +160,7 @@ const SuccessStories = ({ setCurrentPage }) => {
           <div className="flex items-center justify-center gap-4 mt-12">
             <button
               onClick={prevSlide}
-              className="w-12 h-12 rounded-full bg-gray-800 hover:bg-gray-700 text-white flex items-center justify-center transition"
+              className="w-12 h-12 rounded-full bg-neutral-800 hover:bg-neutral-700 text-white flex items-center justify-center transition"
               aria-label="Previous slide"
             >
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -175,7 +175,7 @@ const SuccessStories = ({ setCurrentPage }) => {
                   key={idx}
                   onClick={() => goToSlide(idx)}
                   className={`h-2 rounded-full transition ${
-                    idx === currentSlide ? 'bg-blue-600 w-8' : 'bg-gray-600 w-2 hover:bg-gray-500'
+                    idx === currentSlide ? 'bg-blue-600 w-8' : 'bg-neutral-600 w-2 hover:bg-neutral-500'
                   }`}
                   aria-label={`Go to slide ${idx + 1}`}
                 ></button>
@@ -184,7 +184,7 @@ const SuccessStories = ({ setCurrentPage }) => {
 
             <button
               onClick={nextSlide}
-              className="w-12 h-12 rounded-full bg-gray-800 hover:bg-gray-700 text-white flex items-center justify-center transition"
+              className="w-12 h-12 rounded-full bg-neutral-800 hover:bg-neutral-700 text-white flex items-center justify-center transition"
               aria-label="Next slide"
             >
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">

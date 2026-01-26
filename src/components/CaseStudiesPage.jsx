@@ -4,7 +4,7 @@ import image2 from '../assets/image2.jpeg';
 import image3 from '../assets/image3.jpeg';
 import image4 from '../assets/image4.jpeg';
 
-const CaseStudiesPage = () => {
+const CaseStudiesPage = ({ setCurrentPage }) => {
   const [activeCategory, setActiveCategory] = useState('all');
   const [selectedCase, setSelectedCase] = useState(null);
 
@@ -24,44 +24,95 @@ const CaseStudiesPage = () => {
       title: 'Predictive Patient Analytics',
       client: 'HealthFirst Systems',
       description: 'Late detection of critical conditions was leading to poor patient outcomes. Doctors needed to manually review thousands of records, missing early warning signs.',
+      solution: 'Developed a predictive analytics platform that monitors patient data in real-time, identifying early warning signs of complications. The system integrates with existing EMR systems and provides actionable alerts.',
+      results: 'Patient critical condition detection improved by 85%, reducing adverse events by 40%. Hospital readmission rates dropped significantly.',
       metrics: ['+85%', '-40%'],
-      image: 'bg-gradient-to-br from-gray-800 to-gray-900'
+      image: image1,
+      technologies: ['Machine Learning', 'Predictive Analytics', 'Real-time Monitoring', 'Data Integration']
     },
     {
       id: 2,
       category: 'finance',
       title: 'AI-Powered Risk Assessment',
       client: 'TechCorp Global',
-      description: 'Manual risk analysis was taking weeks, creating bottlenecks in loan approvals and increasing operational costs. The legacy system couldn\'t keep up with the...',
-      metrics: ['+85%', '-40%'],
-      image: 'bg-gradient-to-br from-blue-900/20 to-gray-900'
+      description: 'Manual risk analysis was taking weeks, creating bottlenecks in loan approvals and increasing operational costs. The legacy system couldn\'t keep up with market demands.',
+      solution: 'Implemented an AI-powered risk assessment engine that analyzes applications in minutes with 99.2% accuracy. The system learns from historical data and adapts to market changes automatically.',
+      results: 'Loan approval time reduced from 3 weeks to 2 hours. Default rate prediction accuracy improved to 98%, reducing risk exposure.',
+      metrics: ['+92%', '-85%'],
+      image: image4,
+      technologies: ['Deep Learning', 'Risk Modeling', 'Automated Decision Engine', 'Pattern Recognition']
     },
     {
       id: 3,
-      category: 'finance',
-      title: 'AI-Powered Risk Assessment Platform',
-      client: 'TechCorp Global',
-      description: 'Manual risk assessment taking weeks per application with inconsistent results.',
-      metrics: ['+85%', '-40%'],
-      image: 'bg-gradient-to-br from-blue-900/20 to-gray-900'
-    },
-    {
-      id: 4,
       category: 'retail',
       title: 'Smart Inventory Management',
       client: 'RetailMax',
       description: 'Stockouts and overstock situations were costing millions annually. Manual forecasting couldn\'t account for seasonal trends, promotions, and external factors.',
+      solution: 'Built an AI-driven inventory management system that predicts demand with high accuracy, considering weather, events, trends, and historical data. Automated reordering prevents stockouts.',
+      results: 'Inventory costs reduced by 55%. Stockout incidents decreased by 78%. Profit margins improved by 12%.',
       metrics: ['+78%', '-55%'],
-      image: 'bg-gradient-to-br from-amber-900/10 to-gray-900'
+      image: image2,
+      technologies: ['Demand Forecasting', 'Supply Chain AI', 'Real-time Analytics', 'Automation']
+    },
+    {
+      id: 4,
+      category: 'manufacturing',
+      title: 'Quality Control Automation',
+      client: 'AutoManufacture Inc',
+      description: 'Manual quality inspection was slow, inconsistent, and missed defects. This led to recalls and customer complaints affecting brand reputation.',
+      solution: 'Deployed computer vision systems on the production line that inspect every product in real-time, detecting microscopic defects. The system learns from feedback and continuously improves.',
+      results: 'Defect detection rate improved by 96%. Production recall rates dropped by 89%. Inspection time reduced by 70%.',
+      metrics: ['+96%', '-89%'],
+      image: image3,
+      technologies: ['Computer Vision', 'Deep Learning', 'Real-time Detection', 'Quality Assurance']
     },
     {
       id: 5,
+      category: 'technology',
+      title: 'Intelligent Customer Support',
+      client: 'TechSupport Pro',
+      description: 'Call center was overwhelmed with repetitive queries. Wait times exceeded 20 minutes and customer satisfaction was at 45%.',
+      solution: 'Implemented conversational AI chatbots that handle 70% of routine queries instantly. Complex issues are seamlessly escalated to human agents with full context.',
+      results: 'Average wait time reduced from 20 minutes to 2 minutes. Customer satisfaction increased to 92%. Support costs reduced by 60%.',
+      metrics: ['+90%', '-60%'],
+      image: image1,
+      technologies: ['Conversational AI', 'NLP', 'Sentiment Analysis', 'Multi-language Support']
+    },
+    {
+      id: 6,
       category: 'healthcare',
-      title: 'Predictive Patient Analytics System',
-      client: 'HealthFirst Systems',
-      description: 'Late detection of patient deterioration leading to poor outcomes.',
-      metrics: ['+60%', '-30%'],
-      image: 'bg-gradient-to-br from-gray-800 to-gray-900'
+      title: 'Medical Image Analysis',
+      client: 'DiagnoAI Labs',
+      description: 'Radiologists were spending hours analyzing medical images manually, leading to fatigue and occasional misdiagnosis of critical conditions.',
+      solution: 'Deployed advanced computer vision AI that analyzes X-rays, MRIs, and CT scans. System highlights suspicious areas and provides probability scores for rapid physician review.',
+      results: 'Diagnostic accuracy improved by 94%. Review time per image reduced from 15 minutes to 2 minutes. Patient outcomes significantly improved.',
+      metrics: ['+94%', '-87%'],
+      image: image2,
+      technologies: ['Medical AI', 'Computer Vision', 'Deep Learning', 'Image Analysis']
+    },
+    {
+      id: 7,
+      category: 'finance',
+      title: 'Fraud Detection System',
+      client: 'SecureBank Corp',
+      description: 'Fraudulent transactions were costing millions annually. Traditional rule-based systems had high false positives and missed sophisticated fraud patterns.',
+      solution: 'Built an AI system using anomaly detection and behavioral analysis that identifies fraudulent patterns in real-time. Machine learning models adapt to new fraud tactics automatically.',
+      results: 'Fraud detection rate improved to 99.1%. False positive rate reduced by 75%. Annual fraud losses decreased by $8.2M.',
+      metrics: ['+99%', '-75%'],
+      image: image4,
+      technologies: ['Anomaly Detection', 'Machine Learning', 'Behavioral Analysis', 'Real-time Processing']
+    },
+    {
+      id: 8,
+      category: 'retail',
+      title: 'Personalized Recommendation Engine',
+      client: 'ShopFlow Systems',
+      description: 'Generic product recommendations resulted in low conversion rates. Customer engagement was declining as personalization was minimal.',
+      solution: 'Developed an AI recommendation engine that analyzes customer behavior, preferences, and purchase history. Real-time personalization increases relevance of product suggestions.',
+      results: 'Conversion rate increased by 43%. Average order value increased by 35%. Customer repeat purchase rate improved by 68%.',
+      metrics: ['+68%', '+43%'],
+      image: image3,
+      technologies: ['Recommendation AI', 'Behavioral Analytics', 'Personalization Engine', 'Real-time Insights']
     }
   ];
 
@@ -87,7 +138,7 @@ const CaseStudiesPage = () => {
       </div>
 
       {/* Sticky Category Filter Buttons */}
-      <div className="sticky top-16 z-40 bg-gray-900/50 border-b border-gray-800 backdrop-blur-sm mb-15">
+      <div className="sticky top-16 z-40 bg-neutral-900/50 border-b border-gray-800 backdrop-blur-sm mb-15">
         <div className="max-w-7xl mx-auto px-4 py-6">
           <div className="flex flex-wrap gap-4 justify-center">
             {categories.map((category) => (
@@ -97,7 +148,7 @@ const CaseStudiesPage = () => {
                 className={`px-6 py-3 rounded-full font-semibold transition duration-200 ${
                   activeCategory === category.id
                     ? 'bg-blue-600 text-white'
-                    : 'bg-gray-800 text-gray-400 hover:text-white border border-gray-700 hover:border-gray-600'
+                    : 'bg-neutral-800 text-gray-400 hover:text-white border border-gray-700 hover:border-gray-600'
                 }`}
               >
                 {category.label}
@@ -107,253 +158,58 @@ const CaseStudiesPage = () => {
         </div>
       </div>
 
-      {/* Featured Case Studies Section - Only show when "All Cases" is selected */}
-      {activeCategory === 'all' && (
-      <div className="px-4 pb-8">
+      {/* Featured Case Studies Section */}
+      <div className="px-4 pb-24">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {/* TechSupport Pro Card */}
-            <div 
-              onClick={() => setSelectedCase(caseStudies.find(cs => cs.client === 'TechSupport Pro'))}
-              className="bg-gray-900 border border-gray-800 rounded-2xl overflow-hidden hover:border-gray-700 transition duration-200 cursor-pointer"
-            >
-              {/* Category Badge */}
-              <div className="relative">
-                <div className="bg-gradient-to-br from-gray-700 to-gray-900 h-56 w-full flex items-center justify-center relative">
-                  <img 
-                    src={image1}
-                    alt="TechSupport Pro"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div className="absolute top-4 left-4">
-                  <span className="px-4 py-1 bg-gray-800 border border-gray-700 text-gray-300 rounded-full text-xs font-semibold">
-                    Technology
-                  </span>
-                </div>
-              </div>
-
-              {/* Content */}
-              <div className="p-6">
-                {/* Client Name with Icon */}
-                <div className="flex items-center gap-2 mb-4">
-                  <svg className="w-5 h-5 text-blue-500" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z" />
-                  </svg>
-                  <p className="text-blue-400 font-semibold text-sm">TechSupport Pro</p>
-                </div>
-
-                {/* Title */}
-                <h3 className="text-2xl font-bold text-white mb-3">
-                  Intelligent Customer Support
-                </h3>
-
-                {/* Description */}
-                <p className="text-gray-400 text-sm mb-6 leading-relaxed">
-                  Call center was overwhelmed with repetitive queries. Wait times exceeded 20 minutes and customer satisfaction was declining.
-                </p>
-
-                {/* Stats Icons */}
-                <div className="flex gap-3">
-                  <div className="w-8 h-8 bg-gray-800 rounded flex items-center justify-center">
-                    <svg className="w-5 h-5 text-blue-500" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z" />
-                    </svg>
-                  </div>
-                  <div className="w-8 h-8 bg-gray-800 rounded flex items-center justify-center">
-                    <svg className="w-5 h-5 text-blue-500" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M16 6l2.29 2.29-4.58 4.58 4.58 4.58L16 19.74 6.26 10z" />
-                    </svg>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* RetailMax Card */}
-            <div 
-              onClick={() => setSelectedCase(caseStudies.find(cs => cs.client === 'RetailMax'))}
-              className="bg-gray-900 border border-gray-800 rounded-2xl overflow-hidden hover:border-gray-700 transition duration-200 cursor-pointer"
-            >
-              <div className="relative">
-                <div className="bg-gradient-to-br from-gray-700 to-gray-900 h-56 w-full flex items-center justify-center relative">
-                  <img 
-                    src={image2}
-                    alt="RetailMax"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div className="absolute top-4 left-4">
-                  <span className="px-4 py-1 bg-gray-800 border border-gray-700 text-gray-300 rounded-full text-xs font-semibold">
-                    Retail
-                  </span>
-                </div>
-              </div>
-
-              {/* Content */}
-              <div className="p-6">
-                {/* Client Name with Icon */}
-                <div className="flex items-center gap-2 mb-4">
-                  <svg className="w-5 h-5 text-blue-500" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z" />
-                  </svg>
-                  <p className="text-blue-400 font-semibold text-sm">RetailMax</p>
-                </div>
-
-                {/* Title */}
-                <h3 className="text-2xl font-bold text-white mb-3">
-                  Smart Inventory Management
-                </h3>
-
-                {/* Description */}
-                <p className="text-gray-400 text-sm mb-6 leading-relaxed">
-                  Stockouts and overstock situations were costing millions annually. Manual forecasting couldn't account for seasonal trends, promotions, and external factors.
-                </p>
-
-                {/* Stats Icons */}
-                <div className="flex gap-3">
-                  <div className="w-8 h-8 bg-gray-800 rounded flex items-center justify-center">
-                    <svg className="w-5 h-5 text-blue-500" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z" />
-                    </svg>
-                  </div>
-                  <div className="w-8 h-8 bg-gray-800 rounded flex items-center justify-center">
-                    <svg className="w-5 h-5 text-blue-500" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M16 6l2.29 2.29-4.58 4.58 4.58 4.58L16 19.74 6.26 10z" />
-                    </svg>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* AutoManufacture Card */}
-            <div 
-              onClick={() => setSelectedCase(caseStudies.find(cs => cs.client === 'AutoManufacture Inc'))}
-              className="bg-gray-900 border border-gray-800 rounded-2xl overflow-hidden hover:border-gray-700 transition duration-200 cursor-pointer"
-            >
-              <div className="relative">
-                <div className="bg-gradient-to-br from-gray-700 to-gray-900 h-56 w-full flex items-center justify-center relative">
-                  <img 
-                    src={image3}
-                    alt="AutoManufacture"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div className="absolute top-4 left-4">
-                  <span className="px-4 py-1 bg-gray-800 border border-gray-700 text-gray-300 rounded-full text-xs font-semibold">
-                    Manufacturing
-                  </span>
-                </div>
-              </div>
-
-              {/* Content */}
-              <div className="p-6">
-                {/* Client Name with Icon */}
-                <div className="flex items-center gap-2 mb-4">
-                  <svg className="w-5 h-5 text-blue-500" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z" />
-                  </svg>
-                  <p className="text-blue-400 font-semibold text-sm">AutoManufacture Inc</p>
-                </div>
-
-                {/* Title */}
-                <h3 className="text-2xl font-bold text-white mb-3">
-                  Quality Control Automation
-                </h3>
-
-                {/* Description */}
-                <p className="text-gray-400 text-sm mb-6 leading-relaxed">
-                  Manual quality inspection was slow, inconsistent, and missed defects. This led to recalls and customer complaints.
-                </p>
-
-                {/* Stats Icons */}
-                <div className="flex gap-3">
-                  <div className="w-8 h-8 bg-gray-800 rounded flex items-center justify-center">
-                    <svg className="w-5 h-5 text-blue-500" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z" />
-                    </svg>
-                  </div>
-                  <div className="w-8 h-8 bg-gray-800 rounded flex items-center justify-center">
-                    <svg className="w-5 h-5 text-blue-500" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M16 6l2.29 2.29-4.58 4.58 4.58 4.58L16 19.74 6.26 10z" />
-                    </svg>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      )}
-
-      {/* Case Studies Grid - Adjusts spacing based on whether Featured Section is shown */}
-      <div className={`px-4 ${activeCategory === 'all' ? 'pb-24' : 'pt-8 pb-24'}`}>
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredCaseStudies.map((study) => (
               <div
                 key={study.id}
                 onClick={() => setSelectedCase(study)}
-                className="bg-gray-900 border border-gray-800 rounded-2xl overflow-hidden hover:border-gray-700 transition duration-200 flex flex-col group cursor-pointer"
+                className="bg-neutral-800 border border-gray-800 rounded-2xl overflow-hidden hover:border-gray-700 transition duration-200 flex flex-col group cursor-pointer"
               >
                 {/* Image Section with Category Badge */}
-                <div className="relative h-48 overflow-hidden">
-                  <div className={`${study.image} w-full h-full flex items-center justify-center group-hover:scale-105 transition duration-300`}>
-                    {study.id === 2 || study.id === 3 ? (
-                      // Finance cards with image4
-                      <img 
-                        src={image4}
-                        alt={study.title}
-                        className="w-full h-full object-cover"
-                      />
-                    ) : study.id === 4 ? (
-                      // Smart Inventory Management with image1
-                      <img 
-                        src={image2}
-                        alt={study.title}
-                        className="w-full h-full object-cover"
-                      />
-                    ) : (
-                      // Default dark image
-                      <div className="w-full h-full flex items-center justify-center">
-                        <svg className="w-16 h-16 text-gray-700" fill="currentColor" viewBox="0 0 24 24">
-                          <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" />
-                        </svg>
-                      </div>
-                    )}
+                <div className="relative h-56 overflow-hidden">
+                  <div className="w-full h-full flex items-center justify-center group-hover:scale-105 transition duration-300">
+                    <img 
+                      src={study.image}
+                      alt={study.title}
+                      className="w-full h-full object-cover"
+                    />
                   </div>
                   
                   {/* Category Badge */}
                   <div className="absolute top-3 left-3">
-                    <span className="px-3 py-1 bg-gray-800 border border-gray-600 text-gray-200 rounded-full text-xs font-semibold inline-block capitalize">
+                    <span className="px-3 py-1 bg-neutral-800 border border-gray-600 text-gray-200 rounded-full text-xs font-semibold inline-block capitalize">
                       {study.category}
                     </span>
                   </div>
                 </div>
 
                 {/* Content Section */}
-                <div className="p-6 flex flex-col flex-grow">
+                <div className="p-4 flex flex-col grow">
                   {/* Client Name with Icon */}
                   <div className="flex items-center gap-2 mb-3">
-                    <svg className="w-5 h-5 text-blue-500 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-5 h-5 text-blue-500 shrink-0" fill="currentColor" viewBox="0 0 24 24">
                       <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z" />
                     </svg>
                     <p className="text-blue-400 font-semibold text-sm">{study.client}</p>
                   </div>
 
                   {/* Title */}
-                  <h3 className="text-xl font-bold text-white mb-2">
+                  <h3 className="text-lg font-bold text-white mb-3">
                     {study.title}
                   </h3>
 
                   {/* Description */}
-                  <p className="text-gray-400 text-sm mb-6 flex-grow leading-relaxed">
+                  <p className="text-gray-400 text-sm mb-5 grow leading-relaxed line-clamp-3">
                     {study.description}
                   </p>
 
                   {/* Metrics Badges */}
                   <div className="flex gap-3">
                     {study.metrics.map((metric, idx) => (
-                      <span key={idx} className="px-3 py-1 bg-blue-900/30 border border-blue-700 text-blue-400 rounded-full text-sm font-semibold">
+                      <span key={idx} className="px-3 py-1.5 bg-blue-900/30 border border-blue-700 text-blue-400 rounded-full text-sm font-semibold">
                         {metric}
                       </span>
                     ))}
@@ -368,11 +224,12 @@ const CaseStudiesPage = () => {
       {/* Modal */}
       {selectedCase && (
         <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-          <div className="bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto relative">
+          <div className="bg-white rounded-2xl max-w-3xl w-full max-h-[90vh] overflow-y-auto relative">
             {/* Close Button */}
             <button
               onClick={() => setSelectedCase(null)}
-              className="absolute top-6 right-6 text-gray-500 hover:text-gray-700 z-10 bg-white rounded-full p-1"
+              className="absolute text-gray-500 hover:text-gray-700 z-[9999] bg-white rounded-full p-2 hover:bg-gray-100 transition"
+              style={{ right: '16px', top: '16px', position: 'absolute' }}
             >
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -382,7 +239,7 @@ const CaseStudiesPage = () => {
             {/* Image Section */}
             <div className="w-full h-64 bg-gradient-to-br from-gray-400 to-gray-600 flex items-center justify-center overflow-hidden relative">
               <img 
-                src={selectedCase.client === 'RetailMax' ? image2 : selectedCase.client === 'AutoManufacture Inc' ? image3 : image1}
+                src={selectedCase.image}
                 alt={selectedCase.title}
                 className="w-full h-full object-cover"
               />
@@ -451,13 +308,7 @@ const CaseStudiesPage = () => {
                   Our Solution
                 </h3>
                 <p className="text-gray-600 leading-relaxed">
-                  {selectedCase.client === 'RetailMax' 
-                    ? 'Built an AI-driven inventory management system that predicts demand with high accuracy, considering weather, events, trends, and historical data. Automated reordering prevents stockouts.'
-                    : selectedCase.client === 'AutoManufacture Inc'
-                    ? 'Deployed computer vision systems on the production line that inspect every product in real-time, detecting even microscopic defects. The system learns from feedback and continuously improves.'
-                    : selectedCase.client === 'HealthFirst Systems'
-                    ? 'Developed a predictive analytics platform that monitors patient data in real-time, identifying early warning signs of complications. The system integrates with existing EMR systems and provides actionable alerts.'
-                    : 'Implemented advanced AI technology to automate processes, improve efficiency, and deliver measurable results across the organization.'}
+                  {selectedCase.solution}
                 </p>
               </div>
 
@@ -470,7 +321,7 @@ const CaseStudiesPage = () => {
                   Results & Impact
                 </h3>
                 <p className="text-gray-600 leading-relaxed">
-                  Response time reduced by 90%, customer satisfaction up 65%, and support costs cut by 50%. The team now focuses on complex, high-value interactions.
+                  {selectedCase.results}
                 </p>
               </div>
 
@@ -478,15 +329,23 @@ const CaseStudiesPage = () => {
               <div className="mb-8 pb-8 border-b border-gray-200">
                 <h3 className="text-lg font-bold text-black mb-4">Technologies Used</h3>
                 <div className="flex flex-wrap gap-3">
-                  <span className="px-4 py-2 bg-blue-50 text-black rounded-lg text-sm font-medium">Conversational AI</span>
-                  <span className="px-4 py-2 bg-blue-50 text-black rounded-lg text-sm font-medium">NLP</span>
-                  <span className="px-4 py-2 bg-blue-50 text-black rounded-lg text-sm font-medium">Sentiment Analysis</span>
-                  <span className="px-4 py-2 bg-blue-50 text-black rounded-lg text-sm font-medium">Multi-language Support</span>
+                  {selectedCase.technologies.map((tech, idx) => (
+                    <span key={idx} className="px-4 py-2 bg-blue-50 text-black rounded-lg text-sm font-medium">
+                      {tech}
+                    </span>
+                  ))}
                 </div>
               </div>
 
               {/* Call to Action Button */}
-              <button className="w-3/5 bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-full transition duration-200 flex items-center justify-center gap-2">
+              <button 
+                onClick={() => {
+                  setSelectedCase(null);
+                  setCurrentPage('collaborate');
+                  window.scrollTo(0, 0);
+                }}
+                className="w-3/5 bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-full transition duration-200 flex items-center justify-center gap-2"
+              >
                 Start Your Transformation
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />

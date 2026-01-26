@@ -39,7 +39,7 @@ function App() {
       ) : currentPage === 'innovation-labs' ? (
         <InnovationLabsPage setCurrentPage={setCurrentPage} />
       ) : currentPage === 'case-studies' ? (
-        <CaseStudiesPage />
+        <CaseStudiesPage setCurrentPage={setCurrentPage} />
       ) : currentPage === 'about' ? (
         <AboutPage setCurrentPage={setCurrentPage} />
       ) : currentPage === 'contact' ? (
@@ -48,7 +48,7 @@ function App() {
         <CollaboratePage />
       ) : null}
       
-      <Footer />
+      <Footer setCurrentPage={setCurrentPage} />
 
       {/* Floating Chat Icon - Appears on all pages */}
       <div 

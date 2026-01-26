@@ -227,7 +227,13 @@ const Services = ({ setCurrentPage }) => {
                   </div>
 
                   {/* Button */}
-                  <button className="mt-6 sm:mt-8 px-4 sm:px-6 py-2 sm:py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-full flex items-center gap-2 transition text-sm sm:text-base">
+                  <button 
+                    onClick={() => {
+                      setCurrentPage('collaborate');
+                      window.scrollTo(0, 0);
+                    }}
+                    className="mt-6 sm:mt-8 px-4 sm:px-6 py-2 sm:py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-full flex items-center gap-2 transition text-sm sm:text-base"
+                  >
                     Discuss This Solution
                     <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />

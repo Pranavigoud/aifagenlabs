@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const Footer = () => {
+const Footer = ({ setCurrentPage }) => {
   const [email, setEmail] = useState('');
 
   const handleSubscribe = (e) => {
@@ -11,7 +11,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-black text-white">
+    <footer className="bg-neutral-900 text-white">
       {/* Newsletter Section */}
       <div className="border-t border-b border-gray-800 py-8 sm:py-10 md:py-12 px-3 sm:px-4 md:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 sm:gap-6 md:gap-8">
@@ -95,9 +95,9 @@ const Footer = () => {
             <div>
               <h4 className="font-bold text-white mb-4 sm:mb-6 text-sm sm:text-base">Company</h4>
               <ul className="space-y-2 sm:space-y-3">
-                <li><a href="#" onClick={(e) => { e.preventDefault(); window.scrollTo(0, 0); }} className="text-gray-400 hover:text-white transition-colors duration-300 text-xs sm:text-sm link-smooth">About Us</a></li>
-                <li><a href="#" onClick={(e) => { e.preventDefault(); window.scrollTo(0, 0); }} className="text-gray-400 hover:text-white transition-colors duration-300 text-xs sm:text-sm link-smooth">Innovation Labs</a></li>
-                <li><a href="#" onClick={(e) => { e.preventDefault(); window.scrollTo(0, 0); }} className="text-gray-400 hover:text-white transition-colors duration-300 text-xs sm:text-sm link-smooth">Case Studies</a></li>
+                <li><a href="#" onClick={(e) => { e.preventDefault(); setCurrentPage('about'); window.scrollTo(0, 0); }} className="text-gray-400 hover:text-white transition-colors duration-300 text-xs sm:text-sm link-smooth">About Us</a></li>
+                <li><a href="#" onClick={(e) => { e.preventDefault(); setCurrentPage('innovation-labs'); window.scrollTo(0, 0); }} className="text-gray-400 hover:text-white transition-colors duration-300 text-xs sm:text-sm link-smooth">Innovation Labs</a></li>
+                <li><a href="#" onClick={(e) => { e.preventDefault(); setCurrentPage('case-studies'); window.scrollTo(0, 0); }} className="text-gray-400 hover:text-white transition-colors duration-300 text-xs sm:text-sm link-smooth">Case Studies</a></li>
                 <li><a href="#" onClick={(e) => { e.preventDefault(); window.scrollTo(0, 0); }} className="text-gray-400 hover:text-white transition text-xs sm:text-sm">Careers</a></li>
               </ul>
             </div>
@@ -106,8 +106,8 @@ const Footer = () => {
             <div>
               <h4 className="font-bold text-white mb-4 sm:mb-6 text-sm sm:text-base">Solutions</h4>
               <ul className="space-y-2 sm:space-y-3">
-                <li><a href="#" onClick={(e) => { e.preventDefault(); window.scrollTo(0, 0); }} className="text-gray-400 hover:text-white transition text-xs sm:text-sm">Services</a></li>
-                <li><a href="#" onClick={(e) => { e.preventDefault(); window.scrollTo(0, 0); }} className="text-gray-400 hover:text-white transition text-xs sm:text-sm">Products</a></li>
+                <li><a href="#" onClick={(e) => { e.preventDefault(); setCurrentPage('services'); window.scrollTo(0, 0); }} className="text-gray-400 hover:text-white transition text-xs sm:text-sm">Services</a></li>
+                <li><a href="#" onClick={(e) => { e.preventDefault(); setCurrentPage('products'); window.scrollTo(0, 0); }} className="text-gray-400 hover:text-white transition text-xs sm:text-sm">Products</a></li>
                 <li><a href="#" onClick={(e) => { e.preventDefault(); window.scrollTo(0, 0); }} className="text-gray-400 hover:text-white transition text-xs sm:text-sm">AIFAG Suite</a></li>
                 <li><a href="#" onClick={(e) => { e.preventDefault(); window.scrollTo(0, 0); }} className="text-gray-400 hover:text-white transition text-xs sm:text-sm">LifeOS</a></li>
               </ul>
@@ -117,8 +117,8 @@ const Footer = () => {
             <div>
               <h4 className="font-bold text-white mb-4 sm:mb-6 text-sm sm:text-base">Connect</h4>
               <ul className="space-y-2 sm:space-y-3">
-                <li><a href="#" onClick={(e) => { e.preventDefault(); window.scrollTo(0, 0); }} className="text-gray-400 hover:text-white transition text-xs sm:text-sm">Contact</a></li>
-                <li><a href="#" onClick={(e) => { e.preventDefault(); window.scrollTo(0, 0); }} className="text-gray-400 hover:text-white transition text-xs sm:text-sm">Collaborate</a></li>
+                <li><a href="#" onClick={(e) => { e.preventDefault(); setCurrentPage('contact'); window.scrollTo(0, 0); }} className="text-gray-400 hover:text-white transition text-xs sm:text-sm">Contact</a></li>
+                <li><a href="#" onClick={(e) => { e.preventDefault(); setCurrentPage('collaborate'); window.scrollTo(0, 0); }} className="text-gray-400 hover:text-white transition text-xs sm:text-sm">Collaborate</a></li>
                 <li><a href="#" onClick={(e) => { e.preventDefault(); window.scrollTo(0, 0); }} className="text-gray-400 hover:text-white transition text-xs sm:text-sm">Partners</a></li>
               </ul>
             </div>
