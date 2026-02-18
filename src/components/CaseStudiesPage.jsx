@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
+import '../fadeInUpCaseStudies.css';
 import image1 from '../assets/image1.jpeg';
 import image2 from '../assets/image2.jpeg';
 import image3 from '../assets/image3.jpeg';
@@ -120,10 +121,59 @@ const CaseStudiesPage = ({ setCurrentPage }) => {
     ? caseStudies 
     : caseStudies.filter(study => study.category === activeCategory);
 
+  // Refs for each major section
+  const headerRef = useRef(null);
+  const filterRef = useRef(null);
+  const gridRef = useRef(null);
+  // For card refs, use an array
+  const cardRefs = useRef([]);
+
+  // State to track if each section is visible
+  const [visible, setVisible] = useState({
+    header: false,
+    filter: false,
+    grid: false,
+    cards: []
+  });
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const reveal = (ref, key) => {
+        if (!ref.current) return;
+        const rect = ref.current.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 100) {
+          setVisible((prev) => prev[key] ? prev : { ...prev, [key]: true });
+        }
+      };
+      reveal(headerRef, 'header');
+      reveal(filterRef, 'filter');
+      reveal(gridRef, 'grid');
+      // Reveal each card
+      setVisible((prev) => {
+        const newCards = [...(prev.cards || [])];
+        filteredCaseStudies.forEach((_, idx) => {
+          if (cardRefs.current[idx]) {
+            const rect = cardRefs.current[idx].getBoundingClientRect();
+            if (rect.top < window.innerHeight - 100) {
+              newCards[idx] = true;
+            }
+          }
+        });
+        return { ...prev, cards: newCards };
+      });
+    };
+    window.addEventListener('scroll', handleScroll);
+    handleScroll();
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [filteredCaseStudies.length]);
+
   return (
     <div className="bg-black text-white min-h-screen">
       {/* Header Section */}
-      <div className="pt-32 pb-16 px-4">
+      <div
+        ref={headerRef}
+        className={`pt-32 pb-16 px-4 transition-all duration-1000 ${visible.header ? 'fade-in-up-casestudies' : 'opacity-0 translate-y-8'}`}
+      >
         <div className="max-w-4xl mx-auto text-center">
           {/* Main Heading */}
           <h1 className="text-5xl md:text-7xl font-bold mb-8 text-white">
@@ -138,7 +188,10 @@ const CaseStudiesPage = ({ setCurrentPage }) => {
       </div>
 
       {/* Sticky Category Filter Buttons */}
-      <div className="sticky top-16 z-40 bg-neutral-900/50 border-b border-gray-800 backdrop-blur-sm mb-15">
+      <div
+        ref={filterRef}
+        className={`sticky top-16 z-40 bg-neutral-900/50 border-b border-gray-800 backdrop-blur-sm mb-15 transition-all duration-1000 ${visible.filter ? 'fade-in-up-casestudies' : 'opacity-0 translate-y-8'}`}
+      >
         <div className="max-w-7xl mx-auto px-4 py-6">
           <div className="flex flex-wrap gap-4 justify-center">
             {categories.map((category) => (
@@ -159,14 +212,18 @@ const CaseStudiesPage = ({ setCurrentPage }) => {
       </div>
 
       {/* Featured Case Studies Section */}
-      <div className="px-4 pb-24">
+      <div
+        ref={gridRef}
+        className={`px-4 pb-24 transition-all duration-1000 ${visible.grid ? 'fade-in-up-casestudies' : 'opacity-0 translate-y-8'}`}
+      >
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {filteredCaseStudies.map((study) => (
+            {filteredCaseStudies.map((study, idx) => (
               <div
                 key={study.id}
+                ref={el => cardRefs.current[idx] = el}
                 onClick={() => setSelectedCase(study)}
-                className="bg-neutral-800 border border-gray-800 rounded-2xl overflow-hidden hover:border-gray-700 transition duration-200 flex flex-col group cursor-pointer"
+                className={`bg-neutral-800 border border-gray-800 rounded-2xl overflow-hidden hover:border-gray-700 transition duration-200 flex flex-col group cursor-pointer transition-all duration-1000 ${visible.cards[idx] ? 'fade-in-up-casestudies' : 'opacity-0 translate-y-8'}`}
               >
                 {/* Image Section with Category Badge */}
                 <div className="relative h-56 overflow-hidden">
@@ -208,8 +265,8 @@ const CaseStudiesPage = ({ setCurrentPage }) => {
 
                   {/* Metrics Badges */}
                   <div className="flex gap-3">
-                    {study.metrics.map((metric, idx) => (
-                      <span key={idx} className="px-3 py-1.5 bg-blue-900/30 border border-blue-700 text-blue-400 rounded-full text-sm font-semibold">
+                    {study.metrics.map((metric, idx2) => (
+                      <span key={idx2} className="px-3 py-1.5 bg-blue-900/30 border border-blue-700 text-blue-400 rounded-full text-sm font-semibold">
                         {metric}
                       </span>
                     ))}
