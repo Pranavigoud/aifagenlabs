@@ -67,6 +67,36 @@ button, a, input, textarea, select {
   animation-delay: 0.2s;
 }
 
+@keyframes slideInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-4rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(4rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-slideInLeft {
+  animation: slideInLeft 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+.animate-slideInRight {
+  animation: slideInRight 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
 /* ============================================
    FADE-IN ANIMATIONS
    ============================================ */
@@ -84,6 +114,17 @@ button, a, input, textarea, select {
   from {
     opacity: 0;
     transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideDownFromTop {
+  from {
+    opacity: 0;
+    transform: translateY(-100%);
   }
   to {
     opacity: 1;
@@ -111,6 +152,21 @@ button, a, input, textarea, select {
     opacity: 1;
     transform: translateX(0);
   }
+}
+
+@keyframes slideUpFromBottom {
+  from {
+    opacity: 0;
+    transform: translateY(80px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-slide-up {
+  animation: slideUpFromBottom 0.9s cubic-bezier(0.34, 1.56, 0.64, 1) both;
 }
 
 /* ============================================
@@ -186,6 +242,7 @@ select:focus {
 /* Smooth scrolling */
 html {
   scroll-behavior: smooth;
+  background: #000;
 }
 
 /* Ensure images scale properly */
@@ -989,5 +1046,44 @@ a:focus-visible {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
+}
+
+@keyframes toggleDotMove {
+  0% {
+    top: 6px;
+  }
+  100% {
+    top: 20px;
+  }
+}
+
+@keyframes toggleUpDown {
+  0% {
+    transform: translate(-50%, -60%) translateY(0);
+  }
+  100% {
+    transform: translate(-50%, -60%) translateY(10px);
+  }
+}
+
+.animate-toggleUpDown {
+  animation: toggleUpDown 1.2s ease-in-out infinite alternate;
+  --toggle-move: 0;
+  animation-name: toggleUpDown, toggleMoveVar;
+}
+
+@keyframes toggleMoveVar {
+  0% {
+    --toggle-move: 0;
+  }
+  100% {
+    --toggle-move: 10px;
+  }
+}
+
+/* Dot uses the parent's --toggle-move variable for its own translateY */
+.toggle-dot-sync {
+  top: calc(6px + var(--toggle-move, 0));
+  animation: none !important;
 }
 

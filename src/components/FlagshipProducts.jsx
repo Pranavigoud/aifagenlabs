@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 
 const FlagshipProducts = ({ setCurrentPage }) => {
   const products = [
@@ -26,12 +26,30 @@ const FlagshipProducts = ({ setCurrentPage }) => {
     }
   ];
 
+  // Animation state for both cards
+  const [visible, setVisible] = useState([false, false]);
+  const sectionRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new window.IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setVisible([true, true]);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.2 }
+    );
+    if (sectionRef.current) observer.observe(sectionRef.current);
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <div className="bg-neutral-900 text-white px-3 sm:px-4 md:px-6 lg:px-8 py-12 sm:py-16 md:py-20 lg:py-24">
-      <div className="max-w-7xl mx-auto">
+    <div ref={sectionRef} className="bg-neutral-900 text-white px-3 sm:px-4 md:px-6 lg:px-8 py-12 sm:py-16 md:py-20 lg:py-24">
+      <div className="max-w-7xl mx-auto scale-95">
         {/* Header */}
         <div className="text-center mb-12 sm:mb-14 md:mb-16 lg:mb-20">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-2 sm:mb-3 md:mb-4">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-2 sm:mb-3 md:mb-4">
             Flagship Products
           </h2>
           <p className="text-xs sm:text-sm md:text-base lg:text-lg text-gray-400">
@@ -44,7 +62,9 @@ const FlagshipProducts = ({ setCurrentPage }) => {
           {products.map((product, index) => (
             <div
               key={product.id}
-              className={`bg-neutral-800 border border-gray-800 rounded-lg sm:rounded-xl lg:rounded-3xl p-4 sm:p-5 md:p-6 hover:border-gray-700 transition duration-300 ${index === 0 ? 'slide-in-left' : 'slide-in-right'}`}
+              className={`bg-neutral-800 border border-gray-800 rounded-lg sm:rounded-xl lg:rounded-3xl p-4 sm:p-5 md:p-6 hover:border-gray-700 transition duration-300
+                ${visible[index] ? (index === 0 ? 'animate-slideInLeft' : 'animate-slideInRight') : (index === 0 ? 'opacity-0 -translate-x-16' : 'opacity-0 translate-x-16')}
+                transition-all duration-700 ease-out`}
             >
               {/* Badge */}
               <div className="inline-block mb-4 sm:mb-6">
@@ -88,7 +108,7 @@ const FlagshipProducts = ({ setCurrentPage }) => {
               {/* Learn More Button */}
               <button 
                 onClick={() => { setCurrentPage('products'); window.scrollTo(0, 0); }}
-                className="inline-flex items-center gap-2 px-4 sm:px-6 py-2 sm:py-3 border border-gray-600 hover:border-gray-400 text-white rounded-full transition duration-200 group text-sm sm:text-base">
+                className="inline-flex items-center gap-2 px-4 sm:px-6 py-2 sm:py-3 border border-gray-600 hover:border-gray-400 text-white rounded-2xl transition duration-200 group text-sm sm:text-base">
                 <span className="font-medium">Learn More</span>
                 <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />

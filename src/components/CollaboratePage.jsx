@@ -1,10 +1,44 @@
-import React from 'react';
+import React, { useRef, useEffect, useState } from 'react';
+import '../fadeInUpCollaborate.css';
 
 const CollaboratePage = () => {
+  // Refs for each major section
+  const collaborateRef = useRef(null);
+  const iamaRef = useRef(null);
+  const whyRef = useRef(null);
+
+  // State to track if each section is visible
+  const [visible, setVisible] = useState({
+    collaborate: false,
+    iama: false,
+    why: false,
+  });
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const reveal = (ref, key) => {
+        if (!ref.current) return;
+        const rect = ref.current.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 100) {
+          setVisible((prev) => prev[key] ? prev : { ...prev, [key]: true });
+        }
+      };
+      reveal(collaborateRef, 'collaborate');
+      reveal(iamaRef, 'iama');
+      reveal(whyRef, 'why');
+    };
+    window.addEventListener('scroll', handleScroll);
+    handleScroll();
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
     <div className="bg-black text-white min-h-screen">
       {/* Collaborate Section */}
-      <div className="px-4 py-24">
+      <div
+        ref={collaborateRef}
+        className={`px-4 py-24 transition-all duration-1000 ${visible.collaborate ? 'fade-in-up-collaborate' : 'opacity-0 translate-y-8'}`}
+      >
         <div className="max-w-4xl mx-auto text-center">
           {/* Heading */}
           <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold text-white mb-8">
@@ -18,9 +52,11 @@ const CollaboratePage = () => {
         </div>
 
         {/* I am a... Section */}
-        <div className="mt-24">
+        <div
+          ref={iamaRef}
+          className={`mt-24 transition-all duration-1000 ${visible.iama ? 'fade-in-up-collaborate' : 'opacity-0 translate-y-8'}`}
+        >
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-12 text-center">I am a...</h2>
-          
           <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
             {/* Startup Card */}
             <div className="bg-gray-900/50 border border-gray-800 rounded-2xl p-8 hover:border-blue-600 transition duration-300">
@@ -32,8 +68,7 @@ const CollaboratePage = () => {
               <h3 className="text-xl font-bold text-white mb-3 text-center">Startup</h3>
               <p className="text-gray-400 text-center text-sm">Early stage company looking for AI solutions</p>
             </div>
-
-            {/* Enterprise Card */}
+            {/* ...existing code for other cards... */}
             <div className="bg-gray-900/50 border border-gray-800 rounded-2xl p-8 hover:border-blue-600 transition duration-300">
               <div className="flex justify-center mb-6">
                 <svg className="w-12 h-12 text-blue-500" fill="currentColor" viewBox="0 0 24 24">
@@ -43,8 +78,6 @@ const CollaboratePage = () => {
               <h3 className="text-xl font-bold text-white mb-3 text-center">Enterprise</h3>
               <p className="text-gray-400 text-center text-sm">Established organization seeking transformation</p>
             </div>
-
-            {/* Individual Card */}
             <div className="bg-gray-900/50 border border-gray-800 rounded-2xl p-8 hover:border-blue-600 transition duration-300">
               <div className="flex justify-center mb-6">
                 <svg className="w-12 h-12 text-blue-500" fill="currentColor" viewBox="0 0 24 24">
@@ -54,8 +87,6 @@ const CollaboratePage = () => {
               <h3 className="text-xl font-bold text-white mb-3 text-center">Individual</h3>
               <p className="text-gray-400 text-center text-sm">Professional interested in AI tools</p>
             </div>
-
-            {/* Investor Card */}
             <div className="bg-gray-900/50 border border-gray-800 rounded-2xl p-8 hover:border-blue-600 transition duration-300">
               <div className="flex justify-center mb-6">
                 <svg className="w-12 h-12 text-blue-500" fill="currentColor" viewBox="0 0 24 24">
@@ -65,8 +96,6 @@ const CollaboratePage = () => {
               <h3 className="text-xl font-bold text-white mb-3 text-center">Investor</h3>
               <p className="text-gray-400 text-center text-sm">Looking to invest or partner</p>
             </div>
-
-            {/* Strategic Partner Card */}
             <div className="bg-gray-900/50 border border-gray-800 rounded-2xl p-8 hover:border-blue-600 transition duration-300">
               <div className="flex justify-center mb-6">
                 <svg className="w-12 h-12 text-blue-500" fill="currentColor" viewBox="0 0 24 24">
@@ -80,23 +109,22 @@ const CollaboratePage = () => {
         </div>
 
         {/* Why Partner With Us Section */}
-        <div className="mt-32">
+        <div
+          ref={whyRef}
+          className={`mt-32 transition-all duration-1000 ${visible.why ? 'fade-in-up-collaborate' : 'opacity-0 translate-y-8'}`}
+        >
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-12 text-center">Why Partner With Us?</h2>
-          
           <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
             {/* Expert Team Card */}
             <div className="bg-gray-900/50 border border-gray-800 rounded-2xl p-8 hover:border-blue-600 transition duration-300">
               <h3 className="text-xl font-bold text-white mb-4 text-center">Expert Team</h3>
               <p className="text-gray-400 text-center text-sm leading-relaxed">Work with AI specialists who have built solutions for Fortune 500 companies.</p>
             </div>
-
-            {/* Tailored Solutions Card */}
+            {/* ...existing code for other cards... */}
             <div className="bg-gray-900/50 border border-gray-800 rounded-2xl p-8 hover:border-blue-600 transition duration-300">
               <h3 className="text-xl font-bold text-white mb-4 text-center">Tailored Solutions</h3>
               <p className="text-gray-400 text-center text-sm leading-relaxed">Custom AI implementations designed specifically for your unique needs.</p>
             </div>
-
-            {/* Proven Track Record Card */}
             <div className="bg-gray-900/50 border border-gray-800 rounded-2xl p-8 hover:border-blue-600 transition duration-300">
               <h3 className="text-xl font-bold text-white mb-4 text-center">Proven Track Record</h3>
               <p className="text-gray-400 text-center text-sm leading-relaxed">Join 50+ organizations that have transformed with our AI solutions.</p>

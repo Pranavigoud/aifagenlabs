@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 
 const AIServicesSolutions = ({ setCurrentPage }) => {
   const services = [
@@ -40,12 +40,41 @@ const AIServicesSolutions = ({ setCurrentPage }) => {
     }
   ];
 
+  // Animation state for each card
+  const [visible, setVisible] = useState(Array(services.length).fill(false));
+  const cardRefs = useRef([]);
+
+  useEffect(() => {
+    const observers = [];
+    cardRefs.current = cardRefs.current.slice(0, services.length);
+    services.forEach((_, i) => {
+      if (!cardRefs.current[i]) return;
+      observers[i] = new window.IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) {
+            setTimeout(() => {
+              setVisible((prev) => {
+                const updated = [...prev];
+                updated[i] = true;
+                return updated;
+              });
+            }, i * 120); // stagger
+            observers[i].disconnect();
+          }
+        },
+        { threshold: 0.2 }
+      );
+      observers[i].observe(cardRefs.current[i]);
+    });
+    return () => observers.forEach((obs) => obs && obs.disconnect());
+  }, [services.length]);
+
   return (
     <div className="min-h-screen bg-black text-white px-3 sm:px-4 md:px-6 lg:px-8 py-12 sm:py-16 md:py-20 lg:py-24">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-12 sm:mb-14 md:mb-16 lg:mb-20">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold mb-4 sm:mb-6">
             AI Solutions That Scale
           </h2>
           <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-400 max-width-3xl mx-auto px-2 sm:px-0">
@@ -55,13 +84,17 @@ const AIServicesSolutions = ({ setCurrentPage }) => {
 
         {/* Services Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 md:gap-6 mb-8 sm:mb-10 md:mb-12">
-          {services.map((service) => (
+          {services.map((service, i) => (
             <div
               key={service.id}
-              className="group bg-neutral-900 rounded-lg sm:rounded-xl lg:rounded-2xl p-4 sm:p-5 md:p-6 hover:shadow-xl hover:shadow-white/20 transition duration-300 cursor-pointer"
+              ref={el => cardRefs.current[i] = el}
+              className={`group bg-neutral-900 rounded-lg sm:rounded-xl lg:rounded-2xl p-4 sm:p-5 md:p-6 hover:shadow-xl hover:shadow-white/20 transition duration-300 cursor-pointer
+                ${visible[i] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}
+                transition-all duration-700 ease-out`}
+              style={{ transitionDelay: visible[i] ? `${i * 80}ms` : '0ms' }}
             >
               {/* Icon */}
-              <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gray-800 rounded-lg flex items-center justify-center mb-4 sm:mb-6 group-hover:bg-gray-700 transition duration-300">
+              <div className="w-10 h-10 sm:w-12 sm:h-12 bg-neutral-800 rounded-lg flex items-center justify-center mb-4 sm:mb-6 transition duration-300">
                 <svg className="w-5 h-5 sm:w-6 sm:h-6 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   {service.id === 1 && (
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 8v4m0 4v.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />

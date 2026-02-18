@@ -1,12 +1,35 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
+import '../fadeInUpInnovation.css';
 
 const InnovationLabsPage = ({ setCurrentPage }) => {
   const [activeTab, setActiveTab] = useState('research');
 
+  // Scroll reveal animation for multiple sections
+  const sectionRefs = Array.from({ length: 6 }, () => useRef(null));
+  const [reveals, setReveals] = useState(Array(6).fill(false));
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setReveals((prev) =>
+        prev.map((revealed, idx) => {
+          if (revealed) return true;
+          const ref = sectionRefs[idx].current;
+          if (!ref) return false;
+          const rect = ref.getBoundingClientRect();
+          return rect.top < window.innerHeight - 80;
+        })
+      );
+    };
+    window.addEventListener('scroll', handleScroll);
+    handleScroll();
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  let sectionIdx = 0;
   return (
     <div className="bg-black text-white min-h-screen">
       {/* Header Section */}
-      <div className="pt-32 pb-32 px-4">
+      <div ref={sectionRefs[sectionIdx]} className={`pt-32 pb-32 px-4 transition-all duration-700 ${reveals[sectionIdx++] ? 'fade-in-up' : 'opacity-0'}`}> 
         <div className="max-w-4xl mx-auto text-center">
           {/* Badge */}
           <div className="mb-8 inline-flex items-center gap-2 bg-gray-900 border border-gray-800 rounded-full px-4 py-2">
@@ -37,7 +60,7 @@ const InnovationLabsPage = ({ setCurrentPage }) => {
       </div>
 
       {/* Tab Navigation */}
-      <div className="sticky top-16 z-40 bg-gray-900/50 border-b border-gray-800 backdrop-blur-sm">
+      <div ref={sectionRefs[sectionIdx]} className={`sticky top-16 z-40 bg-gray-900/50 border-b border-gray-800 backdrop-blur-sm transition-all duration-700 ${reveals[sectionIdx++] ? 'fade-in-up' : 'opacity-0'}`}> 
         <div className="max-w-7xl mx-auto px-4 py-6">
           <div className="flex flex-wrap gap-4 justify-center">
             <button
@@ -98,7 +121,7 @@ const InnovationLabsPage = ({ setCurrentPage }) => {
       </div>
 
           {/* Content Area */}
-      <div className="py-24 px-4">
+      <div ref={sectionRefs[sectionIdx]} className={`py-24 px-4 transition-all duration-700 ${reveals[sectionIdx++] ? 'fade-in-up' : 'opacity-0'}`}> 
         <div className="max-w-4xl mx-auto">
           {activeTab === 'research' && (
             <div className="text-center">
@@ -355,7 +378,7 @@ const InnovationLabsPage = ({ setCurrentPage }) => {
       </div>
 
       {/* Research Focus Areas */}
-      <div className="pb-24 px-4">
+      <div ref={sectionRefs[sectionIdx]} className={`pb-24 px-4 transition-all duration-700 ${reveals[sectionIdx++] ? 'fade-in-up' : 'opacity-0'}`}> 
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {/* Advanced Language Models */}
@@ -447,7 +470,7 @@ const InnovationLabsPage = ({ setCurrentPage }) => {
       </div>
 
       {/* Join Innovation Journey CTA */}
-      <div className="py-24 px-4">
+      <div ref={sectionRefs[sectionIdx]} className={`py-24 px-4 transition-all duration-700 ${reveals[sectionIdx++] ? 'fade-in-up' : 'opacity-0'}`}> 
         <div className="max-w-4xl mx-auto text-center">
           {/* Main Heading */}
           <h2 className="text-5xl md:text-6xl font-bold mb-6 text-white">

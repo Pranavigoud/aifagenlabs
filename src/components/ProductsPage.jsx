@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
+import '../fadeInUpProducts.css';
 
 const ProductsPage = ({ setCurrentPage }) => {
   const [selectedProduct, setSelectedProduct] = useState('aifag');
@@ -70,10 +71,32 @@ const ProductsPage = ({ setCurrentPage }) => {
 
   const current = products[selectedProduct];
 
+  // Scroll reveal animation for multiple sections
+  const sectionRefs = Array.from({ length: 8 }, () => useRef(null));
+  const [reveals, setReveals] = useState(Array(8).fill(false));
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setReveals((prev) =>
+        prev.map((revealed, idx) => {
+          if (revealed) return true;
+          const ref = sectionRefs[idx].current;
+          if (!ref) return false;
+          const rect = ref.getBoundingClientRect();
+          return rect.top < window.innerHeight - 80;
+        })
+      );
+    };
+    window.addEventListener('scroll', handleScroll);
+    handleScroll();
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  let sectionIdx = 0;
   return (
     <div className="bg-black text-white min-h-screen">
       {/* Header Section */}
-      <div className="pt-32 pb-24 px-4">
+      <div ref={sectionRefs[sectionIdx]} className={`pt-32 pb-24 px-4 transition-all duration-700 ${reveals[sectionIdx++] ? 'fade-in-up' : 'opacity-0'}`}> 
         <div className="max-w-4xl mx-auto text-center">
           {/* Badge */}
           <div className="mb-8 inline-flex items-center gap-2 bg-neutral-900 border border-gray-800 rounded-full px-4 py-2">
@@ -94,33 +117,37 @@ const ProductsPage = ({ setCurrentPage }) => {
           </p>
 
           {/* Product Tabs */}
-          <div className="flex gap-4 justify-center">
-            <button
-              onClick={() => setSelectedProduct('aifag')}
-              className={`px-8 py-3 rounded-full font-semibold transition duration-200 ${
-                selectedProduct === 'aifag'
-                  ? 'bg-blue-600 text-white'
-                  : 'bg-neutral-800 text-gray-400 hover:text-white border border-gray-700'
-              }`}
-            >
-              AIFAG
-            </button>
-            <button
-              onClick={() => setSelectedProduct('lifeos')}
-              className={`px-8 py-3 rounded-full font-semibold transition duration-200 ${
-                selectedProduct === 'lifeos'
-                  ? 'bg-blue-600 text-white'
-                  : 'bg-neutral-800 text-gray-400 hover:text-white border border-gray-700'
-              }`}
-            >
-              LifeOS
-            </button>
+          <div className="flex justify-center">
+            <div className="flex gap-0 bg-neutral-800 rounded-2xl p-1 border border-gray-700">
+              <button
+                onClick={() => setSelectedProduct('aifag')}
+                className={`px-8 py-3 rounded-xl font-semibold transition duration-200 focus:outline-none ${
+                  selectedProduct === 'aifag'
+                    ? 'bg-blue-600 text-white shadow-md'
+                    : 'bg-transparent text-gray-400 hover:text-white'
+                }`}
+                style={{ minWidth: 100 }}
+              >
+                AIFAG
+              </button>
+              <button
+                onClick={() => setSelectedProduct('lifeos')}
+                className={`px-8 py-3 rounded-xl font-semibold transition duration-200 focus:outline-none ${
+                  selectedProduct === 'lifeos'
+                    ? 'bg-blue-600 text-white shadow-md'
+                    : 'bg-transparent text-gray-400 hover:text-white'
+                }`}
+                style={{ minWidth: 100 }}
+              >
+                LifeOS
+              </button>
+            </div>
           </div>
         </div>
       </div>
 
       {/* Product Showcase Section */}
-      <div className="pb-24 px-4">
+      <div ref={sectionRefs[sectionIdx]} className={`pb-24 px-4 transition-all duration-700 ${reveals[sectionIdx++] ? 'fade-in-up' : 'opacity-0'}`}> 
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             {/* Left Content */}
@@ -248,7 +275,7 @@ const ProductsPage = ({ setCurrentPage }) => {
 
       {/* LifeOS Features Section - Only when LifeOS is selected */}
       {selectedProduct === 'lifeos' && (
-      <div className="pb-24 px-4">
+      <div ref={sectionRefs[sectionIdx]} className={`pb-24 px-4 transition-all duration-700 ${reveals[sectionIdx++] ? 'fade-in-up' : 'opacity-0'}`}> 
         <div className="max-w-7xl mx-auto">
           {/* Section Heading */}
           <h2 className="text-5xl md:text-6xl font-bold text-center mb-16 text-white">
@@ -341,7 +368,7 @@ const ProductsPage = ({ setCurrentPage }) => {
 
       {/* Experience LifeOS Section */}
       {selectedProduct === 'lifeos' && (
-      <div className="py-24 px-4">
+      <div ref={sectionRefs[sectionIdx]} className={`py-24 px-4 transition-all duration-700 ${reveals[sectionIdx++] ? 'fade-in-up' : 'opacity-0'}`}> 
         <div className="max-w-4xl mx-auto text-center">
           {/* Badge */}
           <div className="mb-8 inline-flex items-center gap-2 bg-blue-900/30 border border-blue-700 rounded-full px-4 py-2">
@@ -420,7 +447,7 @@ const ProductsPage = ({ setCurrentPage }) => {
 
       {/* Three Steps Section */}
       {selectedProduct === 'aifag' && (
-      <div className="pb-24 px-4">
+      <div ref={sectionRefs[sectionIdx]} className={`pb-24 px-4 transition-all duration-700 ${reveals[sectionIdx++] ? 'fade-in-up' : 'opacity-0'}`}> 
         <div className="max-w-7xl mx-auto">
           {/* Section Heading */}
           <h2 className="text-5xl md:text-6xl font-bold text-center mb-16 text-white">
@@ -508,7 +535,7 @@ const ProductsPage = ({ setCurrentPage }) => {
 
       {/* Enterprise-Grade Capabilities Section */}
       {selectedProduct === 'aifag' && (
-      <div className="pb-24 px-4">
+      <div ref={sectionRefs[sectionIdx]} className={`pb-24 px-4 transition-all duration-700 ${reveals[sectionIdx++] ? 'fade-in-up' : 'opacity-0'}`}> 
         <div className="max-w-7xl mx-auto">
           {/* Section Heading */}
           <h2 className="text-5xl md:text-6xl font-bold text-center mb-16 text-white">
@@ -611,7 +638,7 @@ const ProductsPage = ({ setCurrentPage }) => {
 
       {/* Interactive Demo Section */}
       {selectedProduct === 'aifag' && (
-      <div className="pb-24 px-4">
+      <div ref={sectionRefs[sectionIdx]} className={`pb-24 px-4 transition-all duration-700 ${reveals[sectionIdx++] ? 'fade-in-up' : 'opacity-0'}`}> 
         <div className="max-w-7xl mx-auto">
           {/* Header */}
           <div className="text-center mb-16">
@@ -676,7 +703,7 @@ const ProductsPage = ({ setCurrentPage }) => {
       )}
 
       {/* AI Playground Section */}
-      <div className="pb-24 px-4">
+      <div ref={sectionRefs[sectionIdx]} className={`pb-24 px-4 transition-all duration-700 ${reveals[sectionIdx++] ? 'fade-in-up' : 'opacity-0'}`}> 
         <div className="max-w-4xl mx-auto">
           {/* Header */}
           <div className="text-center mb-16">
@@ -768,7 +795,7 @@ const ProductsPage = ({ setCurrentPage }) => {
       </div>
 
       {/* Be Part of the Future CTA Section */}
-      <div className="py-24 px-4">
+      <div ref={sectionRefs[sectionIdx]} className={`py-24 px-4 transition-all duration-700 ${reveals[sectionIdx++] ? 'fade-in-up' : 'opacity-0'}`}> 
         <div className="max-w-4xl mx-auto text-center">
           {/* Main Heading */}
           <h2 className="text-5xl md:text-6xl font-bold mb-6 text-white">

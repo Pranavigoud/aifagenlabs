@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
+import '../fadeInUpContact.css';
 
 const ContactPage = () => {
   const [formData, setFormData] = useState({
@@ -16,11 +17,47 @@ const ContactPage = () => {
     }));
   };
 
+  // Refs for each major section
+  const headingRef = useRef(null);
+  const contentRef = useRef(null);
+  const leftRef = useRef(null);
+  const rightRef = useRef(null);
+
+  // State to track if each section is visible
+  const [visible, setVisible] = useState({
+    heading: false,
+    content: false,
+    left: false,
+    right: false,
+  });
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const reveal = (ref, key) => {
+        if (!ref.current) return;
+        const rect = ref.current.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 100) {
+          setVisible((prev) => prev[key] ? prev : { ...prev, [key]: true });
+        }
+      };
+      reveal(headingRef, 'heading');
+      reveal(contentRef, 'content');
+      reveal(leftRef, 'left');
+      reveal(rightRef, 'right');
+    };
+    window.addEventListener('scroll', handleScroll);
+    handleScroll();
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
     <div className="bg-black text-white min-h-screen">
       {/* Get in Touch Section */}
       <div className="px-3 sm:px-4 md:px-6 lg:px-8 py-12 sm:py-16 md:py-20 lg:py-24">
-        <div className="max-w-4xl mx-auto text-center mb-12 sm:mb-16 md:mb-20 lg:mb-24">
+        <div
+          ref={headingRef}
+          className={`max-w-4xl mx-auto text-center mb-12 sm:mb-16 md:mb-20 lg:mb-24 transition-all duration-1000 ${visible.heading ? 'fade-in-up-contact' : 'opacity-0 translate-y-8'}`}
+        >
           {/* Heading */}
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-4 sm:mb-6 md:mb-8">
             Get in Touch
@@ -33,9 +70,15 @@ const ContactPage = () => {
         </div>
 
         {/* Contact Content */}
-        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 md:gap-10 lg:gap-12">
+        <div
+          ref={contentRef}
+          className={`max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 md:gap-10 lg:gap-12 transition-all duration-1000 ${visible.content ? 'fade-in-up-contact' : 'opacity-0 translate-y-8'}`}
+        >
           {/* Left Side - Our Offices */}
-          <div className="px-2 sm:px-0">
+          <div
+            ref={leftRef}
+            className={`px-2 sm:px-0 transition-all duration-1000 ${visible.left ? 'fade-in-up-contact' : 'opacity-0 translate-y-8'}`}
+          >
             {/* Our Offices Header */}
             <div className="flex items-center gap-2 sm:gap-3 mb-6 sm:mb-8">
               <svg className="w-5 h-5 sm:w-6 sm:h-6 text-blue-500" fill="currentColor" viewBox="0 0 24 24">
@@ -219,7 +262,10 @@ const ContactPage = () => {
           </div>
 
           {/* Right Side - Contact Form */}
-          <div className="bg-gray-900/50 border border-gray-800 rounded-2xl pt-8 px-8 pb-0">
+          <div
+            ref={rightRef}
+            className={`bg-gray-900/50 border border-gray-800 rounded-2xl pt-8 px-8 pb-0 transition-all duration-1000 ${visible.right ? 'fade-in-up-contact' : 'opacity-0 translate-y-8'}`}
+          >
             <h2 className="text-3xl font-bold text-white mb-8">Send us a message</h2>
 
             <form className="space-y-6">

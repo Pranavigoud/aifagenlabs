@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
+import '../fadeInUp.css';
 import CTA from './CTA';
 
 const Services = ({ setCurrentPage }) => {
@@ -23,10 +24,10 @@ const Services = ({ setCurrentPage }) => {
         'Document summarization & analysis'
       ],
       useCases: [
-        { text: 'Marketing automation', color: 'bg-blue-900' },
-        { text: 'Product descriptions', color: 'bg-blue-900' },
-        { text: 'Customer support chatbots', color: 'bg-blue-900' },
-        { text: 'Code review', color: 'bg-blue-900' }
+        { text: 'Marketing automation', color: 'bg-neutral-700' },
+        { text: 'Product descriptions', color: 'bg-neutral-700' },
+        { text: 'Customer support chatbots', color: 'bg-neutral-700' },
+        { text: 'Code review', color: 'bg-neutral-700' }
       ]
     },
     {
@@ -47,10 +48,10 @@ const Services = ({ setCurrentPage }) => {
         'Integration with existing systems'
       ],
       useCases: [
-        { text: 'Data processing', color: 'bg-blue-900' },
-        { text: 'Invoice processing', color: 'bg-blue-900' },
-        { text: 'Report generation', color: 'bg-blue-900' },
-        { text: 'Quality assurance', color: 'bg-blue-900' }
+        { text: 'Invoice processing', color: 'bg-neutral-700' },
+        { text: 'HR onboarding', color: 'bg-neutral-700' },
+        { text: 'Supply chain optimization', color: 'bg-neutral-700' },
+        { text: 'Quality control', color: 'bg-neutral-700' }
       ]
     },
     {
@@ -72,10 +73,10 @@ const Services = ({ setCurrentPage }) => {
         'Real-time visual monitoring'
       ],
       useCases: [
-        { text: 'Quality inspection', color: 'bg-blue-900' },
-        { text: 'Security monitoring', color: 'bg-blue-900' },
-        { text: 'Medical imaging', color: 'bg-blue-900' },
-        { text: 'Inventory management', color: 'bg-blue-900' }
+        { text: 'Manufacturing QA', color: 'bg-neutral-700' },
+        { text: 'Retail analytics', color: 'bg-neutral-700' },
+        { text: 'Security monitoring', color: 'bg-neutral-700' },
+        { text: 'Medical imaging', color: 'bg-neutral-700' }
       ]
     },
     {
@@ -96,10 +97,35 @@ const Services = ({ setCurrentPage }) => {
         'Context-aware responses'
       ],
       useCases: [
-        { text: 'Customer service', color: 'bg-blue-900' },
-        { text: 'Lead qualification', color: 'bg-blue-900' },
-        { text: 'HR support', color: 'bg-blue-900' },
-        { text: 'Technical support', color: 'bg-blue-900' }
+        { text: 'Customer service', color: 'bg-neutral-700' },
+        { text: 'Sales assistance', color: 'bg-neutral-700' },
+        { text: 'Virtual concierge', color: 'bg-neutral-700' },
+        { text: 'Technical support', color: 'bg-neutral-700' }
+      ]
+    },
+    {
+      id: 4,
+      icon: (
+        <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 17v-2a4 4 0 014-4h10a4 4 0 014 4v2" />
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7a4 4 0 018 0" />
+        </svg>
+      ),
+      title: 'Predictive Analytics',
+      tagline: 'Forecast the future.',
+      description: 'Make data-driven decisions with confidence. Our predictive models analyze historical patterns to forecast trends and identify opportunities.',
+      whatWeDeliver: [
+        'Demand forecasting',
+        'Customer churn prediction',
+        'Risk assessment models',
+        'Anomaly detection',
+        'Real-time dashboards'
+      ],
+      useCases: [
+        { text: 'Inventory planning', color: 'bg-neutral-700' },
+        { text: 'Financial forecasting', color: 'bg-neutral-700' },
+        { text: 'Fraud detection', color: 'bg-neutral-700' },
+        { text: 'Maintenance prediction', color: 'bg-neutral-700' }
       ]
     },
     {
@@ -120,10 +146,10 @@ const Services = ({ setCurrentPage }) => {
         'Monetization & pricing models'
       ],
       useCases: [
-        { text: 'MVP development', color: 'bg-blue-900' },
-        { text: 'Product scaling', color: 'bg-blue-900' },
-        { text: 'Market expansion', color: 'bg-blue-900' },
-        { text: 'Team building', color: 'bg-blue-900' }
+        { text: 'Startup MVP development', color: 'bg-neutral-700' },
+        { text: 'Enterprise transformation', color: 'bg-neutral-700' },
+        { text: 'Product-market fit', color: 'bg-neutral-700' },
+        { text: 'Tech stack modernization', color: 'bg-neutral-700' }
       ]
     }
   ];
@@ -132,12 +158,30 @@ const Services = ({ setCurrentPage }) => {
     setExpandedId(expandedId === id ? null : id);
   };
 
+  // Scroll reveal animation
+  const sectionRef = useRef(null);
+  const [reveal, setReveal] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (sectionRef.current) {
+        const rect = sectionRef.current.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 80) {
+          setReveal(true);
+        }
+      }
+    };
+    window.addEventListener('scroll', handleScroll);
+    handleScroll();
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
-    <div className="bg-black text-white min-h-screen">
+    <div ref={sectionRef} className={`bg-black text-white min-h-screen ${reveal ? 'fade-in-up' : ''}`}> 
       {/* Header */}
-      <div className="pt-16 sm:pt-20 md:pt-24 lg:pt-32 pb-8 sm:pb-10 md:pb-12 lg:pb-16 px-3 sm:px-4 md:px-6 lg:px-8">
+      <div className="pt-4 sm:pt-8 md:pt-12 lg:pt-20 pb-8 sm:pb-10 md:pb-12 lg:pb-16 px-3 sm:px-4 md:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto text-center">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 sm:mb-6 md:mb-8">
+          <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-semibold mb-4 sm:mb-6 md:mb-8">
             AI Solutions That Deliver
           </h1>
           <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-400 max-w-3xl mx-auto px-2 sm:px-0">
@@ -152,7 +196,7 @@ const Services = ({ setCurrentPage }) => {
           {services.map((service) => (
             <div
               key={service.id}
-              className="border-2 border-blue-600 rounded-lg sm:rounded-2xl md:rounded-3xl bg-gray-900/50 backdrop-blur overflow-hidden hover:bg-gray-900/70 transition-all duration-300 hover:shadow-lg hover:shadow-blue-600/20"
+              className="border-1 border-blue-600 rounded-lg sm:rounded-2xl md:rounded-3xl bg-neutral-900 backdrop-blur overflow-hidden transition-all duration-300 hover:shadow-lg hover:shadow-blue-600/20  cursor-pointer"
             >
               {/* Header */}
               <button
@@ -160,11 +204,11 @@ const Services = ({ setCurrentPage }) => {
                 className="w-full px-3 sm:px-4 md:px-6 lg:px-8 py-4 sm:py-5 md:py-6 flex items-center justify-between cursor-pointer transition-all duration-300 hover:bg-blue-600/10"
               >
                 <div className="flex items-center gap-3 sm:gap-4 md:gap-6 text-left min-w-0">
-                  <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 bg-blue-600 rounded-lg sm:rounded-xl flex items-center justify-center text-white flex-shrink-0 transition-transform duration-300 group-hover:scale-110">
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 bg-blue-600 rounded-lg sm:rounded-xl flex items-center justify-center text-white shrink-0 transition-transform duration-300 group-hover:scale-110">
                     {service.icon}
                   </div>
                   <div className="min-w-0">
-                    <h3 className="text-base sm:text-lg md:text-xl lg:text-2xl font-bold text-white mb-1 truncate transition-colors duration-300">
+                    <h3 className="text-xs sm:text-sm md:text-base lg:text-lg font-semibold text-white mb-1 truncate transition-colors duration-300">
                       {service.title}
                     </h3>
                     <p className="text-xs sm:text-sm md:text-base text-gray-400 truncate transition-colors duration-300">
@@ -172,7 +216,7 @@ const Services = ({ setCurrentPage }) => {
                     </p>
                   </div>
                 </div>
-                <div className={`flex-shrink-0 text-blue-400 transition-all duration-300 ml-3 sm:ml-4 ${expandedId === service.id ? 'rotate-180' : 'rotate-0'}`}>
+                <div className={`shrink-0 text-blue-400 transition-all duration-300 ml-3 sm:ml-4 ${expandedId === service.id ? 'rotate-180' : 'rotate-0'}`}>
                   <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={expandedId === service.id ? "M19 14l-7 7m0 0l-7-7m7 7V3" : "M5 10l7-7m0 0l7 7m-7-7v16"} />
                   </svg>
@@ -193,13 +237,13 @@ const Services = ({ setCurrentPage }) => {
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 md:gap-10 lg:gap-12">
                     {/* What We Deliver */}
                     <div>
-                      <h4 className="text-white font-bold text-base sm:text-lg md:text-lg mb-4 sm:mb-6">
+                      <h4 className="text-white font-semibold text-base sm:text-lg md:text-lg mb-4 sm:mb-6">
                         What We Deliver
                       </h4>
                       <ul className="space-y-2 sm:space-y-3 md:space-y-4">
                         {service.whatWeDeliver.map((item, idx) => (
                           <li key={idx} className="flex items-start gap-2 sm:gap-3">
-                            <svg className="w-4 h-4 sm:w-5 sm:h-5 text-blue-400 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 24 24">
+                            <svg className="w-4 h-4 sm:w-5 sm:h-5 text-blue-400 shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 24 24">
                               <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
                             </svg>
                             <span className="text-gray-300 text-sm sm:text-base">{item}</span>
@@ -210,14 +254,14 @@ const Services = ({ setCurrentPage }) => {
 
                     {/* Use Cases */}
                     <div>
-                      <h4 className="text-white font-bold text-base sm:text-lg md:text-lg mb-4 sm:mb-6">
+                      <h4 className="text-white font-medium text-base sm:text-lg md:text-lg mb-4 sm:mb-6">
                         Use Cases
                       </h4>
                       <div className="flex flex-wrap gap-2 sm:gap-3">
                         {service.useCases.map((useCase, idx) => (
                           <span
                             key={idx}
-                            className={`px-3 sm:px-4 py-1.5 sm:py-2 ${useCase.color} text-white text-xs sm:text-sm rounded-lg border border-blue-500/50`}
+                            className={`px-3 sm:px-4 py-1.5 sm:py-2 ${useCase.color} text-white text-xs sm:text-sm rounded-full `}
                           >
                             {useCase.text}
                           </span>
@@ -232,7 +276,7 @@ const Services = ({ setCurrentPage }) => {
                       setCurrentPage('collaborate');
                       window.scrollTo(0, 0);
                     }}
-                    className="mt-6 sm:mt-8 px-4 sm:px-6 py-2 sm:py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-full flex items-center gap-2 transition text-sm sm:text-base"
+                    className="mt-6 sm:mt-8 px-4 sm:px-6 py-2 sm:py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-2xl flex items-center gap-2 transition text-sm sm:text-base"
                   >
                     Discuss This Solution
                     <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

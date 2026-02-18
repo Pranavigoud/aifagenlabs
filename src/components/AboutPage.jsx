@@ -1,12 +1,62 @@
-import React from 'react';
+import React, { useRef, useEffect, useState } from 'react';
+import '../fadeInUpAbout.css';
 
 const AboutPage = ({ setCurrentPage }) => {
+  // Refs for each major section
+  const heroRef = useRef(null);
+  const storyRef = useRef(null);
+  const missionVisionRef = useRef(null);
+  const valuesRef = useRef(null);
+  const leadershipRef = useRef(null);
+  const globalRef = useRef(null);
+  const journeyRef = useRef(null);
+  const joinRef = useRef(null);
+
+  // State to track if each section is visible
+  const [visible, setVisible] = useState({
+    hero: false,
+    story: false,
+    missionVision: false,
+    values: false,
+    leadership: false,
+    global: false,
+    journey: false,
+    join: false,
+  });
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const reveal = (ref, key) => {
+        if (!ref.current) return;
+        const rect = ref.current.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 100) {
+          setVisible((prev) => prev[key] ? prev : { ...prev, [key]: true });
+        }
+      };
+      reveal(heroRef, 'hero');
+      reveal(storyRef, 'story');
+      reveal(missionVisionRef, 'missionVision');
+      reveal(valuesRef, 'values');
+      reveal(leadershipRef, 'leadership');
+      reveal(globalRef, 'global');
+      reveal(journeyRef, 'journey');
+      reveal(joinRef, 'join');
+    };
+    window.addEventListener('scroll', handleScroll);
+    // Reveal on mount in case already in view
+    handleScroll();
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
-    <div className="bg-black text-white min-h-screen">
+    <div className="bg-neutral-900 text-white min-h-screen">
       {/* Hero Section */}
-      <div className="px-4 py-32 max-w-5xl mx-auto text-center">
+      <div
+        ref={heroRef}
+        className={`px-4 py-32 max-w-5xl mx-auto text-center transition-all duration-1000 ${visible.hero ? 'fade-in-up-about' : 'opacity-0 translate-y-8'}`}
+      >
         {/* Badge */}
-        <div className="mb-12 inline-flex items-center gap-2 bg-gray-900 border border-gray-800 rounded-full px-4 py-2">
+        <div className="mb-12 inline-flex items-center gap-2 bg-neutral-800 border border-gray-800 rounded-full px-4 py-2">
           <span className="text-sm font-semibold text-blue-400">Est. 2026</span>
         </div>
 
@@ -22,8 +72,11 @@ const AboutPage = ({ setCurrentPage }) => {
       </div>
 
       {/* Our Story Section */}
-      <div className="px-4 py-24">
-        <div className="max-w-4xl mx-auto">
+      <div
+        ref={storyRef}
+        className={`px-4 py-24 transition-all duration-1000 ${visible.story ? 'fade-in-up-about' : 'opacity-0 translate-y-8'}`}
+      >
+        <div className="max-w-full  mx-auto bg-neutral-800">
           {/* Section Heading */}
           <h2 className="text-5xl md:text-6xl font-bold mb-16 text-white text-center">
             Our Story
@@ -55,7 +108,10 @@ const AboutPage = ({ setCurrentPage }) => {
       </div>
 
       {/* Mission and Vision Section */}
-      <div className="px-4 py-24">
+      <div
+        ref={missionVisionRef}
+        className={`px-4 py-24 transition-all duration-1000 ${visible.missionVision ? 'fade-in-up-about' : 'opacity-0 translate-y-8'}`}
+      >
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {/* Our Mission Card */}
@@ -102,7 +158,10 @@ const AboutPage = ({ setCurrentPage }) => {
       </div>
 
       {/* Our Values Section */}
-      <div className="px-4 py-24">
+      <div
+        ref={valuesRef}
+        className={`px-4 py-24 transition-all duration-1000 ${visible.values ? 'fade-in-up-about' : 'opacity-0 translate-y-8'}`}
+      >
         <div className="max-w-6xl mx-auto">
           {/* Section Header */}
           <div className="text-center mb-16">
@@ -180,7 +239,10 @@ const AboutPage = ({ setCurrentPage }) => {
       </div>
 
       {/* Leadership & Team Section */}
-      <div className="px-4 py-24 border-t border-gray-800">
+      <div
+        ref={leadershipRef}
+        className={`px-4 py-24 border-t border-gray-800 transition-all duration-1000 ${visible.leadership ? 'fade-in-up-about' : 'opacity-0 translate-y-8'}`}
+      >
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-5xl md:text-6xl font-bold text-white mb-6">
             Leadership & Team
@@ -192,7 +254,10 @@ const AboutPage = ({ setCurrentPage }) => {
       </div>
 
       {/* Global Presence Section */}
-      <div className="px-4 py-24 border-t border-gray-800">
+      <div
+        ref={globalRef}
+        className={`px-4 py-24 border-t border-gray-800 transition-all duration-1000 ${visible.global ? 'fade-in-up-about' : 'opacity-0 translate-y-8'}`}
+      >
         <div className="max-w-6xl mx-auto">
           {/* Section Header */}
           <div className="text-center mb-16">
@@ -282,7 +347,10 @@ const AboutPage = ({ setCurrentPage }) => {
       </div>
 
       {/* Our Journey to 2026 Section */}
-      <div className="px-4 py-24 border-t border-gray-800">
+      <div
+        ref={journeyRef}
+        className={`px-4 py-24 border-t border-gray-800 transition-all duration-1000 ${visible.journey ? 'fade-in-up-about' : 'opacity-0 translate-y-8'}`}
+      >
         <div className="max-w-4xl mx-auto">
           {/* Section Header */}
           <div className="text-center mb-16">
@@ -375,7 +443,10 @@ const AboutPage = ({ setCurrentPage }) => {
       </div>
 
       {/* Join Our Mission CTA Section */}
-      <div className="px-4 py-24 border-t border-gray-800">
+      <div
+        ref={joinRef}
+        className={`px-4 py-24 border-t border-gray-800 transition-all duration-1000 ${visible.join ? 'fade-in-up-about' : 'opacity-0 translate-y-8'}`}
+      >
         <div className="max-w-4xl mx-auto text-center">
           {/* Heading */}
           <h2 className="text-5xl md:text-6xl font-bold text-white mb-6">

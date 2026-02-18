@@ -1,7 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 const Navbar = ({ currentPage, setCurrentPage }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [showNavbar, setShowNavbar] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setShowNavbar(true), 900); // match hero-slide-up duration
+    return () => clearTimeout(timer);
+  }, []);
 
   const navItems = [
     { name: 'Home', href: '#home', page: 'home' },
@@ -19,8 +25,15 @@ const Navbar = ({ currentPage, setCurrentPage }) => {
   };
 
   return (
-    <nav className="navbar-sticky bg-black text-white">
-      <div className="max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8">
+    <nav
+      className="navbar-sticky bg-black text-white"
+      style={{
+        animation: showNavbar ? 'slideDownFromTop 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards' : 'none',
+        opacity: showNavbar ? 1 : 0,
+        pointerEvents: showNavbar ? 'auto' : 'none',
+      }}
+    >
+      <div className="max-w-7xl mx-auto px-8 sm:px-10 md:px-14 lg:px-18">
         <div className="flex justify-between items-center h-14 md:h-16">
           {/* Logo */}
           <div className="flex items-center gap-2 cursor-pointer flex-shrink-0 transition-transform duration-300 hover:scale-105" onClick={() => handleNavClick('home')}>
@@ -29,8 +42,8 @@ const Navbar = ({ currentPage, setCurrentPage }) => {
             </div>
             <span className="text-base md:text-lg font-semibold whitespace-nowrap text-white transition-colors duration-300">
               <span className="text-white">AIFA</span>
-              <span className="text-gray-400 transition-colors duration-300">Gen</span>
-              <span className="ml-0.5 md:ml-1 text-gray-300 transition-colors duration-300">Labs</span>
+              <span className="text-white transition-colors duration-300">Gen</span>
+              <span className="ml-0.5 md:ml-1 text-gray-400 transition-colors duration-300">Labs</span>
             </span>
           </div>
 

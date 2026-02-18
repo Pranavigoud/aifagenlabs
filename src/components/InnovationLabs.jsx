@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 
 const InnovationLabs = ({ setCurrentPage }) => {
   const features = [
@@ -28,12 +28,30 @@ const InnovationLabs = ({ setCurrentPage }) => {
     }
   ];
 
+  // Animation state for left and right columns
+  const [visible, setVisible] = useState([false, false]);
+  const sectionRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new window.IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setVisible([true, true]);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.2 }
+    );
+    if (sectionRef.current) observer.observe(sectionRef.current);
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <div className="bg-black text-white py-24 px-4 relative overflow-hidden">
+    <div ref={sectionRef} className="bg-black text-white py-24 px-4 relative overflow-hidden">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
-          <div>
+          <div className={`${visible[0] ? 'animate-slideInLeft' : 'opacity-0 -translate-x-16'} transition-all duration-700 ease-out`}>
             {/* Badge */}
             <div className="mb-8 inline-flex items-center gap-2 bg-gray-900 border border-gray-800 rounded-full px-4 py-2 w-fit">
               <svg className="w-5 h-5 text-blue-400" fill="currentColor" viewBox="0 0 24 24">
@@ -78,7 +96,7 @@ const InnovationLabs = ({ setCurrentPage }) => {
           </div>
 
           {/* Right Illustration */}
-          <div className="flex items-center justify-center relative h-96 lg:h-full">
+          <div className={`flex items-center justify-center relative h-96 lg:h-full ${visible[1] ? 'animate-slideInRight' : 'opacity-0 translate-x-16'} transition-all duration-700 ease-out`}>
             {/* Concentric Circles with Animation */}
             <div className="relative w-80 h-80">
               {/* Outer circles */}
