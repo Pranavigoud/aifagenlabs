@@ -76,7 +76,7 @@ const AboutPage = ({ setCurrentPage }) => {
         ref={storyRef}
         className={`px-4 py-24 transition-all duration-1000 ${visible.story ? 'fade-in-up-about' : 'opacity-0 translate-y-8'}`}
       >
-        <div className="max-w-full  mx-auto bg-neutral-800">
+        <div className="max-w-full mx-auto bg-neutral-800 px-8 sm:px-12 md:px-24 py-8 sm:py-12 md:py-20">
           {/* Section Heading */}
           <h2 className="text-5xl md:text-6xl font-bold mb-16 text-white text-center">
             Our Story
