@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import logo from '../assets/logo.png';
 
 const Footer = ({ setCurrentPage }) => {
   const [email, setEmail] = useState('');
@@ -53,7 +54,9 @@ const Footer = ({ setCurrentPage }) => {
             {/* Logo and Description */}
             <div className="md:col-span-1 flex flex-col items-start">
               <div className="flex items-center gap-2 mb-3">
-                <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center font-bold text-white text-xs">A</div>
+                <div className="w-8 h-8 rounded-lg flex items-center justify-center font-bold text-white text-xs p-0 overflow-hidden bg-transparent">
+                  <img src={logo} alt="Logo" className="w-full h-full object-contain" />
+                </div>
                 <span className="text-base font-bold">
                   <span className="text-white">AIFAGen</span>
                   <span className="text-gray-400 ml-1">Labs</span>

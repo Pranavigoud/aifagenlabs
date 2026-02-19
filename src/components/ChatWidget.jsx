@@ -29,16 +29,18 @@ const ChatWidget = ({ setIsChatOpen }) => {
         </div>
 
         {/* AIFA Message */}
-        <div className="flex gap-2 md:gap-3 p-4 md:p-6">
-          <div className="w-7 md:w-8 h-7 md:h-8 bg-blue-600 rounded-full flex items-center justify-center flex-shrink-0 transition-transform duration-200 hover:scale-105">
-            <svg className="w-4 md:w-5 h-4 md:h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z" />
-            </svg>
-          </div>
-          <div className="bg-gray-700 rounded-xl md:rounded-2xl p-3 md:p-4 max-w-xs">
-            <p className="text-white text-xs md:text-sm leading-relaxed">
-              Hi! I'm AIFA 👋 Whether you're learning AI or building the next big thing, I'm here to help. What would you like to know about AIFAG or LifeOS?
-            </p>
+        <div className="flex-1 overflow-y-auto flex flex-col gap-2 md:gap-3 p-4 md:p-6">
+          <div className="flex gap-2 md:gap-3">
+            <div className="w-7 md:w-8 h-7 md:h-8 bg-blue-600 rounded-full flex items-center justify-center flex-shrink-0 transition-transform duration-200 hover:scale-105">
+              <svg className="w-4 md:w-5 h-4 md:h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z" />
+              </svg>
+            </div>
+            <div className="bg-gray-700 rounded-xl md:rounded-2xl p-3 md:p-4 max-w-xs">
+              <p className="text-white text-xs md:text-sm leading-relaxed">
+                Hi! I'm AIFA 👋 Whether you're learning AI or building the next big thing, I'm here to help. What would you like to know about AIFAG or LifeOS?
+              </p>
+            </div>
           </div>
         </div>
 

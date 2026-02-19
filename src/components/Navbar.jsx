@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import logo from '../assets/logo.png';
 
 const Navbar = ({ currentPage, setCurrentPage }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -37,9 +38,9 @@ const Navbar = ({ currentPage, setCurrentPage }) => {
         <div className="flex justify-between items-center h-14 md:h-16">
           {/* Logo */}
           <div className="flex items-center gap-2 cursor-pointer flex-shrink-0 transition-transform duration-300 hover:scale-105" onClick={() => handleNavClick('home')}>
-            <div className="w-7 h-7 md:w-8 md:h-8 bg-gradient-to-br from-blue-400 to-blue-600 rounded-lg flex items-center justify-center font-bold text-white text-sm transition-transform duration-300">
-              A
-            </div>
+            <div className="w-7 h-7 md:w-8 md:h-8 rounded-lg flex items-center justify-center font-bold text-white text-sm transition-transform duration-300 p-0 overflow-hidden bg-transparent">
+                <img src={logo} alt="Logo" className="w-full h-full object-contain" />
+              </div>
             <span className="text-base md:text-lg font-semibold whitespace-nowrap text-white transition-colors duration-300">
               <span className="text-white">AIFA</span>
               <span className="text-white transition-colors duration-300">Gen</span>
