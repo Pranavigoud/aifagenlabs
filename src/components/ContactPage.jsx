@@ -183,7 +183,7 @@ const ContactPage = () => {
                   </div>
                   <div>
                     <h3 className="text-xl font-semibold text-white mb-1">New Jersey</h3>
-                    <p className="text-gray-400 text-sm mb-4">USA • Branch</p>
+                    <p className="text-gray-400 text-sm mb-4">USA • North America</p>
                     <div className="space-y-2">
                       
                       <div className="flex items-center gap-3">

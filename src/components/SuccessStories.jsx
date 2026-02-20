@@ -145,7 +145,7 @@ const SuccessStories = ({ setCurrentPage }) => {
     const story = stories[storyIdx];
     return (
       <div className={animationClass} key={storyIdx}>
-        <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 items-center min-h-96">
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-2 md:gap-3 items-center min-h-96">
           {/* Left Side - Image/Dashboard */}
           <div className="flex items-center justify-center order-2 lg:order-1 lg:col-span-3">
             {storyIdx === 0 ? (
@@ -195,7 +195,7 @@ const SuccessStories = ({ setCurrentPage }) => {
           </div>
 
           {/* Right Side - Case Study Card */}
-          <div className="order-1 lg:order-2 lg:col-span-2">
+          <div className="order-1 lg:order-2 lg:col-span-2 pr-2 md:pr-4 lg:pr-8 xl:pr-16">
             <div className="group bg-neutral-900 border border-gray-800 rounded-2xl p-6 md:p-6 lg:p-5 hover:border-white-500 hover:border-opacity-60 hover:shadow-2xl hover:shadow-neutral-800 transition duration-300">
               {/* Company Name */}
               <div
