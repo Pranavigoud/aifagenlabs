@@ -268,7 +268,7 @@ const SuccessStories = ({ setCurrentPage }) => {
   }
 
   return (
-    <div ref={sectionRef} className={`bg-black text-white py-24 px-4 ${revealed ? "animate-success-reveal" : "opacity-0"}`}>
+    <div ref={sectionRef} className={`bg-black text-white py-12 px-2 sm:px-4 ${revealed ? "animate-success-reveal" : "opacity-0"}`}>
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16">

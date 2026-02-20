@@ -34,7 +34,7 @@ const Navbar = ({ currentPage, setCurrentPage }) => {
         pointerEvents: showNavbar ? 'auto' : 'none',
       }}
     >
-      <div className="max-w-7xl mx-auto px-8 sm:px-10 md:px-14 lg:px-18">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-10 lg:px-14">
         <div className="flex justify-between items-center h-14 md:h-16">
           {/* Logo */}
           <div className="flex items-center gap-2 cursor-pointer flex-shrink-0 transition-transform duration-300 hover:scale-105" onClick={() => handleNavClick('home')}>

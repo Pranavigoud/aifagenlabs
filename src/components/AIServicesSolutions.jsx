@@ -70,7 +70,7 @@ const AIServicesSolutions = ({ setCurrentPage }) => {
   }, [services.length]);
 
   return (
-    <div className="min-h-screen bg-black text-white px-3 sm:px-4 md:px-6 lg:px-8 py-12 sm:py-16 md:py-20 lg:py-24">
+    <div className="min-h-screen bg-black text-white px-2 sm:px-4 md:px-6 lg:px-8 py-8 sm:py-12 md:py-16 lg:py-20">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-12 sm:mb-14 md:mb-16 lg:mb-20">

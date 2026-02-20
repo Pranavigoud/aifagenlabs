@@ -45,8 +45,8 @@ const FlagshipProducts = ({ setCurrentPage }) => {
   }, []);
 
   return (
-    <div ref={sectionRef} className="bg-neutral-900 text-white px-3 sm:px-4 md:px-6 lg:px-8 py-12 sm:py-16 md:py-20 lg:py-24">
-      <div className="max-w-7xl mx-auto scale-95">
+    <div ref={sectionRef} className="bg-neutral-900 text-white px-2 sm:px-4 md:px-6 lg:px-8 py-8 sm:py-12 md:py-16 lg:py-20">
+      <div className="max-w-7xl mx-auto scale-95 sm:scale-95">
         {/* Header */}
         <div className="text-center mb-12 sm:mb-14 md:mb-16 lg:mb-20">
           <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-2 sm:mb-3 md:mb-4">

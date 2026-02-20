@@ -2,8 +2,8 @@ import React from 'react';
 
 const Hero = ({ setCurrentPage, setIsChatOpen }) => {
   return (
-    <div className="min-h-[60vh] bg-black text-white flex flex-col items-center justify-center px-4 md:px-6 lg:px-8 py-6 md:py-8 lg:py-10 hero-slide-up mt-16 md:mt-20">
-      <div className="w-full flex flex-col items-center scale-95">
+    <div className="min-h-[60vh] bg-black text-white flex flex-col items-center justify-center px-2 md:px-6 lg:px-8 py-6 md:py-8 lg:py-10 hero-slide-up mt-16 md:mt-20">
+      <div className="w-full flex flex-col items-center scale-95 sm:scale-95">
         {/* Badge */}
         <div className="mb-8 md:mb-12 inline-flex items-center gap-2 bg-neutral-800 border border-neutral-800 rounded-full px-3 md:px-4 py-2 text-xs md:text-sm transition-all duration-300 hover:border-neutral-700 hover:bg-neutral-800 fade-in-up">
           <span className="text-blue-400 flex items-center justify-center">
