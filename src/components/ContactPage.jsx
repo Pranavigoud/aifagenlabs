@@ -153,7 +153,7 @@ const ContactPage = () => {
                   </div>
                   <div>
                     <h3 className="text-xl font-semibold text-white mb-1">Hyderabad</h3>
-                    <p className="text-gray-400 text-sm mb-4">India • Branch</p>
+                    <p className="text-gray-400 text-sm mb-4">India • Headquarters </p>
                     <div className="space-y-2">
                       <div className="flex items-center gap-3">
                         <svg className="w-4 h-4 text-gray-500" fill="currentColor" viewBox="0 0 24 24">
