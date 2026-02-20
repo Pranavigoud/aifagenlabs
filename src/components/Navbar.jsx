@@ -27,15 +27,15 @@ const Navbar = ({ currentPage, setCurrentPage }) => {
 
   return (
     <nav
-      className="navbar-sticky bg-black text-white"
+      className="navbar-sticky bg-black text-white px-4 sm:px-8 md:px-16 lg:px-24"
       style={{
         animation: showNavbar ? 'slideDownFromTop 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards' : 'none',
         opacity: showNavbar ? 1 : 0,
         pointerEvents: showNavbar ? 'auto' : 'none',
       }}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-10 lg:px-14">
-        <div className="flex justify-between items-center h-14 md:h-16">
+      <div className="max-w-7xl mx-auto">
+        <div className="flex justify-between items-center h-16 md:h-20">
           {/* Logo */}
           <div className="flex items-center gap-2 cursor-pointer flex-shrink-0 transition-transform duration-300 hover:scale-105" onClick={() => handleNavClick('home')}>
             <div className="w-7 h-7 md:w-8 md:h-8 rounded-lg flex items-center justify-center font-bold text-white text-sm transition-transform duration-300 p-0 overflow-hidden bg-transparent">

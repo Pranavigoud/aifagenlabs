@@ -214,7 +214,7 @@ const CaseStudiesPage = ({ setCurrentPage }) => {
       {/* Featured Case Studies Section */}
       <div
         ref={gridRef}
-        className={`px-4 pb-24 transition-all duration-1000 ${visible.grid ? 'fade-in-up-casestudies' : 'opacity-0 translate-y-8'}`}
+        className={`px-4 sm:px-8 md:px-16 lg:px-32 pb-24 transition-all duration-1000 ${visible.grid ? 'fade-in-up-casestudies' : 'opacity-0 translate-y-8'}`}
       >
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

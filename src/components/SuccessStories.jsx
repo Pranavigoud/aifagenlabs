@@ -272,7 +272,7 @@ const SuccessStories = ({ setCurrentPage }) => {
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16">
-          <h2 className="text-5xl md:text-6xl font-bold mb-6">
+          <h2 className="text-5xl md:text-6xl font-semibold mb-6">
             Success Stories
           </h2>
           <p className="text-lg text-gray-400 max-w-3xl mx-auto">

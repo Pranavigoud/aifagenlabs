@@ -33,15 +33,15 @@ const CollaboratePage = () => {
   }, []);
 
   return (
-    <div className="bg-black text-white min-h-screen">
+    <div className="bg-black text-white min-h-screen px-4 sm:px-8 md:px-16 lg:px-32">
       {/* Collaborate Section */}
       <div
         ref={collaborateRef}
-        className={`px-4 py-24 transition-all duration-1000 ${visible.collaborate ? 'fade-in-up-collaborate' : 'opacity-0 translate-y-8'}`}
+        className={`py-24 transition-all duration-1000 ${visible.collaborate ? 'fade-in-up-collaborate' : 'opacity-0 translate-y-8'}`}
       >
         <div className="max-w-4xl mx-auto text-center">
           {/* Heading */}
-          <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold text-white mb-8">
+          <h1 className="text-6xl md:text-7xl lg:text-8xl font-semibold text-white mb-8">
             Let's Collaborate
           </h1>
 

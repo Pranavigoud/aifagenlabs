@@ -47,7 +47,7 @@ const InnovationLabs = ({ setCurrentPage }) => {
   }, []);
 
   return (
-    <div ref={sectionRef} className="bg-black text-white py-12 px-2 sm:px-4 relative overflow-hidden">
+    <div ref={sectionRef} className="bg-black text-white py-12 px-3 sm:px-8 md:px-16 lg:px-32 relative overflow-hidden">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Left Content */}

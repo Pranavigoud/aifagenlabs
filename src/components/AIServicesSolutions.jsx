@@ -83,7 +83,7 @@ const AIServicesSolutions = ({ setCurrentPage }) => {
         </div>
 
         {/* Services Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 md:gap-6 mb-8 sm:mb-10 md:mb-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 md:gap-6 mb-8 sm:mb-10 md:mb-12 px-4 sm:px-6 md:px-10 lg:px-12">
           {services.map((service, i) => (
             <div
               key={service.id}

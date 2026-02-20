@@ -1,6 +1,21 @@
 import React, { useState, useRef, useEffect } from 'react';
 import '../fadeInUpContact.css';
 
+// Add wave animation CSS
+const waveAnimationStyle = `
+@keyframes wavePin {
+  0% { transform: translateY(0); }
+  20% { transform: translateY(-10px); }
+  40% { transform: translateY(0); }
+  60% { transform: translateY(10px); }
+  80% { transform: translateY(0); }
+  100% { transform: translateY(0); }
+}
+.wave-pin {
+  animation: wavePin 2s infinite ease-in-out;
+}
+`;
+
 const ContactPage = () => {
   const [formData, setFormData] = useState({
     name: '',
@@ -51,15 +66,15 @@ const ContactPage = () => {
   }, []);
 
   return (
-    <div className="bg-black text-white min-h-screen">
+    <div className="bg-black text-white min-h-screen px-4 sm:px-8 md:px-16 lg:px-32">
       {/* Get in Touch Section */}
-      <div className="px-3 sm:px-4 md:px-6 lg:px-8 py-12 sm:py-16 md:py-20 lg:py-24">
+      <div className="py-12 sm:py-16 md:py-20 lg:py-24">
         <div
           ref={headingRef}
           className={`max-w-4xl mx-auto text-center mb-12 sm:mb-16 md:mb-20 lg:mb-24 transition-all duration-1000 ${visible.heading ? 'fade-in-up-contact' : 'opacity-0 translate-y-8'}`}
         >
           {/* Heading */}
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-4 sm:mb-6 md:mb-8">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-semibold text-white mb-4 sm:mb-6 md:mb-8">
             Get in Touch
           </h1>
 
@@ -81,61 +96,46 @@ const ContactPage = () => {
           >
             {/* Our Offices Header */}
             <div className="flex items-center gap-2 sm:gap-3 mb-6 sm:mb-8">
-              <svg className="w-5 h-5 sm:w-6 sm:h-6 text-blue-500" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm0-13c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5z" />
+              <svg className="w-6 h-6 sm:w-7 sm:h-7 text-blue-500" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="10" stroke="currentColor"/>
+                <ellipse cx="12" cy="12" rx="4.5" ry="10" stroke="currentColor"/>
+                <ellipse cx="12" cy="12" rx="10" ry="4.5" stroke="currentColor"/>
+                <path d="M2 12h20" stroke="currentColor"/>
               </svg>
-              <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-white">Our Offices</h2>
+              <h2 className="text-xl sm:text-2xl md:text-3xl font-semibold text-white">Our Offices</h2>
             </div>
 
             {/* World Map with Locations */}
             <div className="bg-gray-900/50 border border-gray-800 rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8 mb-6 sm:mb-8">
-              <div className="relative w-full h-48 sm:h-56 md:h-64 bg-gray-800 rounded-lg flex items-center justify-center">
+              <div className="relative w-full h-48 sm:h-56 md:h-64 bg-gray-800 rounded-lg flex items-center justify-center transition-shadow duration-300 hover:shadow-2xl hover:shadow-blue-500/30">
                 {/* Map Background */}
                 <svg className="absolute inset-0 w-full h-full text-gray-700" viewBox="0 0 800 400" fill="none">
+                                  {/* Inject wave animation style */}
+                                  <style>{waveAnimationStyle}</style>
                   <rect width="800" height="400" fill="#374151" />
                   <path d="M 100 150 Q 150 100 200 150 Q 250 200 300 150" stroke="#555" strokeWidth="2" fill="none" />
                 </svg>
 
                 {/* Location Pins */}
                 <div className="absolute inset-0 flex items-center justify-center">
-                  {/* Bangalore */}
-                  <div className="absolute flex flex-col items-center gap-2" style={{ left: '15%', top: '55%' }}>
+                  {/* Hyderabad (India) */}
+                  <div className="absolute flex flex-col items-center gap-2 wave-pin" style={{ left: '25%', top: '55%' }}>
                     <div className="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center">
                       <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z" />
                       </svg>
                     </div>
-                    <span className="text-white text-sm font-semibold">Bangalore</span>
+                    <span className="text-white text-sm font-semibold">Hyderabad</span>
                   </div>
 
-                  {/* San Francisco */}
-                  <div className="absolute flex flex-col items-center gap-2" style={{ left: '35%', top: '45%' }}>
+                  {/* New Jersey (USA) */}
+                  <div className="absolute flex flex-col items-center gap-2 wave-pin" style={{ left: '65%', top: '45%' }}>
                     <div className="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center">
                       <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z" />
                       </svg>
                     </div>
-                    <span className="text-white text-sm font-semibold">San Francisco</span>
-                  </div>
-
-                  {/* London */}
-                  <div className="absolute flex flex-col items-center gap-2" style={{ left: '55%', top: '35%' }}>
-                    <div className="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center">
-                      <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z" />
-                      </svg>
-                    </div>
-                    <span className="text-white text-sm font-semibold">London</span>
-                  </div>
-
-                  {/* Singapore */}
-                  <div className="absolute flex flex-col items-center gap-2" style={{ left: '75%', top: '60%' }}>
-                    <div className="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center">
-                      <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z" />
-                      </svg>
-                    </div>
-                    <span className="text-white text-sm font-semibold">Singapore</span>
+                    <span className="text-white text-sm font-semibold">New Jersey</span>
                   </div>
                 </div>
               </div>
@@ -143,130 +143,74 @@ const ContactPage = () => {
 
             {/* Office Cards Container with Spacing */}
             <div className="space-y-4">
-            {/* Bangalore Office Details */}
-            <div className="bg-gray-900/50 border border-gray-800 rounded-2xl p-6">
-              <div className="flex items-start gap-4">
-                <div className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
-                  <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z" />
-                  </svg>
-                </div>
-                <div>
-                  <h3 className="text-xl font-bold text-white mb-1">Bangalore</h3>
-                  <p className="text-gray-400 text-sm mb-4">India • Headquarters</p>
-                  <div className="space-y-2">
-                    <div className="flex items-center gap-3">
-                      <svg className="w-4 h-4 text-gray-500" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
-                      </svg>
-                      <span className="text-gray-400 text-sm">admin@aifagenlabs.com</span>
-                    </div>
-                    <div className="flex items-center gap-3">
-                      <svg className="w-4 h-4 text-gray-500" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M17 10.5V7c0 .55-.45 1-1 1H4c-.55 0-1-.45-1-1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z" />
-                      </svg>
-                      <span className="text-gray-400 text-sm">+91 80 1234 5678</span>
+              {/* Hyderabad Office Details */}
+              <div className="bg-neutral-900 border border-gray-800 rounded-2xl p-4 sm:p-5 transition-shadow duration-300 hover:shadow-2xl hover:shadow-blue-500/30">
+                <div className="flex items-start gap-3">
+                  <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
+                    <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-semibold text-white mb-1">Hyderabad</h3>
+                    <p className="text-gray-400 text-sm mb-4">India • Branch</p>
+                    <div className="space-y-2">
+                      <div className="flex items-center gap-3">
+                        <svg className="w-4 h-4 text-gray-500" fill="currentColor" viewBox="0 0 24 24">
+                          <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
+                        </svg>
+                        <span className="text-gray-400 text-sm">Info@aifagenlabs.com</span>
+                      </div>
+                      
+                      <div className="flex items-center gap-3">
+                        <svg className="w-4 h-4 text-gray-500" fill="currentColor" viewBox="0 0 24 24">
+                          <path d="M17 10.5V7c0 .55-.45 1-1 1H4c-.55 0-1-.45-1-1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z" />
+                        </svg>
+                        <span className="text-gray-400 text-sm">+91 93906 93114</span>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
 
-            {/* San Francisco Office Details */}
-            <div className="bg-gray-900/50 border border-gray-800 rounded-2xl p-6">
-              <div className="flex items-start gap-4">
-                <div className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
-                  <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z" />
-                  </svg>
-                </div>
-                <div>
-                  <h3 className="text-xl font-bold text-white mb-1">San Francisco</h3>
-                  <p className="text-gray-400 text-sm mb-4">USA • North America</p>
-                  <div className="space-y-2">
-                    <div className="flex items-center gap-3">
-                      <svg className="w-4 h-4 text-gray-500" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
-                      </svg>
-                      <span className="text-gray-400 text-sm">sf@aifagenlabs.com</span>
-                    </div>
-                    <div className="flex items-center gap-3">
-                      <svg className="w-4 h-4 text-gray-500" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M17 10.5V7c0 .55-.45 1-1 1H4c-.55 0-1-.45-1-1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z" />
-                      </svg>
-                      <span className="text-gray-400 text-sm">+1 415 123 4567</span>
+              {/* New Jersey Office Details */}
+              <div className="bg-neutral-900 border border-gray-800 rounded-2xl p-4 sm:p-5 transition-shadow duration-300 hover:shadow-2xl hover:shadow-blue-500/30">
+                <div className="flex items-start gap-3">
+                  <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
+                    <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-semibold text-white mb-1">New Jersey</h3>
+                    <p className="text-gray-400 text-sm mb-4">USA • Branch</p>
+                    <div className="space-y-2">
+                      
+                      <div className="flex items-center gap-3">
+                        <svg className="w-4 h-4 text-gray-500" fill="currentColor" viewBox="0 0 24 24">
+                          <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
+                        </svg>
+                        <span className="text-gray-400 text-sm">Hr@aifagenlabs.com</span>
+                      </div>
+                      <div className="flex items-center gap-3">
+                        <svg className="w-4 h-4 text-gray-500" fill="currentColor" viewBox="0 0 24 24">
+                          <path d="M17 10.5V7c0 .55-.45 1-1 1H4c-.55 0-1-.45-1-1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z" />
+                        </svg>
+                        <span className="text-gray-400 text-sm">+1 7322539043</span>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
-
-            {/* London Office Details */}
-            <div className="bg-gray-900/50 border border-gray-800 rounded-2xl p-6">
-              <div className="flex items-start gap-4">
-                <div className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
-                  <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z" />
-                  </svg>
-                </div>
-                <div>
-                  <h3 className="text-xl font-bold text-white mb-1">London</h3>
-                  <p className="text-gray-400 text-sm mb-4">UK • Europe</p>
-                  <div className="space-y-2">
-                    <div className="flex items-center gap-3">
-                      <svg className="w-4 h-4 text-gray-500" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
-                      </svg>
-                      <span className="text-gray-400 text-sm">london@aifagenlabs.com</span>
-                    </div>
-                    <div className="flex items-center gap-3">
-                      <svg className="w-4 h-4 text-gray-500" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M17 10.5V7c0 .55-.45 1-1 1H4c-.55 0-1-.45-1-1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z" />
-                      </svg>
-                      <span className="text-gray-400 text-sm">+44 20 1234 5678</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Singapore Office Details */}
-            <div className="bg-gray-900/50 border border-gray-800 rounded-2xl p-6">
-              <div className="flex items-start gap-4">
-                <div className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
-                  <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z" />
-                  </svg>
-                </div>
-                <div>
-                  <h3 className="text-xl font-bold text-white mb-1">Singapore</h3>
-                  <p className="text-gray-400 text-sm mb-4">Singapore • Asia Pacific</p>
-                  <div className="space-y-2">
-                    <div className="flex items-center gap-3">
-                      <svg className="w-4 h-4 text-gray-500" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
-                      </svg>
-                      <span className="text-gray-400 text-sm">singapore@aifagenlabs.com</span>
-                    </div>
-                    <div className="flex items-center gap-3">
-                      <svg className="w-4 h-4 text-gray-500" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M17 10.5V7c0 .55-.45 1-1 1H4c-.55 0-1-.45-1-1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z" />
-                      </svg>
-                      <span className="text-gray-400 text-sm">+65 1234 5678</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
             </div>
           </div>
 
           {/* Right Side - Contact Form */}
           <div
             ref={rightRef}
-            className={`bg-gray-900/50 border border-gray-800 rounded-2xl pt-8 px-8 pb-0 transition-all duration-1000 ${visible.right ? 'fade-in-up-contact' : 'opacity-0 translate-y-8'}`}
+            className={`bg-neutral-900 border border-gray-800 rounded-2xl pt-8 px-8 pb-0 transition-all duration-1000 transition-shadow duration-300 hover:shadow-2xl hover:shadow-blue-500/30 ${visible.right ? 'fade-in-up-contact' : 'opacity-0 translate-y-8'}`}
           >
-            <h2 className="text-3xl font-bold text-white mb-8">Send us a message</h2>
+            <h2 className="text-3xl font-semibold text-white mb-8">Send us a message</h2>
 
             <form className="space-y-6">
               {/* Name Field */}
@@ -280,7 +224,7 @@ const ContactPage = () => {
                   value={formData.name}
                   onChange={handleInputChange}
                   placeholder="John Doe"
-                  className="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-blue-500 focus:bg-gray-700 transition-all duration-300 input-smooth"
+                  className="w-full bg-neutral-800 border-0 border-neutral-700 rounded-lg px-4 py-3 text-white placeholder-neutral-500 focus:outline-none focus:border-blue-100  transition-all duration-300 input-smooth"
                 />
               </div>
 
@@ -295,7 +239,7 @@ const ContactPage = () => {
                   value={formData.email}
                   onChange={handleInputChange}
                   placeholder="john@example.com"
-                  className="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-blue-500 focus:bg-gray-700 transition-all duration-300 input-smooth"
+                  className="w-full bg-neutral-800 border-0 border-neutral-700 rounded-lg px-4 py-3 text-white placeholder-neutral-500 focus:outline-none focus:border-blue-100  transition-all duration-300 input-smooth"
                 />
               </div>
 
@@ -310,7 +254,7 @@ const ContactPage = () => {
                   value={formData.subject}
                   onChange={handleInputChange}
                   placeholder="How can we help?"
-                  className="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-blue-500 focus:bg-gray-700 transition-all duration-300 input-smooth"
+                  className="w-full bg-neutral-800 border-0 border-neutral-700 rounded-lg px-4 py-3 text-white placeholder-neutral-500 focus:outline-none focus:border-blue-100 transition-all duration-300 input-smooth"
                 />
               </div>
 
@@ -325,7 +269,7 @@ const ContactPage = () => {
                   onChange={handleInputChange}
                   placeholder="Tell us about your inquiry..."
                   rows="5"
-                  className="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-blue-500 focus:bg-gray-700 transition-all duration-300 resize-none input-smooth"
+                  className="w-full bg-neutral-800 border-0 border-neutral-700 rounded-lg px-4 py-3 text-white placeholder-neutral-500 focus:outline-none focus:border-blue-100 transition-all duration-300 resize-none input-smooth"
                 ></textarea>
               </div>
 

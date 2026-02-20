@@ -94,7 +94,7 @@ const ProductsPage = ({ setCurrentPage }) => {
 
   let sectionIdx = 0;
   return (
-    <div className="bg-black text-white min-h-screen">
+    <div className="bg-black text-white min-h-screen px-4 sm:px-8 md:px-16 lg:px-32">
       {/* Header Section */}
       <div ref={sectionRefs[sectionIdx]} className={`pt-32 pb-24 px-4 transition-all duration-700 ${reveals[sectionIdx++] ? 'fade-in-up' : 'opacity-0'}`}> 
         <div className="max-w-4xl mx-auto text-center">
@@ -107,7 +107,7 @@ const ProductsPage = ({ setCurrentPage }) => {
           </div>
 
           {/* Main Heading */}
-          <h1 className="text-5xl md:text-7xl font-bold mb-8">
+          <h1 className="text-5xl md:text-7xl font-semibold mb-8">
             Our Flagship Products
           </h1>
 

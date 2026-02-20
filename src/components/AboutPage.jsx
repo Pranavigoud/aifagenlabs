@@ -53,7 +53,7 @@ const AboutPage = ({ setCurrentPage }) => {
       {/* Hero Section */}
       <div
         ref={heroRef}
-        className={`px-4 py-32 max-w-5xl mx-auto text-center transition-all duration-1000 ${visible.hero ? 'fade-in-up-about' : 'opacity-0 translate-y-8'}`}
+        className={`px-4 sm:px-8 md:px-16 lg:px-32 py-32 max-w-5xl mx-auto text-center transition-all duration-1000 ${visible.hero ? 'fade-in-up-about' : 'opacity-0 translate-y-8'}`}
       >
         {/* Badge */}
         <div className="mb-12 inline-flex items-center gap-2 bg-neutral-800 border border-gray-800 rounded-full px-4 py-2">
@@ -61,7 +61,7 @@ const AboutPage = ({ setCurrentPage }) => {
         </div>
 
         {/* Main Heading */}
-        <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold mb-8 text-white leading-tight">
+        <h1 className="text-6xl md:text-7xl lg:text-8xl font-semibold mb-8 text-white leading-tight">
           Building the Future of AI
         </h1>
 
@@ -74,11 +74,10 @@ const AboutPage = ({ setCurrentPage }) => {
       {/* Our Story Section */}
       <div
         ref={storyRef}
-        className={`px-4 py-24 transition-all duration-1000 ${visible.story ? 'fade-in-up-about' : 'opacity-0 translate-y-8'}`}
       >
         <div className="max-w-full mx-auto bg-neutral-800 px-8 sm:px-12 md:px-24 py-8 sm:py-12 md:py-20">
           {/* Section Heading */}
-          <h2 className="text-5xl md:text-6xl font-bold mb-16 text-white text-center">
+          <h2 className="text-5xl md:text-6xl font-semibold mb-16 text-white text-center">
             Our Story
           </h2>
 
@@ -110,7 +109,7 @@ const AboutPage = ({ setCurrentPage }) => {
       {/* Mission and Vision Section */}
       <div
         ref={missionVisionRef}
-        className={`px-4 py-24 transition-all duration-1000 ${visible.missionVision ? 'fade-in-up-about' : 'opacity-0 translate-y-8'}`}
+        className={`px-4 sm:px-8 md:px-16 lg:px-32 py-24 transition-all duration-1000 ${visible.missionVision ? 'fade-in-up-about' : 'opacity-0 translate-y-8'}`}
       >
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -160,7 +159,7 @@ const AboutPage = ({ setCurrentPage }) => {
       {/* Our Values Section */}
       <div
         ref={valuesRef}
-        className={`px-4 py-24 transition-all duration-1000 ${visible.values ? 'fade-in-up-about' : 'opacity-0 translate-y-8'}`}
+        className={`px-4 sm:px-8 md:px-16 lg:px-32 py-24 transition-all duration-1000 ${visible.values ? 'fade-in-up-about' : 'opacity-0 translate-y-8'}`}
       >
         <div className="max-w-6xl mx-auto">
           {/* Section Header */}
@@ -241,7 +240,7 @@ const AboutPage = ({ setCurrentPage }) => {
       {/* Leadership & Team Section */}
       <div
         ref={leadershipRef}
-        className={`px-4 py-24 border-t border-gray-800 transition-all duration-1000 ${visible.leadership ? 'fade-in-up-about' : 'opacity-0 translate-y-8'}`}
+        className={`px-4 sm:px-8 md:px-16 lg:px-32 py-24 border-t border-gray-800 transition-all duration-1000 ${visible.leadership ? 'fade-in-up-about' : 'opacity-0 translate-y-8'}`}
       >
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-5xl md:text-6xl font-bold text-white mb-6">
@@ -256,7 +255,7 @@ const AboutPage = ({ setCurrentPage }) => {
       {/* Global Presence Section */}
       <div
         ref={globalRef}
-        className={`px-4 py-24 border-t border-gray-800 transition-all duration-1000 ${visible.global ? 'fade-in-up-about' : 'opacity-0 translate-y-8'}`}
+        className={`px-4 sm:px-8 md:px-16 lg:px-32 py-24 border-t border-gray-800 transition-all duration-1000 ${visible.global ? 'fade-in-up-about' : 'opacity-0 translate-y-8'}`}
       >
         <div className="max-w-6xl mx-auto">
           {/* Section Header */}
@@ -349,7 +348,7 @@ const AboutPage = ({ setCurrentPage }) => {
       {/* Our Journey to 2026 Section */}
       <div
         ref={journeyRef}
-        className={`px-4 py-24 border-t border-gray-800 transition-all duration-1000 ${visible.journey ? 'fade-in-up-about' : 'opacity-0 translate-y-8'}`}
+        className={`px-4 sm:px-8 md:px-16 lg:px-32 py-24 border-t border-gray-800 transition-all duration-1000 ${visible.journey ? 'fade-in-up-about' : 'opacity-0 translate-y-8'}`}
       >
         <div className="max-w-4xl mx-auto">
           {/* Section Header */}
@@ -445,7 +444,7 @@ const AboutPage = ({ setCurrentPage }) => {
       {/* Join Our Mission CTA Section */}
       <div
         ref={joinRef}
-        className={`px-4 py-24 border-t border-gray-800 transition-all duration-1000 ${visible.join ? 'fade-in-up-about' : 'opacity-0 translate-y-8'}`}
+        className={`px-4 sm:px-8 md:px-16 lg:px-32 py-24 border-t border-gray-800 transition-all duration-1000 ${visible.join ? 'fade-in-up-about' : 'opacity-0 translate-y-8'}`}
       >
         <div className="max-w-4xl mx-auto text-center">
           {/* Heading */}
@@ -461,17 +460,22 @@ const AboutPage = ({ setCurrentPage }) => {
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             {/* Partner With Us Button */}
-            <button 
+            <button
               onClick={() => setCurrentPage('collaborate')}
-              className="px-10 py-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-full transition duration-200 flex items-center justify-center gap-2 mx-auto">
+              className="px-8 py-4 bg-[#1890FF] hover:bg-[#0077e6] text-white font-semibold rounded-[16px] transition duration-200 flex items-center justify-center gap-2 shadow-none border-none focus:outline-none"
+              style={{ minWidth: '220px', fontSize: '20px', fontWeight: 500 }}
+            >
               Partner With Us
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+              <svg className="w-6 h-6 ml-2" fill="none" stroke="white" strokeWidth="2.5" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
               </svg>
             </button>
 
             {/* View Careers Button */}
-            <button className="px-8 py-4 bg-gray-800 hover:bg-gray-700 text-white font-semibold rounded-full border border-gray-700 hover:border-gray-600 transition duration-200">
+            <button
+              className="px-8 py-4 bg-[#232323] hover:bg-[#232323] text-white font-semibold rounded-[16px] border-2 border-[#444] transition duration-200 shadow-none focus:outline-none"
+              style={{ minWidth: '180px', fontSize: '20px', fontWeight: 500 }}
+            >
               View Careers
             </button>
           </div>

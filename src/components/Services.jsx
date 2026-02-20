@@ -191,8 +191,8 @@ const Services = ({ setCurrentPage }) => {
       </div>
 
       {/* Services Accordion */}
-      <div className="py-8 sm:py-10 md:py-12 lg:py-16 px-3 sm:px-4 md:px-6 lg:px-8">
-        <div className="max-w-5xl mx-auto space-y-4 sm:space-y-6">
+      <div className="py-8 sm:py-10 md:py-12 lg:py-16 px-4 sm:px-8 md:px-16 lg:px-32">
+        <div className="max-w-5xl mx-auto space-y-4 sm:space-y-6 px-4 sm:px-8 md:px-12">
           {services.map((service) => (
             <div
               key={service.id}

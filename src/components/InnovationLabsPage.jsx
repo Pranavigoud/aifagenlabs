@@ -27,7 +27,7 @@ const InnovationLabsPage = ({ setCurrentPage }) => {
 
   let sectionIdx = 0;
   return (
-    <div className="bg-black text-white min-h-screen">
+    <div className="bg-black text-white min-h-screen px-4 sm:px-8 md:px-16 lg:px-32">
       {/* Header Section */}
       <div ref={sectionRefs[sectionIdx]} className={`pt-32 pb-32 px-4 transition-all duration-700 ${reveals[sectionIdx++] ? 'fade-in-up' : 'opacity-0'}`}> 
         <div className="max-w-4xl mx-auto text-center">
@@ -40,7 +40,7 @@ const InnovationLabsPage = ({ setCurrentPage }) => {
           </div>
 
           {/* Main Heading */}
-          <h1 className="text-5xl md:text-7xl font-bold mb-8 text-white">
+          <h1 className="text-5xl md:text-7xl font-semibold mb-8 text-white">
             Innovation Labs
           </h1>
 
@@ -377,97 +377,99 @@ const InnovationLabsPage = ({ setCurrentPage }) => {
         </div>
       </div>
 
-      {/* Research Focus Areas */}
-      <div ref={sectionRefs[sectionIdx]} className={`pb-24 px-4 transition-all duration-700 ${reveals[sectionIdx++] ? 'fade-in-up' : 'opacity-0'}`}> 
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {/* Advanced Language Models */}
-            <div className="bg-gray-900 border border-gray-800 rounded-2xl p-8 hover:border-gray-700 transition duration-200">
-              {/* Icon */}
-              <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center mb-6">
-                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4m0 0l-4 4m4-4H3" />
-                </svg>
+      {/* Research Focus Areas - Only show if not on Prototypes, Partners, or Launch tab */}
+      {activeTab !== 'prototypes' && activeTab !== 'partners' && activeTab !== 'launch' && (
+        <div ref={sectionRefs[sectionIdx]} className={`pb-24 px-4 transition-all duration-700 ${reveals[sectionIdx++] ? 'fade-in-up' : 'opacity-0'}`}>
+          <div className="max-w-7xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {/* Advanced Language Models */}
+              <div className="bg-gray-900 border border-gray-800 rounded-2xl p-8 hover:border-gray-700 transition duration-200">
+                {/* Icon */}
+                <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center mb-6">
+                  <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </div>
+
+                {/* Title */}
+                <h3 className="text-2xl font-bold text-white mb-4">
+                  Advanced Language Models
+                </h3>
+
+                {/* Description */}
+                <p className="text-gray-400">
+                  Pushing the boundaries of natural language understanding and generation.
+                </p>
               </div>
 
-              {/* Title */}
-              <h3 className="text-2xl font-bold text-white mb-4">
-                Advanced Language Models
-              </h3>
+              {/* Edge AI Computing */}
+              <div className="bg-gray-900 border border-gray-800 rounded-2xl p-8 hover:border-gray-700 transition duration-200">
+                {/* Icon */}
+                <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center mb-6">
+                  <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M9 3v2H5v2h2v10H5v2h4v2h2v-2h4v2h2v-2h4v-2h-2V7h2V5h-4V3h-2v2h-4V3H9zm0 4h6v10H9V7z" />
+                  </svg>
+                </div>
 
-              {/* Description */}
-              <p className="text-gray-400">
-                Pushing the boundaries of natural language understanding and generation.
-              </p>
-            </div>
+                {/* Title */}
+                <h3 className="text-2xl font-bold text-white mb-4">
+                  Edge AI Computing
+                </h3>
 
-            {/* Edge AI Computing */}
-            <div className="bg-gray-900 border border-gray-800 rounded-2xl p-8 hover:border-gray-700 transition duration-200">
-              {/* Icon */}
-              <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center mb-6">
-                <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M9 3v2H5v2h2v10H5v2h4v2h2v-2h4v2h2v-2h4v-2h-2V7h2V5h-4V3h-2v2h-4V3H9zm0 4h6v10H9V7z" />
-                </svg>
+                {/* Description */}
+                <p className="text-gray-400">
+                  Bringing powerful AI capabilities to resource-constrained devices.
+                </p>
               </div>
 
-              {/* Title */}
-              <h3 className="text-2xl font-bold text-white mb-4">
-                Edge AI Computing
-              </h3>
+              {/* Multi-Agent Systems */}
+              <div className="bg-gray-900 border border-gray-800 rounded-2xl p-8 hover:border-gray-700 transition duration-200">
+                {/* Icon */}
+                <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center mb-6">
+                  <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 12a3 3 0 100-6 3 3 0 000 6z" />
+                    <path d="M8.5 9a2.5 2.5 0 100-5 2.5 2.5 0 000 5z" />
+                    <path d="M15.5 9a2.5 2.5 0 100-5 2.5 2.5 0 000 5z" />
+                    <path d="M12 14c-3 0-5.5 1.5-5.5 3.5v2h11v-2c0-2-2.5-3.5-5.5-3.5z" />
+                    <path d="M3 17v2h6v-2c0-1.5-1-2.5-2.5-2.5S3 15.5 3 17z" />
+                    <path d="M15 17v2h6v-2c0-1.5-1-2.5-2.5-2.5s-2.5 1-2.5 2.5z" />
+                  </svg>
+                </div>
 
-              {/* Description */}
-              <p className="text-gray-400">
-                Bringing powerful AI capabilities to resource-constrained devices.
-              </p>
-            </div>
+                {/* Title */}
+                <h3 className="text-2xl font-bold text-white mb-4">
+                  Multi-Agent Systems
+                </h3>
 
-            {/* Multi-Agent Systems */}
-            <div className="bg-gray-900 border border-gray-800 rounded-2xl p-8 hover:border-gray-700 transition duration-200">
-              {/* Icon */}
-              <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center mb-6">
-                <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M12 12a3 3 0 100-6 3 3 0 000 6z" />
-                  <path d="M8.5 9a2.5 2.5 0 100-5 2.5 2.5 0 000 5z" />
-                  <path d="M15.5 9a2.5 2.5 0 100-5 2.5 2.5 0 000 5z" />
-                  <path d="M12 14c-3 0-5.5 1.5-5.5 3.5v2h11v-2c0-2-2.5-3.5-5.5-3.5z" />
-                  <path d="M3 17v2h6v-2c0-1.5-1-2.5-2.5-2.5S3 15.5 3 17z" />
-                  <path d="M15 17v2h6v-2c0-1.5-1-2.5-2.5-2.5s-2.5 1-2.5 2.5z" />
-                </svg>
+                {/* Description */}
+                <p className="text-gray-400">
+                  Developing frameworks for coordinated AI agent collaboration.
+                </p>
               </div>
 
-              {/* Title */}
-              <h3 className="text-2xl font-bold text-white mb-4">
-                Multi-Agent Systems
-              </h3>
+              {/* Explainable AI */}
+              <div className="bg-gray-900 border border-gray-800 rounded-2xl p-8 hover:border-gray-700 transition duration-200">
+                {/* Icon */}
+                <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center mb-6">
+                  <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
+                  </svg>
+                </div>
 
-              {/* Description */}
-              <p className="text-gray-400">
-                Developing frameworks for coordinated AI agent collaboration.
-              </p>
-            </div>
+                {/* Title */}
+                <h3 className="text-2xl font-bold text-white mb-4">
+                  Explainable AI
+                </h3>
 
-            {/* Explainable AI */}
-            <div className="bg-gray-900 border border-gray-800 rounded-2xl p-8 hover:border-gray-700 transition duration-200">
-              {/* Icon */}
-              <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center mb-6">
-                <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
-                </svg>
+                {/* Description */}
+                <p className="text-gray-400">
+                  Making AI decisions transparent and interpretable for humans.
+                </p>
               </div>
-
-              {/* Title */}
-              <h3 className="text-2xl font-bold text-white mb-4">
-                Explainable AI
-              </h3>
-
-              {/* Description */}
-              <p className="text-gray-400">
-                Making AI decisions transparent and interpretable for humans.
-              </p>
             </div>
           </div>
         </div>
-      </div>
+      )}
 
       {/* Join Innovation Journey CTA */}
       <div ref={sectionRefs[sectionIdx]} className={`py-24 px-4 transition-all duration-700 ${reveals[sectionIdx++] ? 'fade-in-up' : 'opacity-0'}`}> 
