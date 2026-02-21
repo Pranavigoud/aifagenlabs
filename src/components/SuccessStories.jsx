@@ -146,26 +146,22 @@ const SuccessStories = ({ setCurrentPage }) => {
     return (
       <div className={animationClass} key={storyIdx}>
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-2 md:gap-3 items-center min-h-96">
-          {/* Left Side - Image/Dashboard */}
+          {/* Left Side - Image Only */}
           <div className="flex items-center justify-center order-2 lg:order-1 lg:col-span-3">
             {storyIdx === 0 ? (
-              <div className="w-full max-w-xl bg-gradient-to-br from-green-900 to-gray-900 rounded-3xl p-0 border border-gray-800 relative overflow-hidden h-96 flex items-center justify-center">
-                <img
-                  src={image4}
-                  alt="Finance Dashboard"
-                  className="object-cover w-full h-full rounded-3xl"
-                />
-              </div>
+              <img
+                src={image4}
+                alt="Finance Dashboard"
+                className="object-cover rounded-4xl w-[650px] h-[420px] p-6"
+              />
             ) : storyIdx === 2 ? (
-              <div className="w-full max-w-xl bg-gradient-to-br from-green-900 to-gray-900 rounded-3xl p-0 border border-gray-800 relative overflow-hidden h-96 flex items-center justify-center">
-                <img
-                  src={image2}
-                  alt="Retail Dashboard"
-                  className="object-cover w-full h-full rounded-3xl"
-                />
-              </div>
+              <img
+                src={image2}
+                alt="Retail Dashboard"
+                className="object-cover rounded-4xl w-[650px] h-[420px] p-6"
+              />
             ) : (
-              <div className="w-full max-w-xl bg-gradient-to-br from-green-900 to-gray-900 rounded-3xl p-8 border border-gray-800 relative overflow-hidden h-96 flex items-center justify-center">
+              <div className="w-[650px] h-[420px] flex items-center justify-center p-6">
                 {/* Placeholder dashboard visualization */}
                 <div className="w-full h-full flex flex-col items-center justify-center space-y-4">
                   <div className="text-center">
