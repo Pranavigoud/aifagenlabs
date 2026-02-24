@@ -3,11 +3,42 @@ import logo from '../assets/logo.png';
 
 const Footer = ({ setCurrentPage }) => {
   const [email, setEmail] = useState('');
+  const [isSubscribed, setIsSubscribed] = useState(false);
 
   const handleSubscribe = (e) => {
     e.preventDefault();
-    // Handle subscription logic here
-    console.log('Subscribed with email:', email);
+    
+    // Send subscription email to pmo@aifagenlabs.com
+    const subscriptionData = {
+      subscriberEmail: email,
+      timestamp: new Date().toISOString(),
+      type: 'newsletter-subscription',
+    };
+
+    // Log for now - replace with actual API call
+    console.log('Subscribe request:', subscriptionData);
+
+    // If you have a backend endpoint, uncomment the following:
+    // fetch('/api/subscribe', {
+    //   method: 'POST',
+    //   headers: {
+    //     'Content-Type': 'application/json',
+    //   },
+    //   body: JSON.stringify(subscriptionData),
+    // })
+    // .then(response => response.json())
+    // .then(data => {
+    //   console.log('Subscription successful:', data);
+    //   setIsSubscribed(true);
+    //   setEmail('');
+    // })
+    // .catch(error => {
+    //   console.error('Error:', error);
+    //   alert('There was an error processing your subscription. Please try again.');
+    // });
+
+    // For now, just show the success message
+    setIsSubscribed(true);
     setEmail('');
   };
 
@@ -24,25 +55,34 @@ const Footer = ({ setCurrentPage }) => {
               <span className="text-sm md:text-base">Get the latest on AI innovations delivered to your inbox.</span>
             </p>
           </div>
-          <form onSubmit={handleSubscribe} className="flex flex-col sm:flex-row gap-2 sm:gap-3 w-full md:w-auto">
-            <input
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              placeholder="Enter your email"
-              className="px-3 md:px-4 py-2 bg-neutral-900 border border-neutral-700 rounded-lg text-xs md:text-sm text-white placeholder-neutral-500 focus:outline-none focus:border-blue-600 focus:bg-neutral-800 transition-all duration-300 flex-1 md:flex-none min-w-40 input-smooth"
-              required
-            />
-            <button
-              type="submit"
-              className="px-4 md:px-6 py-2 bg-blue-600 hover:bg-blue-700 text-xs md:text-sm font-semibold rounded-lg transition-all duration-300 flex items-center justify-center gap-2 whitespace-nowrap btn-smooth"
-            >
-              Subscribe
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+          {!isSubscribed ? (
+            <form onSubmit={handleSubscribe} className="flex flex-col sm:flex-row gap-2 sm:gap-3 w-full md:w-auto">
+              <input
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="Enter your email"
+                className="px-3 md:px-4 py-2 bg-neutral-900 border border-neutral-700 rounded-lg text-xs md:text-sm text-white placeholder-neutral-500 focus:outline-none focus:border-blue-600 focus:bg-neutral-800 transition-all duration-300 flex-1 md:flex-none min-w-40 input-smooth"
+                required
+              />
+              <button
+                type="submit"
+                className="px-4 md:px-6 py-2 bg-blue-600 hover:bg-blue-700 text-xs md:text-sm font-semibold rounded-lg transition-all duration-300 flex items-center justify-center gap-2 whitespace-nowrap btn-smooth"
+              >
+                Subscribe
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                </svg>
+              </button>
+            </form>
+          ) : (
+            <button className="px-4 md:px-6 py-2 bg-blue-600 text-xs md:text-sm font-semibold rounded-lg transition-all duration-300 flex items-center justify-center gap-2 whitespace-nowrap cursor-default">
+              Thanks for subscribing!
+              <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
               </svg>
             </button>
-          </form>
+          )}
         </div>
       </div>
 

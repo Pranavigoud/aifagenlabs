@@ -64,7 +64,45 @@ const CollaboratePage = () => {
   // Handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
+    
+    // Send form data to the backend
+    const submitData = {
+      ...formData,
+      submittedTo: 'pmo@aifagenlabs.com',
+      userType: selectedCard,
+      timestamp: new Date().toISOString(),
+    };
+
+    // Log for now - replace with actual API call
+    console.log('Form submitted:', submitData);
+    
+    // If you have a backend endpoint, uncomment the following:
+    // fetch('/api/submit-form', {
+    //   method: 'POST',
+    //   headers: {
+    //     'Content-Type': 'application/json',
+    //   },
+    //   body: JSON.stringify(submitData),
+    // })
+    // .then(response => response.json())
+    // .then(data => {
+    //   console.log('Success:', data);
+    //   alert('Your request has been submitted successfully!');
+    //   // Reset form after submission
+    //   setFormData({
+    //     name: '',
+    //     email: '',
+    //     company: '',
+    //     topic: '',
+    //     details: '',
+    //   });
+    //   setSelectedCard(null);
+    // })
+    // .catch(error => {
+    //   console.error('Error:', error);
+    //   alert('There was an error submitting your request. Please try again.');
+    // });
+
     // Reset form after submission
     setFormData({
       name: '',
