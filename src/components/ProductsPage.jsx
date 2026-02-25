@@ -2,7 +2,38 @@ import React, { useState, useRef, useEffect } from 'react';
 import '../fadeInUpProducts.css';
 
 const ProductsPage = ({ setCurrentPage }) => {
-  const [selectedProduct, setSelectedProduct] = useState('aifag');
+  const [selectedProduct, setSelectedProduct] = useState(() => {
+    const stored = localStorage.getItem('selectedProduct');
+    localStorage.removeItem('selectedProduct');
+    return stored || 'aifag';
+  });
+
+  // Listen for product changes from footer links
+  useEffect(() => {
+    const handleStorageChange = () => {
+      const newProduct = localStorage.getItem('selectedProduct');
+      if (newProduct) {
+        setSelectedProduct(newProduct);
+        localStorage.removeItem('selectedProduct');
+      }
+    };
+
+    window.addEventListener('storage', handleStorageChange);
+    
+    // Check immediately in case setItem happened in same tab
+    const checkInterval = setInterval(() => {
+      const newProduct = localStorage.getItem('selectedProduct');
+      if (newProduct) {
+        setSelectedProduct(newProduct);
+        localStorage.removeItem('selectedProduct');
+      }
+    }, 50);
+
+    return () => {
+      window.removeEventListener('storage', handleStorageChange);
+      clearInterval(checkInterval);
+    };
+  }, []);
 
   const products = {
     aifag: {
@@ -147,7 +178,7 @@ const ProductsPage = ({ setCurrentPage }) => {
       </div>
 
       {/* Product Showcase Section */}
-      <div ref={sectionRefs[sectionIdx]} className={`pb-24 px-4 transition-all duration-700 ${reveals[sectionIdx++] ? 'fade-in-up' : 'opacity-0'}`}> 
+      <div id="product-showcase" ref={sectionRefs[sectionIdx]} className={`pb-24 px-4 transition-all duration-700 ${reveals[sectionIdx++] ? 'fade-in-up' : 'opacity-0'}`}> 
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             {/* Left Content */}
@@ -275,7 +306,7 @@ const ProductsPage = ({ setCurrentPage }) => {
 
       {/* LifeOS Features Section - Only when LifeOS is selected */}
       {selectedProduct === 'lifeos' && (
-      <div ref={sectionRefs[sectionIdx]} className={`pb-24 px-4 transition-all duration-700 ${reveals[sectionIdx++] ? 'fade-in-up' : 'opacity-0'}`}> 
+      <div id="lifeos" ref={sectionRefs[sectionIdx]} className={`pb-24 px-4 transition-all duration-700 ${reveals[sectionIdx++] ? 'fade-in-up' : 'opacity-0'}`}> 
         <div className="max-w-7xl mx-auto">
           {/* Section Heading */}
           <h2 className="text-5xl md:text-6xl font-bold text-center mb-16 text-white">

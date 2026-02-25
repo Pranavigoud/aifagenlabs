@@ -14,6 +14,7 @@ import CaseStudiesPage from './components/CaseStudiesPage'
 import AboutPage from './components/AboutPage'
 import ContactPage from './components/ContactPage'
 import CollaboratePage from './components/CollaboratePage'
+import PartnersPage from './components/PartnersPage'
 
 function App() {
   const [currentPage, setCurrentPage] = useState('home')
@@ -45,6 +46,8 @@ function App() {
         <ContactPage />
       ) : currentPage === 'collaborate' ? (
         <CollaboratePage />
+      ) : currentPage === 'partners' ? (
+        <PartnersPage setCurrentPage={setCurrentPage} />
       ) : null}
       
       <Footer setCurrentPage={setCurrentPage} />

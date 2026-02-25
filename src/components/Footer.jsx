@@ -146,8 +146,8 @@ const Footer = ({ setCurrentPage }) => {
               <ul className="space-y-2">
                 <li><a href="#" onClick={(e) => { e.preventDefault(); setCurrentPage('services'); window.scrollTo(0, 0); }} className="text-gray-400 hover:text-white transition text-xs">Services</a></li>
                 <li><a href="#" onClick={(e) => { e.preventDefault(); setCurrentPage('products'); window.scrollTo(0, 0); }} className="text-gray-400 hover:text-white transition text-xs">Products</a></li>
-                <li><a href="#" onClick={(e) => { e.preventDefault(); window.scrollTo(0, 0); }} className="text-gray-400 hover:text-white transition text-xs">AIFAG Suite</a></li>
-                <li><a href="#" onClick={(e) => { e.preventDefault(); window.scrollTo(0, 0); }} className="text-gray-400 hover:text-white transition text-xs">LifeOS</a></li>
+                <li><a href="#" onClick={(e) => { e.preventDefault(); localStorage.setItem('selectedProduct', 'aifag'); setCurrentPage('products'); setTimeout(() => { const element = document.getElementById('product-showcase'); if (element) element.scrollIntoView({ behavior: 'smooth' }); }, 100); }} className="text-gray-400 hover:text-white transition text-xs">AIFAG Suite</a></li>
+                <li><a href="#" onClick={(e) => { e.preventDefault(); localStorage.setItem('selectedProduct', 'lifeos'); setCurrentPage('products'); setTimeout(() => { const element = document.getElementById('product-showcase'); if (element) element.scrollIntoView({ behavior: 'smooth' }); }, 100); }} className="text-gray-400 hover:text-white transition text-xs">LifeOS</a></li>
               </ul>
             </div>
             {/* Connect Links */}
@@ -156,7 +156,7 @@ const Footer = ({ setCurrentPage }) => {
               <ul className="space-y-2">
                 <li><a href="#" onClick={(e) => { e.preventDefault(); setCurrentPage('contact'); window.scrollTo(0, 0); }} className="text-gray-400 hover:text-white transition text-xs">Contact</a></li>
                 <li><a href="#" onClick={(e) => { e.preventDefault(); setCurrentPage('collaborate'); window.scrollTo(0, 0); }} className="text-gray-400 hover:text-white transition text-xs">Collaborate</a></li>
-                <li><a href="#" onClick={(e) => { e.preventDefault(); window.scrollTo(0, 0); }} className="text-gray-400 hover:text-white transition text-xs">Partners</a></li>
+                <li><a href="#" onClick={(e) => { e.preventDefault(); setCurrentPage('partners'); window.scrollTo(0, 0); }} className="text-gray-400 hover:text-white transition text-xs">Partners</a></li>
               </ul>
             </div>
           </div>
