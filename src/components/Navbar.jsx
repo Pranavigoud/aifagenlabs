@@ -37,8 +37,8 @@ const Navbar = ({ currentPage, setCurrentPage }) => {
       <div className="max-w-7xl mx-auto">
         <div className="flex justify-between items-center h-16 md:h-20">
           {/* Logo */}
-          <div className="flex items-center gap-1.5 cursor-pointer flex-shrink-0 transition-transform duration-300 hover:scale-105" onClick={() => handleNavClick('home')}>
-            <div className="w-7 h-7 md:w-8 md:h-8 rounded-lg flex items-center justify-center font-bold text-white text-sm transition-transform duration-300 p-0 overflow-hidden bg-transparent">
+          <div className="flex items-center gap-1 cursor-pointer flex-shrink-0 transition-transform duration-300 hover:scale-105" onClick={() => handleNavClick('home')}>
+            <div className="w-8 h-8 md:w-9 md:h-9 rounded-lg flex items-center justify-center font-bold text-white text-sm transition-transform duration-300 p-0 overflow-hidden bg-transparent">
                 <img src={logo} alt="Logo" className="w-full h-full object-contain" />
               </div>
             <span className="text-base md:text-lg font-semibold whitespace-nowrap text-white transition-colors duration-300">
