@@ -7,6 +7,8 @@ import FlagshipProducts from './components/FlagshipProducts'
 import InnovationLabs from './components/InnovationLabs'
 import SuccessStories from './components/SuccessStories'
 import Footer from './components/Footer'
+import PrivacyPolicy from './components/PrivacyPolicy'
+import TermsAndConditions from './components/TermsAndConditions'
 import Services from './components/Services'
 import ProductsPage from './components/ProductsPage'
 import InnovationLabsPage from './components/InnovationLabsPage'
@@ -48,6 +50,10 @@ function App() {
         <CollaboratePage />
       ) : currentPage === 'partners' ? (
         <PartnersPage setCurrentPage={setCurrentPage} />
+      ) : currentPage === 'privacy-policy' ? (
+        <PrivacyPolicy />
+      ) : currentPage === 'terms-and-conditions' ? (
+        <TermsAndConditions />
       ) : null}
       
       <Footer setCurrentPage={setCurrentPage} />
