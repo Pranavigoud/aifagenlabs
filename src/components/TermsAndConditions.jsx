@@ -4,8 +4,7 @@ import React from 'react';
 const TermsAndConditions = () => (
   <div className="max-w-3xl mx-auto py-12 px-4 md:px-12 lg:px-24 text-gray-200">
     <h2 className="text-2xl font-bold mb-4">AIFAGen Labs Terms &amp; Conditions</h2>
-    <p className="mb-4 font-semibold">Effective Date: <span className="italic">[Insert Date]</span></p>
-
+    
     <h3 className="text-xl font-semibold mt-8 mb-2">1. Overview</h3>
     <p className="mb-4">AIFAGen Labs provides IT staffing, job marketing, resume engineering, and interview support services for job seekers.</p>
     <p className="mb-4">By using our services, you agree to these Terms and Conditions.</p>

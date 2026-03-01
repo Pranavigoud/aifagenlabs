@@ -63,16 +63,6 @@ const Hero = ({ setCurrentPage, setIsChatOpen }) => {
               Book Demo
             </button>
           </div>
-
-          {/* Chat with AIFA Button */}
-          <button 
-            onClick={() => setIsChatOpen(true)}
-            className="px-6 md:px-8 py-3 md:py-4 bg-white hover:bg-gray-100 active:bg-gray-200 text-black text-sm md:text-base font-semibold rounded-2xl transition-all duration-300 flex items-center justify-center gap-2 whitespace-nowrap btn-smooth">
-            <svg className="w-4 md:w-5 h-4 md:h-5" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z" />
-            </svg>
-            Chat with AIFA
-          </button>
         </div>
       </div>
     </div>

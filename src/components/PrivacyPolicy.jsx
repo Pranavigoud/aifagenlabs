@@ -4,7 +4,6 @@ import React from 'react';
 const PrivacyPolicy = () => (
   <div className="max-w-3xl mx-auto py-12 px-4 md:px-12 lg:px-24 text-gray-200">
     <h2 className="text-xl font-bold mb-4">AIFAGen Labs Privacy Policy</h2>
-    <p className="mb-4 font-semibold">Effective Date: <span className="italic">[Insert Date]</span></p>
 
     <h3 className="text-xl font-semibold mt-8 mb-2">1. Introduction </h3>
     <p className="mb-4">AIFAGen Labs (“Company,” “we,” “our,” or “us”) is committed to protecting your privacy. This Privacy Policy explains how we collect, use, and safeguard your information when you use our website and services, including SMS communications.</p>
