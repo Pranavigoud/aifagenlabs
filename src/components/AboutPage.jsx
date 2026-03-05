@@ -57,7 +57,7 @@ const AboutPage = ({ setCurrentPage }) => {
       >
         {/* Badge */}
         <div className="mb-12 inline-flex items-center gap-2 bg-neutral-800 border border-gray-800 rounded-full px-4 py-2">
-          <span className="text-sm font-semibold text-blue-400">Est. 2026</span>
+          <span className="text-sm font-semibold text-blue-400">Est. 2027</span>
         </div>
 
         {/* Main Heading */}
@@ -67,7 +67,7 @@ const AboutPage = ({ setCurrentPage }) => {
 
         {/* Subheading */}
         <p className="text-lg md:text-xl lg:text-2xl text-gray-400 max-w-4xl mx-auto leading-relaxed">
-          We're on a mission to make AI accessible, meaningful, and scalable — from startups to global enterprises. Join us as we build toward our 2026 vision.
+          We're on a mission to make AI accessible, meaningful, and scalable — from startups to global enterprises. Join us as we build toward our 2027 vision.
         </p>
       </div>
 
@@ -85,7 +85,7 @@ const AboutPage = ({ setCurrentPage }) => {
           <div className="space-y-8 text-lg text-gray-400 leading-relaxed">
             {/* Paragraph 1 */}
             <p>
-              AIFAGen Labs was founded in 2026 with a simple yet powerful belief: AI should be for everyone — not just large tech companies.
+              AIFAGen Labs was founded in 2020 with a simple yet powerful belief: AI should be for everyone — not just large tech companies.
             </p>
 
             {/* Paragraph 2 */}
@@ -268,84 +268,48 @@ const AboutPage = ({ setCurrentPage }) => {
             </p>
           </div>
 
-          {/* Locations Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {/* Bangalore */}
-            <div className="bg-gray-900/50 border border-gray-800 rounded-2xl p-6 hover:border-gray-700 transition duration-200">
-              <div className="flex items-start gap-3 mb-4">
-                <div className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center flex-shrink-0">
-                  <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+          {/* Locations Grid - Only 2 locations, responsive */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+            {/* Hyderabad */}
+            <div className="bg-gray-900/50 border border-gray-800 rounded-2xl p-3 sm:p-4 hover:border-gray-700 transition duration-200 flex flex-col h-full">
+              <div className="flex items-start gap-2 mb-2">
+                <div className="w-8 h-8 bg-blue-600 rounded-md flex items-center justify-center flex-shrink-0">
+                  <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm0-13c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5z" />
                   </svg>
                 </div>
                 <div className="text-left">
-                  <h3 className="text-lg font-bold text-white">Bangalore</h3>
-                  <p className="text-sm text-gray-400">India</p>
+                  <h3 className="text-base font-bold text-white">Hyderabad</h3>
+                  <p className="text-xs text-gray-400">India</p>
                 </div>
               </div>
-              <p className="text-blue-400 text-sm font-semibold">
-                Headquarters & Innovation Labs
+              <p className="text-blue-400 text-xs font-semibold mt-auto">
+                Headquarters
               </p>
             </div>
 
-            {/* San Francisco */}
-            <div className="bg-gray-900/50 border border-gray-800 rounded-2xl p-6 hover:border-gray-700 transition duration-200">
-              <div className="flex items-start gap-3 mb-4">
-                <div className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center flex-shrink-0">
-                  <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+            {/* New Jersey */}
+            <div className="bg-gray-900/50 border border-gray-800 rounded-2xl p-3 sm:p-4 hover:border-gray-700 transition duration-200 flex flex-col h-full">
+              <div className="flex items-start gap-2 mb-2">
+                <div className="w-8 h-8 bg-blue-600 rounded-md flex items-center justify-center flex-shrink-0">
+                  <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm0-13c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5z" />
                   </svg>
                 </div>
                 <div className="text-left">
-                  <h3 className="text-lg font-bold text-white">San Francisco</h3>
-                  <p className="text-sm text-gray-400">USA</p>
+                  <h3 className="text-base font-bold text-white">New Jersey</h3>
+                  <p className="text-xs text-gray-400">USA</p>
                 </div>
               </div>
-              <p className="text-blue-400 text-sm font-semibold">
-                North America Operations
-              </p>
-            </div>
-
-            {/* London */}
-            <div className="bg-gray-900/50 border border-gray-800 rounded-2xl p-6 hover:border-gray-700 transition duration-200">
-              <div className="flex items-start gap-3 mb-4">
-                <div className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center flex-shrink-0">
-                  <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm0-13c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5z" />
-                  </svg>
-                </div>
-                <div className="text-left">
-                  <h3 className="text-lg font-bold text-white">London</h3>
-                  <p className="text-sm text-gray-400">UK</p>
-                </div>
-              </div>
-              <p className="text-blue-400 text-sm font-semibold">
-                European Hub
-              </p>
-            </div>
-
-            {/* Singapore */}
-            <div className="bg-gray-900/50 border border-gray-800 rounded-2xl p-6 hover:border-gray-700 transition duration-200">
-              <div className="flex items-start gap-3 mb-4">
-                <div className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center flex-shrink-0">
-                  <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm0-13c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5z" />
-                  </svg>
-                </div>
-                <div className="text-left">
-                  <h3 className="text-lg font-bold text-white">Singapore</h3>
-                  <p className="text-sm text-gray-400">Singapore</p>
-                </div>
-              </div>
-              <p className="text-blue-400 text-sm font-semibold">
-                Asia Pacific
+              <p className="text-blue-400 text-xs font-semibold mt-auto">
+                North America
               </p>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Our Journey to 2026 Section */}
+      {/* Our Journey to 2027 Section */}
       <div
         ref={journeyRef}
         className={`px-4 sm:px-8 md:px-16 lg:px-32 py-24 border-t border-gray-800 transition-all duration-1000 ${visible.journey ? 'fade-in-up-about' : 'opacity-0 translate-y-8'}`}
@@ -354,7 +318,7 @@ const AboutPage = ({ setCurrentPage }) => {
           {/* Section Header */}
           <div className="text-center mb-16">
             <h2 className="text-5xl md:text-6xl font-bold text-white mb-4">
-              Our Journey to 2026
+              Our Journey to 2027
             </h2>
             <p className="text-lg text-gray-400">
               Building the future, one milestone at a time.
@@ -371,7 +335,7 @@ const AboutPage = ({ setCurrentPage }) => {
               <div className="absolute -left-6 top-2 w-4 h-4 bg-blue-500 rounded-full border-4 border-black"></div>
               <div className="bg-gray-900/50 border border-gray-800 rounded-xl p-6 hover:border-gray-700 transition duration-200">
                 <div className="absolute -left-20 top-6 bg-blue-600 rounded-lg px-3 py-2">
-                  <span className="text-white font-semibold text-sm">2024</span>
+                  <span className="text-white font-semibold text-sm">2020</span>
                 </div>
                 <h3 className="text-xl font-bold text-white mb-2">Company Founded</h3>
                 <p className="text-gray-400">AIFAGen Labs established with vision for accessible AI.</p>
@@ -395,7 +359,7 @@ const AboutPage = ({ setCurrentPage }) => {
               <div className="absolute -left-6 top-2 w-4 h-4 bg-blue-500 rounded-full border-4 border-black"></div>
               <div className="bg-gray-900/50 border border-gray-800 rounded-xl p-6 hover:border-gray-700 transition duration-200">
                 <div className="absolute -left-20 top-6 bg-blue-600 rounded-lg px-3 py-2">
-                  <span className="text-white font-semibold text-sm">Q2 2025</span>
+                  <span className="text-white font-semibold text-sm">Q2 2026</span>
                 </div>
                 <h3 className="text-xl font-bold text-white mb-2">Partnerships</h3>
                 <p className="text-gray-400">Collaboration portal opens for strategic partners.</p>
@@ -407,7 +371,7 @@ const AboutPage = ({ setCurrentPage }) => {
               <div className="absolute -left-6 top-2 w-4 h-4 bg-blue-500 rounded-full border-4 border-black"></div>
               <div className="bg-gray-900/50 border border-gray-800 rounded-xl p-6 hover:border-gray-700 transition duration-200">
                 <div className="absolute -left-20 top-6 bg-blue-600 rounded-lg px-3 py-2">
-                  <span className="text-white font-semibold text-sm">Q4 2025</span>
+                  <span className="text-white font-semibold text-sm">Q4 2026</span>
                 </div>
                 <h3 className="text-xl font-bold text-white mb-2">Product Preview</h3>
                 <p className="text-gray-400">First demos of AIFAG and LifeOS showcased.</p>
@@ -419,7 +383,7 @@ const AboutPage = ({ setCurrentPage }) => {
               <div className="absolute -left-6 top-2 w-4 h-4 bg-blue-500 rounded-full border-4 border-black"></div>
               <div className="bg-gray-900/50 border border-gray-800 rounded-xl p-6 hover:border-gray-700 transition duration-200">
                 <div className="absolute -left-20 top-6 bg-blue-600 rounded-lg px-3 py-2">
-                  <span className="text-white font-semibold text-sm">Q1 2026</span>
+                  <span className="text-white font-semibold text-sm">Q1 2027</span>
                 </div>
                 <h3 className="text-xl font-bold text-white mb-2">Platform Beta</h3>
                 <p className="text-gray-400">Full interactive platform v2 with AI-driven features.</p>
@@ -431,7 +395,7 @@ const AboutPage = ({ setCurrentPage }) => {
               <div className="absolute -left-6 top-2 w-4 h-4 bg-blue-500 rounded-full border-4 border-black"></div>
               <div className="bg-gray-900/50 border border-gray-800 rounded-xl p-6 hover:border-gray-700 transition duration-200">
                 <div className="absolute -left-20 top-6 bg-blue-600 rounded-lg px-3 py-2">
-                  <span className="text-white font-semibold text-sm">Q2 2026</span>
+                  <span className="text-white font-semibold text-sm">Q2 2027</span>
                 </div>
                 <h3 className="text-xl font-bold text-white mb-2">Global Launch</h3>
                 <p className="text-gray-400">AIFAG & LifeOS released to the world.</p>

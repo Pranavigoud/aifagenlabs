@@ -13,7 +13,7 @@ const Hero = ({ setCurrentPage, setIsChatOpen }) => {
               </g>
             </svg>
           </span>
-          <span className="font-medium">Launching AIFAG & LifeOS in 2026</span>
+          <span className="font-medium">Launching AIFAG & LifeOS in 2027</span>
         </div>
 
         {/* Main Heading */}

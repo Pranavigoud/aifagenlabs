@@ -189,7 +189,7 @@ const Footer = ({ setCurrentPage }) => {
               </div>
               {/* Copyright */}
               <div className="text-gray-400 text-xs md:text-right">
-                © 2026 AIFAGen Labs Pvt. Ltd. All rights reserved.
+                © 2027 AIFAGen Labs Pvt. Ltd. All rights reserved.
               </div>
             </div>
             {/* Locations */}

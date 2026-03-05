@@ -134,7 +134,7 @@ const ProductsPage = ({ setCurrentPage }) => {
             <svg className="w-5 h-5 text-blue-400" fill="currentColor" viewBox="0 0 24 24">
               <path d="M13 10V3L4 14h7v7l9-11h-7z" />
             </svg>
-            <span className="text-sm font-semibold text-blue-400">Launching 2026</span>
+            <span className="text-sm font-semibold text-blue-400">Launching 2027</span>
           </div>
 
           {/* Main Heading */}
@@ -820,7 +820,7 @@ const ProductsPage = ({ setCurrentPage }) => {
 
           {/* Footer Text */}
           <p className="text-center text-gray-500 text-sm mt-8">
-            This is a preview of our AI capabilities. Full products launching in 2026.
+            This is a preview of our AI capabilities. Full products launching in 2027.
           </p>
         </div>
       </div>

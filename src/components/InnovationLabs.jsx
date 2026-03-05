@@ -24,7 +24,7 @@ const InnovationLabs = ({ setCurrentPage }) => {
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
         </svg>
       ),
-      title: 'Launch-Ready Products by 2026'
+      title: 'Launch-Ready Products by 2027'
     }
   ];
 

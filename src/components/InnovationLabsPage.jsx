@@ -46,7 +46,7 @@ const InnovationLabsPage = ({ setCurrentPage }) => {
 
           {/* Subheading */}
           <p className="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto mb-12">
-            Where imagination meets intelligence. Explore our cutting-edge research, prototypes, and the roadmap to 2026.
+            Where imagination meets intelligence. Explore our cutting-edge research, prototypes, and the roadmap to 2027.
           </p>
 
           {/* Watch Lab Tour Button */}
@@ -114,7 +114,7 @@ const InnovationLabsPage = ({ setCurrentPage }) => {
               <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M13 10V3L4 14h7v7l9-11h-7z" />
               </svg>
-              Launch 2026
+              Launch 2027
             </button>
           </div>
         </div>
@@ -290,7 +290,7 @@ const InnovationLabsPage = ({ setCurrentPage }) => {
             <div>
               <div className="text-center mb-16">
                 <h2 className="text-5xl md:text-6xl font-bold text-white mb-6">
-                  Roadmap to 2026
+                  Roadmap to 2027
                 </h2>
                 <p className="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed">
                   Our journey to launching AIFAG and LifeOS as the next generation of AI ecosystems.
@@ -307,7 +307,7 @@ const InnovationLabsPage = ({ setCurrentPage }) => {
                   <div className="absolute -left-4 top-2 w-4 h-4 bg-blue-500 rounded-full border-4 border-black"></div>
                   <div className="mr-4"></div>
                   <div className="bg-neutral-900 border border-gray-800 rounded-xl p-6 hover:border-gray-700 transition duration-200 flex-1">
-                    <p className="text-blue-400 text-sm font-semibold mb-2">Q1 2025</p>
+                    <p className="text-blue-400 text-sm font-semibold mb-2">Q1 2026</p>
                     <h3 className="text-2xl font-bold text-white mb-4">MVP Website + Chatbot Alpha</h3>
                     <div className="flex justify-end">
                       <span className="px-3 py-1 bg-blue-900/30 border border-blue-700 text-blue-400 rounded-full text-xs font-semibold">
@@ -322,7 +322,7 @@ const InnovationLabsPage = ({ setCurrentPage }) => {
                   <div className="absolute -left-4 top-2 w-4 h-4 bg-blue-500 rounded-full border-4 border-black"></div>
                   <div className="mr-4"></div>
                   <div className="bg-neutral-900 border border-gray-800 rounded-xl p-6 hover:border-gray-700 transition duration-200 flex-1">
-                    <p className="text-blue-400 text-sm font-semibold mb-2">Q2 2025</p>
+                    <p className="text-blue-400 text-sm font-semibold mb-2">Q2 2026</p>
                     <h3 className="text-2xl font-bold text-white mb-4">Collaboration Portal Beta</h3>
                     <div className="flex justify-end">
                       <span className="px-3 py-1 bg-blue-900/30 border border-blue-700 text-blue-400 rounded-full text-xs font-semibold">
@@ -337,7 +337,7 @@ const InnovationLabsPage = ({ setCurrentPage }) => {
                   <div className="absolute -left-4 top-2 w-4 h-4 bg-gray-600 rounded-full border-4 border-black"></div>
                   <div className="mr-4"></div>
                   <div className="bg-neutral-900 border border-gray-800 rounded-xl p-6 hover:border-gray-700 transition duration-200 flex-1">
-                    <p className="text-gray-500 text-sm font-semibold mb-2">Q4 2025</p>
+                    <p className="text-gray-500 text-sm font-semibold mb-2">Q4 2026</p>
                     <h3 className="text-2xl font-bold text-white mb-4">Product Demo Launch</h3>
                     <div className="flex justify-end">
                       <span className="px-3 py-1 bg-gray-800 border border-gray-700 text-gray-400 rounded-full text-xs font-semibold">
@@ -347,12 +347,12 @@ const InnovationLabsPage = ({ setCurrentPage }) => {
                   </div>
                 </div>
 
-                {/* Timeline Item 4 - Q1 2026 - Upcoming */}
+                {/* Timeline Item 4 - Q1 2027 - Upcoming */}
                 <div className="mb-12 relative flex">
                   <div className="absolute -left-4 top-2 w-4 h-4 bg-gray-600 rounded-full border-4 border-black"></div>
                   <div className="mr-4"></div>
                   <div className="bg-neutral-900 border border-gray-800 rounded-xl p-6 hover:border-gray-700 transition duration-200 flex-1">
-                    <p className="text-gray-500 text-sm font-semibold mb-2">Q1 2026</p>
+                    <p className="text-gray-500 text-sm font-semibold mb-2">Q1 2027</p>
                     <h3 className="text-2xl font-bold text-white mb-4">Full Interactive Site v2</h3>
                     <div className="flex justify-end">
                       <span className="px-3 py-1 bg-gray-800 border border-gray-700 text-gray-400 rounded-full text-xs font-semibold">
@@ -362,12 +362,12 @@ const InnovationLabsPage = ({ setCurrentPage }) => {
                   </div>
                 </div>
 
-                {/* Timeline Item 5 - Q2 2026 - Upcoming */}
+                {/* Timeline Item 5 - Q2 2027 - Upcoming */}
                 <div className="relative flex">
                   <div className="absolute -left-4 top-2 w-4 h-4 bg-gray-600 rounded-full border-4 border-black"></div>
                   <div className="mr-4"></div>
                   <div className="bg-neutral-900 border border-gray-800 rounded-xl p-6 hover:border-gray-700 transition duration-200 flex-1">
-                    <p className="text-gray-500 text-sm font-semibold mb-2">Q2 2026</p>
+                    <p className="text-gray-500 text-sm font-semibold mb-2">Q2 2027</p>
                     <h3 className="text-2xl font-bold text-white mb-4">Global Campaign & Public Release</h3>
                     <div className="flex justify-end">
                       <span className="px-3 py-1 bg-gray-800 border border-gray-700 text-gray-400 rounded-full text-xs font-semibold">
